@@ -1,6 +1,6 @@
 package org.factoriaf5.comicbooks.comics;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+// import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -35,7 +35,7 @@ public class Comic {
     private String synopsis;
     private int stock;
 
-    @JsonIgnore
+    // @JsonIgnore
     @ManyToMany(mappedBy = "comics")
     List<Genre> genres;
 
@@ -45,4 +45,6 @@ public class Comic {
     public void addGenre(Genre genre){
         genres.add(genre);
     }
+
+    
 }

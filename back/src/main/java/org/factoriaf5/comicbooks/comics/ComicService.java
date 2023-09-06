@@ -28,7 +28,7 @@ public class ComicService {
     
     public Comic create(Comic comic, Genre[] genres){
         for(Genre genre : genres){
-          comic.genres.add(genre);  
+          comic.addGenre(genre);  
         }
         return comicRepository.save(comic);
     }

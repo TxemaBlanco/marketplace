@@ -29,7 +29,7 @@ public class Genre {
     }
 
     @ManyToMany(fetch= FetchType.EAGER, cascade = {CascadeType.ALL})
-   /*  @JoinTable(name="comics", joinColumns={@JoinColumn(name="genre_id")}, inverseJoinColumns={@JoinColumn(name="comic_isbn")}) */
+    @JoinTable(name="comics_genres", joinColumns={@JoinColumn(name="genre_id")}, inverseJoinColumns={@JoinColumn(name="comic_isbn")})
     Set<Comic> comics;
 }
 
