@@ -1,0 +1,19 @@
+.custom-footer {
+    background-color: rgba(29, 41, 81, 1);
+    color: white;
+  
+    p {
+      margin: 0;
+    }
+  
+    a {
+      color: white;
+      font-size: 1.5rem;
+      margin-right: 1rem;
+  
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+  
