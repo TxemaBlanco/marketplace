@@ -26,7 +26,7 @@ public class Customer {
     private String street;
 
     @Column(name = "number")
-    private Number number;
+    private int number;
 
     @Column(name = "gate")
     private String gate;
@@ -41,7 +41,7 @@ public class Customer {
     private String letter;
 
     @Column(name = "postalcode")
-    private Number postalcode;
+    private int postalcode;
 
     @Column(name = "town")
     private String town;
@@ -100,11 +100,11 @@ public class Customer {
         this.street = street;
     }
 
-    public Number getNumber() {
+    public int getNumber() {
         return number;
     }
 
-    public void setNumber(Number number) {
+    public void setNumber(int number) {
         this.number = number;
     }
 
@@ -140,11 +140,11 @@ public class Customer {
         this.letter = letter;
     }
 
-    public Number getPostalcode() {
+    public int getPostalcode() {
         return postalcode;
     }
 
-    public void setPostalcode(Number postalcode) {
+    public void setPostalcode(int postalcode) {
         this.postalcode = postalcode;
     }
 

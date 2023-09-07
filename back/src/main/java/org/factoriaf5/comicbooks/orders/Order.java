@@ -22,7 +22,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private java.sql.Date date;
+    private java.util.Date date;
 
     @ManyToOne
     @JoinColumn(name="customer_email",nullable=false)
