@@ -1,15 +1,22 @@
 package org.factoriaf5.comicbooks.customers;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import org.factoriaf5.comicbooks.genres.Genre;
 import org.factoriaf5.comicbooks.orders.Order;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "customers")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Customer {
 
     @Id
@@ -58,12 +65,17 @@ public class Customer {
     @Column(name = "password")
     private String password;
 
+    // @OneToMany
+    // public Set<Order> orders = new HashSet<>();
+
     // @ManyToMany
-    // @JoinTable(name="customers_orders", joinColumns={@JoinColumn(name="customer_email",referencedColumnName = "email")}, inverseJoinColumns={@JoinColumn(name="order_id",referencedColumnName = "id")})
+    // @JoinTable(name="customer_order", joinColumns={@JoinColumn(name="customer_email",referencedColumnName = "email")}, inverseJoinColumns={@JoinColumn(name="order_id",referencedColumnName = "id")})
     // private Set<Order> orders;
 
-    @ManyToMany(mappedBy = "customers")
-    public Set<Order> orders;
+    //usado
+    // @ManyToMany(mappedBy = "customers", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    // // @JsonIgnore
+    // public Set<Order> orders = new HashSet<>();
 
     public String getEmail() {
         return email;
@@ -184,4 +196,13 @@ public class Customer {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    // public Set<Order> getOrders() {
+    //     return orders;
+    // }
+
+    // public void setOrders(Set<Order> orders) {
+    //     this.orders = orders;
+    // }
+    
 }
