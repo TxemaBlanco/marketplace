@@ -15,6 +15,7 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.factoriaf5.comicbooks.customers.Customer;
 import org.factoriaf5.comicbooks.genres.Genre;
 import org.factoriaf5.comicbooks.orders.Order;
 
@@ -38,9 +39,6 @@ public class Comic {
     // @JsonIgnore
     @ManyToMany(mappedBy = "comics")
     List<Genre> genres;
-
-    @OneToMany(mappedBy = "comic", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Order> customers = new ArrayList<>();
 
     public void addGenre(Genre genre){
         genres.add(genre);

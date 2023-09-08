@@ -19,10 +19,20 @@ public class OrderService {
         List<Order> orders = orderRepository.findAll();
         return orders;
     }
+    // public Optional<List<Order>> getAllFromCustomer(String customerEmail){
+    //     return orderRepository.findByCustomersEmail(customerEmail);
+    // }
+    public List<Order> getAllFromCustomer(String customerEmail){
+        return orderRepository.findByCustomersEmail(customerEmail);
+    }
     public Optional<Order> getOrderById(long id){
         return orderRepository.findById(id);
     }
+
+
      public Order create(Order order) {
         return orderRepository.save(order);
     }
+
+
 }

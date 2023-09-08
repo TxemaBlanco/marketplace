@@ -1,5 +1,11 @@
 package org.factoriaf5.comicbooks.customers;
 
+import java.util.List;
+import java.util.Set;
+
+import org.factoriaf5.comicbooks.genres.Genre;
+import org.factoriaf5.comicbooks.orders.Order;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -51,6 +57,13 @@ public class Customer {
 
     @Column(name = "password")
     private String password;
+
+    // @ManyToMany
+    // @JoinTable(name="customers_orders", joinColumns={@JoinColumn(name="customer_email",referencedColumnName = "email")}, inverseJoinColumns={@JoinColumn(name="order_id",referencedColumnName = "id")})
+    // private Set<Order> orders;
+
+    @ManyToMany(mappedBy = "customers")
+    public Set<Order> orders;
 
     public String getEmail() {
         return email;
