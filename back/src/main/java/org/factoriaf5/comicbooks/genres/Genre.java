@@ -9,12 +9,19 @@ import org.factoriaf5.comicbooks.comics.Comic;
 @Entity
 @Table(name = "genres")
 public class Genre {
+    
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
     @Column(name = "id")
     private  Long id;
     @Column(name = "name")
     private String name;
+
+    public Genre(long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public Long getId() {
         return id;
     }

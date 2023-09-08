@@ -37,8 +37,8 @@ public class CustomerController {
     }
 
     @DeleteMapping(path = { "/{email}" })
-    public ResponseEntity<Customer> delete(@PathVariable("email") String email, @RequestBody Customer customer1) {
-        Customer serviceDeleted = service.delete(email, customer1);
+    public ResponseEntity<Customer> delete(@PathVariable("email") String email) {
+        Customer serviceDeleted = service.delete(email);
         return ResponseEntity.status(HttpStatus.OK).body(serviceDeleted);
     }
 

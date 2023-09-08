@@ -45,9 +45,8 @@ public class CustomerService {
         return repository.save(currentCustomer);
     }
 
-    public Customer delete(String email, Customer customer) {
+    public Customer delete(String email) {
         Customer customer1 = repository.findByEmail(email).orElseThrow();
-        customer1.setEmail(customer.getEmail());
         repository.delete(customer1);
         return customer1;
     }
