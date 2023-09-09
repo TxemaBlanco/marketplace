@@ -7,7 +7,7 @@ INSERT INTO genres (name) VALUES ("Humor");
 INSERT INTO genres (name) VALUES ("Superhéroes");
 
 /* comics */
-INSERT INTO comics (isbn, title, author, price, ishardcover, synopsis, photo, stock) VALUES ("IJJJ","La tormenta","Luis Torrebruno",17.9,true,"jdiojdf joifjd","fkod",20);
+INSERT INTO comics (isbn, title, author, price, ishardcover, synopsis, photo, stock) VALUES ("1000000000000","La tormenta","Luis Torrebruno",17.9,true,"defatult_comic.jpg","fkod",20);
 INSERT INTO comics (isbn, title, author, price, ishardcover, synopsis, photo, stock) VALUES ("0000000000000","La tormenta","Luis Torrebruno",17.9,true,"María Teresa Montilla (Natalia Streignard) es una mujer acostumbrada a vivir en la ciudad, pero ella tiene que mudarse a vivir a la hacienda «La Tormenta», propiedad de su familia en los llanos orientales, para tratar de salvar a su familia de la ruina financiera.","default_comic.jpg",20);
 INSERT INTO comics (isbn, title, author, price, ishardcover, synopsis, photo, stock) VALUES ("0000000000001","pokemon","jaimito",17.9,true,"Un impetuoso y joven entrenador llamado Ash Ketchum, y de Pikachu, su compañero Pokémon, mientras viajan por el mundo Pokémon visitando destinos exóticos, conociendo a montones de personas y Pokémon nuevos e interesantes, y viviendo muchas y emocionantes aventuras.","default_comic.jpg",5);
 INSERT INTO comics (isbn, title, author, price, ishardcover, synopsis, photo, stock) VALUES ("2222222222222","Terminator","Gonzalo Bermeo",17.9,true,"María Teresa Montilla (Natalia Streignard) es una mujer acostumbrada a vivir en la ciudad, pero ella tiene que mudarse a vivir a la hacienda «La Tormenta», propiedad de su familia en los llanos orientales, para tratar de salvar a su familia de la ruina financiera.","default_comic.jpg",4);
@@ -21,8 +21,8 @@ INSERT INTO comics (isbn, title, author, price, ishardcover, synopsis, photo, st
 INSERT INTO comics (isbn, title, author, price, ishardcover, synopsis, photo, stock) VALUES ("0000005600000","pipo","Lalo",17.9,true,"María Teresa Montilla (Natalia Streignard) es una mujer acostumbrada a vivir en la ciudad, pero ella tiene que mudarse a vivir a la hacienda «La Tormenta», propiedad de su familia en los llanos orientales, para tratar de salvar a su familia de la ruina financiera.","default_comic.jpg",20);
 INSERT INTO comics (isbn, title, author, price, ishardcover, synopsis, photo, stock) VALUES ("0000004300000","lilo y stich","Luisa",17.9,true,"María Teresa Montilla (Natalia Streignard) es una mujer acostumbrada a vivir en la ciudad, pero ella tiene que mudarse a vivir a la hacienda «La Tormenta», propiedad de su familia en los llanos orientales, para tratar de salvar a su familia de la ruina financiera.","default_comic.jpg",20);
 
-INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("IJJJ", 1);
-INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("IJJJ", 6);
+INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("1000000000000", 1);
+INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("1000000000000", 6);
 INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("0000000000001", 2);
 INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("2222222222222", 5);
 INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("3333333333333", 6);
@@ -55,7 +55,21 @@ INSERT INTO customers (email, dni, name, surname, surname2, province, town, post
 INSERT INTO customers (email, dni, name, surname, surname2, province, town, postalcode, street, number, stair,floor, gate, letter, password) VALUES ("jaime@gmail.com","29920371A","jaime","sanchez","sanchez","malaga","malaga",30033,"El Coronel La Piara",14,"dcha","3","3","A","$2a$12$BwyEzyYm8ssMjYY9HLvrq.LwIxYbfApeAM41kyP7o6ZyYq8B542wO");
 INSERT INTO customers (email, dni, name, surname, surname2, province, town, postalcode, street, number, stair,floor, gate, letter, password) VALUES ("Bartolomeo@gmail.com","29920371A","Bartolomeo","Gutierrez","Queleveo","malaga","malaga",30033,"c/La Princesa Cisne",14,"izda","98","5","H","$2a$12$BwyEzyYm8ssMjYY9HLvrq.LwIxYbfApeAM41kyP7o6ZyYq8B542wO");
 /* orders */
-INSERT INTO orders (customer_email,comic_isbn, date) VALUES ("user@user.com",'IJJJ',"2023/08/23");
+INSERT INTO orders (customer_email,comic_isbn, date) VALUES ("user@user.com",'1000000000000',"2023/08/23");
+INSERT INTO orders (customer_email,comic_isbn, date) VALUES ("user@user.com",'0000000000001',"2023/08/12");
+INSERT INTO orders (customer_email,comic_isbn, date) VALUES ("user@user.com",'0000000000001',"2023/08/12");
+INSERT INTO orders (customer_email,comic_isbn, date) VALUES ("user@user.com",'2222222222222',"2023/08/12");
+INSERT INTO orders (customer_email,comic_isbn, date) VALUES ("Bartolomeo@gmail.com",'0000002030000',"2023/08/20");
+INSERT INTO orders (customer_email,comic_isbn, date) VALUES ("Bartolomeo@gmail.com",'6666666666666',"2023/08/20");
+INSERT INTO orders (customer_email,comic_isbn, date) VALUES ("Bartolomeo@gmail.com",'6666666666666',"2023/08/20");
+INSERT INTO orders (customer_email,comic_isbn, date) VALUES ("federico@gmail.com", '0000004300000',"2023/08/21");
+INSERT INTO orders (customer_email,comic_isbn, date) VALUES ("user@user.com",'4444444444444',"2023/08/21");
+INSERT INTO orders (customer_email,comic_isbn, date) VALUES ("lola@gmail.com",'4444444444444',"2023/08/22");
+INSERT INTO orders (customer_email,comic_isbn, date) VALUES ("user@user.com",'0000004300000',"2023/08/22");
+INSERT INTO orders (customer_email,comic_isbn, date) VALUES ("user@user.com",'0000000000001',"2023/08/23");
+INSERT INTO orders (customer_email,comic_isbn, date) VALUES ("user@user.com",'3333333333333',"2023/08/23");
+INSERT INTO orders (customer_email,comic_isbn, date) VALUES ("user@user.com",'3333333333333',"2023/08/24");
+
 -- INSERT INTO orders (comic_isbn, date) VALUES ('0000000000001',"2023/08/12");
 -- INSERT INTO orders (comic_isbn, date) VALUES ('0000000000001',"2023/08/12");
 -- INSERT INTO orders (comic_isbn, date) VALUES ('2222222222222',"2023/08/12");

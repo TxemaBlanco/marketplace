@@ -65,8 +65,8 @@ public class Customer {
     @Column(name = "password")
     private String password;
 
-    // @OneToMany
-    // public Set<Order> orders = new HashSet<>();
+    @OneToMany(fetch = FetchType.LAZY)
+    public Set<Order> orders = new HashSet<>();
 
     // @ManyToMany
     // @JoinTable(name="customer_order", joinColumns={@JoinColumn(name="customer_email",referencedColumnName = "email")}, inverseJoinColumns={@JoinColumn(name="order_id",referencedColumnName = "id")})
@@ -197,12 +197,12 @@ public class Customer {
         this.password = password;
     }
 
-    // public Set<Order> getOrders() {
-    //     return orders;
-    // }
+    public Set<Order> getOrders() {
+        return orders;
+    }
 
-    // public void setOrders(Set<Order> orders) {
-    //     this.orders = orders;
-    // }
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
+    }
     
 }
