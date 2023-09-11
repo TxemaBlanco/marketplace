@@ -39,10 +39,21 @@
     -webkit-text-stroke-color: #000000;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 600px) and (max-width:767px) {
     .navbar-brand {
         color: #ffff;
         font-size: 30px;
+        
+    }
+
+    .navbar-nav{
+        display: block;
+        
+    }
+
+    .nav-item{
+        margin-left: 20rem;
+        font-size: 16px;
     }
 
     .navbar-toggler{
@@ -61,6 +72,7 @@
         color: #ffff;
         font-size: 45px;
         margin-left: 10rem;
+       
     }
 
     .navbar-nav {
@@ -88,7 +100,8 @@
     .navbar-brand {
         color: #ffff;
         font-size: 64px;
-        margin-left: 25rem;        
+        margin-left: 25rem;
+               
     }
 
     .navbar-nav {
