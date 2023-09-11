@@ -10,6 +10,8 @@ import org.factoriaf5.comicbooks.orders.Order;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "customers")
@@ -74,6 +76,26 @@ public class Customer {
     // @ManyToMany(mappedBy = "customers", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     // // @JsonIgnore
     // public Set<Order> orders = new HashSet<>();
+
+    public Customer(String email, String dni, String name, String surname, String surname2, String street, int number,
+            String gate, String stairs, String floor, String letter, int postalcode, String town, String province,
+            String password) {
+        this.email = email;
+        this.dni = dni;
+        this.name = name;
+        this.surname = surname;
+        this.surname2 = surname2;
+        this.street = street;
+        this.number = number;
+        this.gate = gate;
+        this.stairs = stairs;
+        this.floor = floor;
+        this.letter = letter;
+        this.postalcode = postalcode;
+        this.town = town;
+        this.province = province;
+        this.password = password;
+    }
 
     public String getEmail() {
         return email;

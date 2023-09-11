@@ -20,7 +20,7 @@ INSERT INTO comics (isbn, title, author, price, ishardcover, synopsis, photo, st
 INSERT INTO comics (isbn, title, author, price, ishardcover, synopsis, photo, stock) VALUES ("0000002030000","X-Men - The 198 #01","Luis Torrebruno",17.9,true,"María Teresa Montilla (Natalia Streignard) es una mujer acostumbrada a vivir en la ciudad, pero ella tiene que mudarse a vivir a la hacienda «La Tormenta», propiedad de su familia en los llanos orientales, para tratar de salvar a su familia de la ruina financiera.","default_comic.jpg",20);
 INSERT INTO comics (isbn, title, author, price, ishardcover, synopsis, photo, stock) VALUES ("0000005600000","pipo","Lalo",17.9,true,"María Teresa Montilla (Natalia Streignard) es una mujer acostumbrada a vivir en la ciudad, pero ella tiene que mudarse a vivir a la hacienda «La Tormenta», propiedad de su familia en los llanos orientales, para tratar de salvar a su familia de la ruina financiera.","default_comic.jpg",20);
 INSERT INTO comics (isbn, title, author, price, ishardcover, synopsis, photo, stock) VALUES ("0000004300000","lilo y stich","Luisa",17.9,true,"María Teresa Montilla (Natalia Streignard) es una mujer acostumbrada a vivir en la ciudad, pero ella tiene que mudarse a vivir a la hacienda «La Tormenta», propiedad de su familia en los llanos orientales, para tratar de salvar a su familia de la ruina financiera.","default_comic.jpg",20);
-
+/* 
 INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("1000000000000", 1);
 INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("1000000000000", 6);
 INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("0000000000001", 2);
@@ -44,7 +44,7 @@ INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("6666666666666", 1);
 INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("0000002030000", 2);
 INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("0000002030000", 1);
 INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("0001200000000", 2);
-INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("0001200000000", 1);
+INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("0001200000000", 1); */
 
 
 /* customers */
@@ -55,8 +55,6 @@ INSERT INTO customers (email, dni, name, surname, surname2, province, town, post
 INSERT INTO customers (email, dni, name, surname, surname2, province, town, postalcode, street, number, stair,floor, gate, letter, password) VALUES ("jaime@gmail.com","29920371A","jaime","sanchez","sanchez","malaga","malaga",30033,"El Coronel La Piara",14,"dcha","3","3","A","$2a$12$BwyEzyYm8ssMjYY9HLvrq.LwIxYbfApeAM41kyP7o6ZyYq8B542wO");
 INSERT INTO customers (email, dni, name, surname, surname2, province, town, postalcode, street, number, stair,floor, gate, letter, password) VALUES ("Bartolomeo@gmail.com","29920371A","Bartolomeo","Gutierrez","Queleveo","malaga","malaga",30033,"c/La Princesa Cisne",14,"izda","98","5","H","$2a$12$BwyEzyYm8ssMjYY9HLvrq.LwIxYbfApeAM41kyP7o6ZyYq8B542wO");
 /* orders */
-INSERT INTO orders (email, isbn, date1) VALUES ("user@user.com", "IJJJ", "2019-01-01")
-
 INSERT INTO orders (customer_email,comic_isbn, date) VALUES ("user@user.com",'1000000000000',"2023/08/23");
 INSERT INTO orders (customer_email,comic_isbn, date) VALUES ("user@user.com",'0000000000001',"2023/08/12");
 INSERT INTO orders (customer_email,comic_isbn, date) VALUES ("user@user.com",'0000000000001',"2023/08/12");

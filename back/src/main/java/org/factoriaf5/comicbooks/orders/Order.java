@@ -5,7 +5,7 @@ import java.util.Set;
 
 import org.factoriaf5.comicbooks.comics.Comic;
 import org.factoriaf5.comicbooks.customers.Customer;
-/* import org.hibernate.mapping.Set; */
+
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -14,7 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -37,8 +36,9 @@ import lombok.Setter;
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
+    @Column
     private java.util.Date date;
 
    /*  @ManyToOne(fetch = FetchType.LAZY)
@@ -55,11 +55,15 @@ public class Order {
     @JoinTable(name="orders", joinColumns={@JoinColumn(name="order_id",referencedColumnName = "id")}, inverseJoinColumns={@JoinColumn(name="customer_email",referencedColumnName = "email")})
     private Set<Customer> customers = new HashSet<>(); */
 
-    @ManyToOne
+   /*  @ManyToOne
     @JoinColumn(name = "isbn")
     @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
-    Comic comic;
+    Comic comic; */
 
+    @ManyToOne
+    @JoinColumn(name="customer_email",nullable=false)
+    private Customer customer;
+    
     @ManyToOne
     @JoinColumn(name="comic_isbn",nullable=false)
     private Comic comic;  
