@@ -23,7 +23,7 @@ public class OrderService {
     //     return orderRepository.findByCustomersEmail(customerEmail);
     // }
     public List<Order> getAllFromCustomer(String customerEmail){
-        return orderRepository.findByCustomersEmail(customerEmail);
+        return orderRepository.findAllByCustomerEmail(customerEmail);
     }
     public Optional<Order> getOrderById(long id){
         return orderRepository.findById(id);
