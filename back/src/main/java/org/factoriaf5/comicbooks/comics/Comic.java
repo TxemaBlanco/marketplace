@@ -33,6 +33,7 @@ public class Comic {
     private Boolean ishardcover;
     private String photo;
     private float price;
+    @Column(length = 700)
     private String synopsis;
     private int stock;
 
