@@ -23,7 +23,7 @@ public class OrderController {
         this.orderService = service;
     }
     
-    @GetMapping(path = "/")
+    @GetMapping
     public List<Order> index(){
         return orderService.getAll();
     }

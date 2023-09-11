@@ -16,8 +16,8 @@ public class ComicService {
         this.comicRepository = repository;
     }
     public List<Comic> getAll(){
-        List<Comic> comics = comicRepository.findAll();
-        return comics;
+        return comicRepository.findAll();
+        
     }
     public Optional<Comic> getComicByIsbn(String isbn){
         return comicRepository.findByIsbn(isbn);
@@ -26,12 +26,12 @@ public class ComicService {
         return comicRepository.save(comic);
     }
     
-    public Comic create(Comic comic, Genre[] genres){
+  /*   public Comic create(Comic comic, Genre[] genres){
         for(Genre genre : genres){
           comic.addGenre(genre);  
         }
         return comicRepository.save(comic);
-    }
+    } */
     public Comic findByIsbn(String isbn){
         return comicRepository.findByIsbn(isbn).get();        
     }

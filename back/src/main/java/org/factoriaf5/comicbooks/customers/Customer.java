@@ -1,13 +1,24 @@
 package org.factoriaf5.comicbooks.customers;
 
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import java.util.HashSet;
+import java.util.List;
+
 import jakarta.persistence.*;
+
+import org.factoriaf5.comicbooks.comics.Comic;
+import org.factoriaf5.comicbooks.orders.Order;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "customers")
 public class Customer {
 
     @Id
-    @Column(name = "email")
+    @Column(name = "email", nullable = false)
     private String email;
 
     @Column(name = "dni")
@@ -170,5 +181,19 @@ public class Customer {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @OneToMany(mappedBy = "customer")
+    Set<Order> order;
+   /*  private Set<Order> orders  = new HashSet<>(); */
+     
+    public Customer(){}
+
+    public Customer(String email, Order[] customerBooks) {
+        this.email = email;
+        for(Order customerBook : customerBooks){
+        customerBook  = (Order) Stream.of(customerBook).collect(Collectors.toSet());
+     }
+    
     }
 }
