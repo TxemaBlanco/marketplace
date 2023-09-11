@@ -6,6 +6,9 @@ import { HomeuserviewComponent } from './views/homeuserview/homeuserview.compone
 import { HomeadminviewComponent } from './views/homeadminview/homeadminview.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { HeaderclientComponent } from './shared/headerclient/headerclient.component';
+import { HeaderadminComponent } from './shared/headeradmin/headeradmin.component';
+
 
 
 @NgModule({
@@ -16,6 +19,8 @@ import { FooterComponent } from './components/footer/footer.component';
     BannerComponent,
     FooterComponent
    
+
+
   ],
   imports: [
     BrowserModule,
