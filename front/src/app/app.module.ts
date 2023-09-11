@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { HomeuserviewComponent } from './views/homeuserview/homeuserview.component';
 import { HomeadminviewComponent } from './views/homeadminview/homeadminview.component';
 import { BannerComponent } from './components/banner/banner.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { BannerComponent } from './components/banner/banner.component';
     AppComponent,
     HomeuserviewComponent,
     HomeadminviewComponent,
-    BannerComponent 
+    BannerComponent,
+    FooterComponent
    
   ],
   imports: [
