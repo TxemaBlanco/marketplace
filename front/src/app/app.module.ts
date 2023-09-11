@@ -17,10 +17,9 @@ import { HeaderadminComponent } from './shared/headeradmin/headeradmin.component
     HomeuserviewComponent,
     HomeadminviewComponent,
     BannerComponent,
-    FooterComponent
-   
-
-
+    FooterComponent,
+    HeaderadminComponent,
+    HeaderclientComponent
   ],
   imports: [
     BrowserModule,
