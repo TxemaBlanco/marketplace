@@ -4,7 +4,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeuserviewComponent } from './views/homeuserview/homeuserview.component';
 import { HomeadminviewComponent } from './views/homeadminview/homeadminview.component';
-import { HeaderComponent } from './shared/header/header.component';
+import { HeaderclientComponent } from './shared/headerclient/headerclient.component';
+import { HeaderadminComponent } from './shared/headeradmin/headeradmin.component';
+
 
 
 @NgModule({
@@ -12,7 +14,9 @@ import { HeaderComponent } from './shared/header/header.component';
     AppComponent,
     HomeuserviewComponent,
     HomeadminviewComponent,
-    HeaderComponent,
+    HeaderclientComponent,
+    HeaderadminComponent,
+    
     
   ],
   imports: [
