@@ -27,7 +27,7 @@
     text-align: center;
     background: #ffff;
     font-size: 16px;
-    width: 100%;
+    width: 95%;
 }
 
 .btn {
@@ -49,6 +49,8 @@
         grid-template-columns: repeat(2, 1fr);
         justify-content: right;
     }
+
+    
 
     .custom-stroke {
         -webkit-text-stroke-width: 1px;

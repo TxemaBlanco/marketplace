@@ -5,7 +5,7 @@
 .navbar-brand {
     color: #ffff;
     font-size: 24px;
-    margin-left: 55px;
+    margin-left: 29px;
     font-family: 'Comic Neue', cursive;
 }
 
@@ -20,14 +20,13 @@
 .nav-item {
     border: 1px solid #000;
     border-radius: 28px;
-    margin: 2px 0 0 5px;
+    margin:  5px;
     color: #000;
     font-family: 'Alice', serif;
     text-align: center;
     background: #ffff;
-    font-size: 16px;
-    width: 131px;
-    height: 32px;
+    font-size: 13px;
+    width: 95%;
 }
 
 .btn {
@@ -42,25 +41,19 @@
 @media (min-width: 600px) and (max-width:767px) {
     .navbar-brand {
         color: #ffff;
-        font-size: 30px;
+        font-size: 45px;
         
     }
 
     .navbar-nav{
-        display: block;
-        
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: right;
+    
     }
 
-    .nav-item{
-        margin-left: 20rem;
-        font-size: 16px;
-    }
-
-    .navbar-toggler{
-        border: none; 
-        margin-right: 30px; 
-    }
-
+   
+  
     .custom-stroke {
         -webkit-text-stroke-width: 1px;
         -webkit-text-stroke-color: #000000;
@@ -71,7 +64,7 @@
     .navbar-brand {
         color: #ffff;
         font-size: 45px;
-        margin-left: 10rem;
+
        
     }
 
@@ -81,19 +74,13 @@
         justify-content: right;
     }
 
-    .nav-item{
-        font-size: 13px;
-    }    
 
     .custom-stroke {
         -webkit-text-stroke-width: 1px;
         -webkit-text-stroke-color: #000000;
     }
 
-    .left{
-        margin-top: -4rem;
-        margin-left: -40rem;
-    }
+
 }
 
 @media (min-width: 1025px) {
@@ -111,18 +98,7 @@
        
     }
     .nav-item {
-        border: 1px solid #000;
-        border-radius: 28px;
-        margin: 2px 0 0 5px;
-        color: #000;
-        font-family: 'Alice', serif;
-        text-align: center;
-        background: #ffff;
-        font-size: 14px;
-        margin-left: 15px;
+        font-size: 13px;
     }
-    .left{
-        margin-top: -4rem;
-        margin-left: -60rem;
-    }
+   
 }
