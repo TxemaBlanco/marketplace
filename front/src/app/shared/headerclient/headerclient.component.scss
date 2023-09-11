@@ -1,89 +1,84 @@
-.custom-bg-color{
-    background: #27374D;
+.custom-bg-color {
+    background: rgba(39, 55, 77);
 }
 
-.navbar-brand{
+.navbar-brand {
     color: #ffff;
     font-size: 24px;
     margin-left: 29px;
     font-family: 'Comic Neue', cursive;
-   
 }
 
-.navbar-nav{
-    margin-left: 15rem;
-    .nav-item{
-        border: 1px solid #000;  
-        border-radius: 28px; 
-        margin: 2px 0 0 5px; 
-        color: #000;
-        font-family: 'Alice', serif;
-        text-align: center;
-        background: #ffff;
-        font-size: 16px ;        
-    }
+.navbar-nav {
+    align-items: center;
 }
 
-.btn{
+.navbar-toggler{
+    border: none;  
+}
+
+.nav-item {
+    border: 1px solid #000;
+    border-radius: 28px;
+    margin: 2px 0 0 5px;
+    color: #000;
+    font-family: 'Alice', serif;
+    text-align: center;
+    background: #ffff;
+    font-size: 16px;
+    width: 40%;
+}
+
+.btn {
     color: #ffff;
 }
 
 .custom-stroke {
-    -webkit-text-stroke-width: 0.5px; 
-    -webkit-text-stroke-color: #000000;   
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: #000000;
 }
 
-
-@media(min-width:600px) {
-    .navbar-brand{
+@media (min-width: 600px) {
+    .navbar-brand {
         color: #ffff;
-        font-size: 24px;
-        margin-left: 29px;
-        font-family: 'Comic Neue', cursive;
         font-size: 45px;
     }
-    .navbar-nav{
+    .navbar-nav {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         justify-content: right;
     }
 
     .custom-stroke {
-        -webkit-text-stroke-width: 1px; 
-        -webkit-text-stroke-color: #000000;   
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: #000000;
     }
 }
 
-
-@media(min:768px) and  (max: 1024px) {
-    .navbar-brand{
+@media (min-width: 768px) and (max-width: 1024px) {
+    .navbar-brand {
         color: #ffff;
-        font-size: 24px;
-        margin-left: 29px;
-        font-family: 'Comic Neue', cursive;
         font-size: 45px;
     }
-    .navbar-nav{
+    .navbar-nav {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         justify-content: right;
     }
 
     .custom-stroke {
-        -webkit-text-stroke-width: 1px; 
-        -webkit-text-stroke-color: #000000;   
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: #000000;
     }
 }
 
-@media(min-width:1025px){
-    .navbar-brand{
+@media (min-width: 1025px) {
+    .navbar-brand {
         color: #ffff;
-        font-size: 24px;
-        margin-left:40rem;
-        font-family: 'Comic Neue', cursive;
         font-size: 64px;
+        margin-left: 20rem;
     }
-    .navbar-nav{
+    .navbar-nav {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         justify-content: right;
