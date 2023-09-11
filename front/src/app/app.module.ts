@@ -18,10 +18,8 @@ import { HeaderadminComponent } from './shared/headeradmin/headeradmin.component
     HomeadminviewComponent,
     BannerComponent,
     FooterComponent,
+    HeaderadminComponent,
     HeaderclientComponent
-   
-
-
   ],
   imports: [
     BrowserModule,
