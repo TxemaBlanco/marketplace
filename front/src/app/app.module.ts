@@ -12,12 +12,8 @@ import { BannerComponent } from './components/banner/banner.component';
     AppComponent,
     HomeuserviewComponent,
     HomeadminviewComponent,
-<<<<<<< HEAD
-  
-=======
     BannerComponent 
    
->>>>>>> 8171ddcbbeddf3f98111484b7047a8c91050781a
   ],
   imports: [
     BrowserModule,
