@@ -5,6 +5,9 @@ import { AppComponent } from './app.component';
 import { HomeuserviewComponent } from './views/homeuserview/homeuserview.component';
 import { HomeadminviewComponent } from './views/homeadminview/homeadminview.component';
 import { BannerComponent } from './components/banner/banner.component';
+import { HeaderclientComponent } from './shared/headerclient/headerclient.component';
+import { HeaderadminComponent } from './shared/headeradmin/headeradmin.component';
+
 
 
 @NgModule({
@@ -12,8 +15,7 @@ import { BannerComponent } from './components/banner/banner.component';
     AppComponent,
     HomeuserviewComponent,
     HomeadminviewComponent,
-    BannerComponent 
-   
+  
   ],
   imports: [
     BrowserModule,
