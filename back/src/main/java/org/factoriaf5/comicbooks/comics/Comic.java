@@ -44,25 +44,18 @@ public class Comic {
     private Boolean ishardcover;
     private String photo;
     private float price;
+    @Column(length = 700)
     private String synopsis;
     private int stock;
 
+    // @JsonIgnore
+    @ManyToMany(mappedBy = "comics")
+    List<Genre> genres;
 
-    @OneToMany(mappedBy = "comic")
-    Set<Order> order;
+    @OneToMany(mappedBy = "comic", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Order> customers = new ArrayList<>();
 
-    
-    public Comic(){}
-
-    
-    public Comic(String isbn, Order[] customerBooks){
-        this.isbn = isbn;
-         for(Order customerBook : customerBooks){
-        customerBook  = (Order) Stream.of(customerBook).collect(Collectors.toSet());
-     }
-    }
-
-    /*  public void addGenre(Genre genre){
+    public void addGenre(Genre genre){
         genres.add(genre);
     } */ 
 

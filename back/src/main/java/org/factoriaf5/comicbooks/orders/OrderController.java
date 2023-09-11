@@ -29,7 +29,7 @@ public class OrderController {
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<Order> getEventById(@PathVariable Long id){
+    public ResponseEntity<Order> getOrderById(@PathVariable Long id){
         Optional<Order> optionalOrder = orderService.getOrderById(id);
         if(optionalOrder.isPresent()){
             Order Order = optionalOrder.get();
@@ -37,6 +37,25 @@ public class OrderController {
         }else{
             return ResponseEntity.notFound().build();
         }
+    }
+    // @GetMapping(path = "customer/{email}")
+    // public ResponseEntity<List<Order>> getOrdersByEmail(@PathVariable String email){
+    //     Optional<List<Order>> optionalOrders = orderService.getAllFromCustomer(email);
+    //     if(optionalOrders.isPresent()){
+    //         List<Order> orders = optionalOrders.get();
+    //         return ResponseEntity.ok(orders);
+    //     }else{
+    //         return ResponseEntity.notFound().build();
+    //     }        
+    // }
+    @GetMapping(path = "customer/{email}")
+    public ResponseEntity<List<Order>> getOrdersByEmail(@PathVariable String email){
+        List<Order> orders = orderService.getAllFromCustomer(email);
+        if(orders!=null){
+            return ResponseEntity.ok(orders);
+        }else{
+            return ResponseEntity.notFound().build();
+        }        
     }
 
     @PostMapping

@@ -24,7 +24,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @EnableWebSecurity
 
-public class SecurityConfiguration {
+public class SecurityConfiguration  {
 
     @Bean
 
