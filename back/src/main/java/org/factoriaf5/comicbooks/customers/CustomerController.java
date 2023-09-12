@@ -47,4 +47,5 @@ public class CustomerController {
         List<Customer> serviceGetAll = service.getAll();
         return ResponseEntity.status(HttpStatus.OK).body(serviceGetAll);
     }
+
 }
