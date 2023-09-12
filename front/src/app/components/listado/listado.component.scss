@@ -4,46 +4,61 @@
     margin: auto 40px;
     align-items: center;
     justify-content:center;
- 
-   
+    
 }
 
 table {
    color: #fff;
-   border: 5px solid #fff;
+   border: 2px solid #fff;
    text-align: center;
    font-size: 20px;
+   border-collapse: collapse;
+  border-radius: 1em;
+  overflow: hidden;
+  
+   
 
 }
 
  th {
+    
   background-color: rgba(29, 41, 81, 1);
   color: #fff;
   text-decoration: underline;
+  text-align: center;
+
   
-  
- 
+}
+
+td {
+    border-bottom: 3px solid #fff;
 }
 
 .bi {
-    margin-left: 70%;
+    
     font-size: small;
     color: #fff;
     text-align: center;
-   
-    
 }
-thead {
-    
-    
+.bi-search
 
+
+thead {
+ 
+     border-radius: 0 0 20px 20px;
+   
     align-items: center;
 
 }
 
   .btn {
-    margin-left:5%;
-     padding: 0 .5em;
+    margin-left:10px;
+    justify-content: center;
+    padding: 0  0.2em;
+    
+  } 
+  tr {
+    border-bottom: 1px solid #ccc;
+  }
    
- }
-
+ 
