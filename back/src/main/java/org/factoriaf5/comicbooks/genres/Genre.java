@@ -17,6 +17,9 @@ public class Genre {
     @Column(name = "name")
     private String name;
 
+    
+    public Genre() {
+    }
     public Genre(long id, String name) {
         this.id = id;
         this.name = name;
