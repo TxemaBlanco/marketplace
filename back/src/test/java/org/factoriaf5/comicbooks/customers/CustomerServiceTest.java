@@ -4,14 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-import org.factoriaf5.comicbooks.genres.Genre;
-import org.factoriaf5.comicbooks.genres.GenresRepository;
-import org.factoriaf5.comicbooks.genres.GenresService;
-import org.hibernate.mapping.List;
 import org.junit.jupiter.api.Test;
-
-import java.util.Optional;
-
 
 public class CustomerServiceTest {
     private CustomerService service;
@@ -21,7 +14,9 @@ public class CustomerServiceTest {
     public void testCreateCustomer() {
         repository = mock(CustomerRepository.class);
 
-        Customer savedCustomer = new Customer("user@user.com","29920371A","Lola","Flores","Rosas","La buenecita",14,"3","dcha","3","A",30033,"Madrid", "Madrid", "$2a$12$BwyEzyYm8ssMjYY9HLvrq.LwIxYbfApeAM41kyP7o6ZyYq8B542wO");
+        Customer savedCustomer = new Customer("user@user.com", "29920371A", "Lola", "Flores", "Rosas", "La buenecita",
+                14, "3", "dcha", "3", "A", 30033, "Madrid", "Madrid",
+                "$2a$12$BwyEzyYm8ssMjYY9HLvrq.LwIxYbfApeAM41kyP7o6ZyYq8B542wO");
 
         when(repository.save(any(Customer.class))).thenReturn(savedCustomer);
         when(repository.findByEmail("user@user.com")).thenReturn(java.util.Optional.of(savedCustomer));
@@ -29,7 +24,6 @@ public class CustomerServiceTest {
         service = new CustomerService(repository);
 
         Customer response = service.create(savedCustomer);
-
 
         assertNotNull(response);
 
@@ -53,12 +47,12 @@ public class CustomerServiceTest {
         assertEquals(savedCustomer, retrievedCustomer);
     }
 
-     @Test
+    @Test
     public void testGetAllCustomer() {
-        
+
         repository = mock(CustomerRepository.class);
 
-        java.util.List<Customer> CustomerGetAll = repository.findAll(); 
+        java.util.List<Customer> CustomerGetAll = repository.findAll();
 
         when(repository.findAll()).thenReturn(CustomerGetAll);
 
@@ -66,30 +60,63 @@ public class CustomerServiceTest {
         java.util.List<Customer> response = service.getAll();
 
         assertNotNull(response);
-        
+
         assertEquals(response, CustomerGetAll);
     }
 
     @Test
     public void testUpdateCustomer() {
-         repository = mock(CustomerRepository.class);
+        repository = mock(CustomerRepository.class);
 
-        Optional<Customer> CustomerGetByEmail = repository.findByEmail("user@user.com"); 
+        Customer newCustomer = new Customer("user@user.com", "29920371A", "Lola", "Flores", "Rosas", "La buenecita", 14,
+                "3", "dcha", "3", "A", 30033, "Madrid", "Madrid",
+                "$2a$12$BwyEzyYm8ssMjYY9HLvrq.LwIxYbfApeAM41kyP7o6ZyYq8B542wO");
 
-        when(repository.findByEmail("user@user.com")).thenReturn(CustomerGetByEmail);
+        when(repository.save(any(Customer.class))).thenReturn(newCustomer);
+        when(repository.findByEmail("user@user.com")).thenReturn(java.util.Optional.of(newCustomer));
 
         service = new CustomerService(repository);
-        java.util.List<Customer> response = service.getAll();
+        Customer response = service.update("user@user.com", newCustomer);
 
         assertNotNull(response);
-        
-        assertEquals(response, CustomerGetAll);
 
+        response.setEmail("user@user.com");
+        response.setDni("29920371A");
+        response.setName("nombre");
+        response.setSurname("apellido1");
+        response.setSurname2("Rosas");
+        response.setStreet("La buenecita");
+        response.setNumber(14);
+        response.setGate("3");
+        response.setStairs("dcha");
+        response.setFloor("3");
+        response.setLetter("A");
+        response.setPostalcode(30033);
+        response.setTown("Madrid");
+        response.setProvince("Madrid");
+        response.setPassword("$2a$12$BwyEzyYm8ssMjYY9HLvrq.LwIxYbfApeAM41kyP7o6ZyYq8B542wO");
 
-
-
+        Customer retrievedCustomer = service.findByEmail("user@user.com");
+        assertEquals(newCustomer, retrievedCustomer);
     }
 
+    @Test
+    public void testDeleteCustomer() {
+        repository = mock(CustomerRepository.class);
 
+        Customer Customer = new Customer("user@user.com", "29920371A", "Lola", "Flores", "Rosas", "La buenecita", 14,
+                "3", "dcha", "3", "A", 30033, "Madrid", "Madrid",
+                "$2a$12$BwyEzyYm8ssMjYY9HLvrq.LwIxYbfApeAM41kyP7o6ZyYq8B542wO");
 
+        when(repository.findByEmail("user@user.com")).thenReturn(java.util.Optional.of(Customer));
+
+        service = new CustomerService(repository);
+
+        Customer response = service.delete("user@user.com");
+
+        Customer retrievedCustomer = service.findByEmail("user@user.com");
+
+       response.equals(retrievedCustomer); 
+
+    }
 }
