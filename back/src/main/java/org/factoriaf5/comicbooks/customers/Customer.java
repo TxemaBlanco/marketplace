@@ -87,6 +87,23 @@ public class Customer {
     // // @JsonIgnore
     // public Set<Order> orders = new HashSet<>();
 
+    public Customer(String email, String dni, String name, String surname, String surname2, String street, int number, String gate, String stairs, String floor, String letter, int postalcode, String town, String province, String password) {
+        this.email = email;
+        this.dni = dni;
+        this.name = name;
+        this.surname = surname;
+        this.surname2 = surname2;
+        this.street = street;
+        this.number = number;
+        this.gate = gate;
+        this.stairs = stairs;
+        this.floor = floor;
+        this.letter = letter;
+        this.postalcode = postalcode;
+        this.town = town;
+        this.province = province;
+        this.password = password;
+    }
     public String getEmail() {
         return email;
     }

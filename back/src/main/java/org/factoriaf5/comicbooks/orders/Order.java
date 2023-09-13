@@ -34,7 +34,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column (name="Date")
     private java.util.Date date;
 
     @ManyToOne
@@ -45,6 +45,11 @@ public class Order {
     @JoinColumn(name="comic_isbn",nullable=false)
     private Comic comic;  
 
+    public Order(Long id, Customer customer, Comic comic) {
+        this.id = id;
+        this.customer = customer;
+        this.comic = comic;
+    }
      
     //usado
     // @ManyToMany
