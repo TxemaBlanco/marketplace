@@ -42,11 +42,7 @@ public class Genre {
     @JoinTable(name="comics_genres", joinColumns={@JoinColumn(name="genre_id")}, inverseJoinColumns={@JoinColumn(name="comic_isbn")})
     Set<Comic> comics;
     
-<<<<<<< HEAD
-    
-=======
  
->>>>>>> 6de0e81f26c103a49ccb008a7bb26aa09d9393b6
 }
 
 
