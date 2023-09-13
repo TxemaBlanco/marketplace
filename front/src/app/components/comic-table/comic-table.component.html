@@ -1,11 +1,12 @@
 <div class="container">
+  <div class="table-responsive">
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>
-          ISBN
+        <th class="col-md-2">
+          CÓDIGO
         </th>
-        <th>
+        <th class="col-md-2">
           Título
           <button
             class="btn btn-link btn-sm fixed-sort-buttons"
@@ -25,7 +26,7 @@
          
             
           </button>
-          <button class="btn btn-link" (click)="toggleSearch()">
+          <button class="btn btn-link btn-sm fixed-sort-buttons" (click)="toggleSearch()">
             <img class="search" src="../../../assets/buscar.png" alt="Buscar" />
           </button>
           <div class="search-popup" *ngIf="showSearchPopup">
@@ -40,8 +41,8 @@
           </div>
         </th>
 
-        <th>Autor</th>
-        <th>
+        <th class="col-md-2">Autor</th>
+        <th class="col-md-2">
           Géneros
           <label for="genreFilter" class="filter-label">
             <img
@@ -65,8 +66,8 @@
             </select>
           </div>
         </th>
-        <th>Precio</th>
-        <th>
+        <th class="col-md-2">Precio</th>
+        <th class="col-md-2">
           Tapa
           <label for="coverTypeFilter" class="filter-label">
             <img
@@ -106,6 +107,7 @@
       </tr>
     </tbody>
   </table>
+  </div>
   <div class="pagination-container">
     <nav aria-label="Page navigation">
       <ul class="pagination">
