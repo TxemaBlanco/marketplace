@@ -5,7 +5,12 @@ import java.util.List;
 import java.util.Set;
 
 import org.factoriaf5.comicbooks.genres.Genre;
+import org.factoriaf5.comicbooks.login.LoginDTO;
+import org.factoriaf5.comicbooks.login.LoginResponse;
 import org.factoriaf5.comicbooks.orders.Order;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -69,11 +74,16 @@ public class Customer {
     public Set<Order> orders = new HashSet<>();
 
     // @ManyToMany
-    // @JoinTable(name="customer_order", joinColumns={@JoinColumn(name="customer_email",referencedColumnName = "email")}, inverseJoinColumns={@JoinColumn(name="order_id",referencedColumnName = "id")})
+    // @JoinTable(name="customer_order",
+    // joinColumns={@JoinColumn(name="customer_email",referencedColumnName =
+    // "email")},
+    // inverseJoinColumns={@JoinColumn(name="order_id",referencedColumnName =
+    // "id")})
     // private Set<Order> orders;
 
-    //usado
-    // @ManyToMany(mappedBy = "customers", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    // usado
+    // @ManyToMany(mappedBy = "customers", fetch = FetchType.LAZY, cascade =
+    // CascadeType.PERSIST)
     // // @JsonIgnore
     // public Set<Order> orders = new HashSet<>();
 
@@ -204,5 +214,7 @@ public class Customer {
     public void setOrders(Set<Order> orders) {
         this.orders = orders;
     }
+
     
+
 }
