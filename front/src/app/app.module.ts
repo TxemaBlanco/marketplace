@@ -8,6 +8,10 @@ import { BannerComponent } from './components/banner/banner.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderclientComponent } from './shared/headerclient/headerclient.component';
 import { HeaderadminComponent } from './shared/headeradmin/headeradmin.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { ComicTableComponent } from '../app/components/comic-table/comic-table.component';
+import { ComicListComponent } from './comic-list/comic-list.component';
 
 
 
@@ -19,11 +23,18 @@ import { HeaderadminComponent } from './shared/headeradmin/headeradmin.component
     BannerComponent,
     FooterComponent,
     HeaderadminComponent,
-    HeaderclientComponent
+    HeaderclientComponent,
+    ComicTableComponent,
+    ComicListComponent
+  
+   
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

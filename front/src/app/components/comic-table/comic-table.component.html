@@ -1,0 +1,143 @@
+<div class="container">
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+      <th>
+        Título
+        <button
+          class="btn btn-link btn-sm fixed-sort-buttons"
+          (click)="toggleSortOrder('A-Z')"
+        >
+          <img
+            *ngIf="sortByTitleAscending && currentSortOrder === 'A-Z'"
+            src="../../../assets/G49.png"
+            alt="Orden A-Z"
+          />
+          <img
+            *ngIf="!sortByTitleAscending && currentSortOrder === 'Z-A'"
+            src="../../../assets/G49.png"
+            alt="Orden Z-A"
+          />
+        </button>
+        <button
+          class="btn btn-link btn-sm fixed-sort-buttons"
+          (click)="toggleSortOrder('Z-A')"
+        >
+          <img
+            *ngIf="!sortByTitleAscending && currentSortOrder === 'A-Z'"
+            src="../../../assets/G49.png"
+            alt="Orden A-Z"
+          />
+          <img
+            *ngIf="sortByTitleAscending && currentSortOrder === 'Z-A'"
+            src="../../../assets/G49.png"
+            alt="Orden Z-A"
+          />
+        </button>
+        
+        <button class="btn btn-link" (click)="toggleSearch()">
+          <img class="search" src="../../../assets/buscar.png" alt="Buscar" /> 
+        </button>
+        <input
+          id="searchInput"
+          type="text"
+          class="form-control"
+          [(ngModel)]="searchTerm"
+          (input)="applyFilters()"
+          placeholder="Buscar..."
+          *ngIf="showSearchInput"
+        />
+      </th>
+
+        <th>Autor</th>
+        <th>Géneros
+          <label for="genreFilter" class="filter-label">
+            <img
+              src="../../../assets/filter.png"
+              alt="Filtrar por Género"
+              class="filter-icon"
+              (click)="toggleFilter('genre')"
+            />
+          </label>
+            <select
+              id="genreFilter"
+              class="form-control"
+              [(ngModel)]="selectedGenre"
+              (change)="applyFilters()"
+              *ngIf="showGenreFilter"
+            >
+              <option [ngValue]="null">Todos</option>
+              <option *ngFor="let genre of genres" [ngValue]="genre.id">
+                {{ genre.name }}
+              </option>
+            </select>
+        </th>
+        <th>Precio</th>
+        <th>Tapa
+          <label for="coverTypeFilter" class="filter-label">
+            <img
+              src= "../../../assets/filter.png"
+              alt="Filtrar por Tapa"
+              class="filter-icon"
+              (click)="toggleFilter('coverType')"
+            />
+          </label>
+          <select
+            id="coverTypeFilter"
+            class="form-control filter-dropdown"
+            [(ngModel)]="selectedCoverType"
+            (change)="applyFilters()"
+            *ngIf="showCoverTypeFilter"
+          >
+            <option [ngValue]="null">Todos</option>
+            <option value="hard">Tapa Dura</option>
+            <option value="soft">Tapa Blanda</option>
+          </select>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let comic of comicsOnCurrentPage">
+        <td>{{ comic.title }}</td>
+        <td>{{ comic.author }}</td>
+        <td>
+          <span *ngFor="let genre of comic.genres; let last = last">
+            {{ genre.name }}{{ !last ? ", " : "" }}
+          </span>
+        </td>
+        <td>{{ comic.price }}</td>
+        <td>{{ comic.ishardcover ? "Dura" : "Blanda" }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <nav aria-label="Page navigation">
+    <ul class="pagination">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <a
+          class="page-link"
+          (click)="goToPage(currentPage - 1)"
+          aria-label="Previous"
+        >
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li
+        class="page-item"
+        *ngFor="let page of getPages()"
+        [class.active]="currentPage === page"
+      >
+        <a class="page-link" (click)="goToPage(page)">{{ page }}</a>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === getTotalPages()">
+        <a
+          class="page-link"
+          (click)="goToPage(currentPage + 1)"
+          aria-label="Next"
+        >
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
