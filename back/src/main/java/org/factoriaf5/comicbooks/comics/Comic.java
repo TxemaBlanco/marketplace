@@ -48,13 +48,22 @@ public class Comic {
     private String synopsis;
     private int stock;
 
-    // @JsonIgnore
     @ManyToMany(mappedBy = "comics")
-    List<Genre> genres;
+    private List<Genre> genres = new ArrayList<>();
 
-  /*   @OneToMany(mappedBy = "comic", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Order> customers = new ArrayList<>(); */
+    public Comic() {
+    }
 
+    public Comic(String isbn, String title, String author, Boolean ishardcover, String photo, float price, String synopsis, int stock) {
+        this.isbn = isbn;
+        this.title = title;
+        this.author = author;
+        this.ishardcover = ishardcover;
+        this.photo = photo;
+        this.price = price;
+        this.synopsis = synopsis;
+        this.stock = stock;
+    }
     public void addGenre(Genre genre){
         genres.add(genre);
     } 

@@ -4,6 +4,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeuserviewComponent } from './views/homeuserview/homeuserview.component';
 import { HomeadminviewComponent } from './views/homeadminview/homeadminview.component';
+import { BannerComponent } from './components/banner/banner.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { HeaderclientComponent } from './shared/headerclient/headerclient.component';
+import { HeaderadminComponent } from './shared/headeradmin/headeradmin.component';
+
 
 
 @NgModule({
@@ -11,7 +16,10 @@ import { HomeadminviewComponent } from './views/homeadminview/homeadminview.comp
     AppComponent,
     HomeuserviewComponent,
     HomeadminviewComponent,
-  
+    BannerComponent,
+    FooterComponent,
+    HeaderadminComponent,
+    HeaderclientComponent
   ],
   imports: [
     BrowserModule,
