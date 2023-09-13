@@ -11,7 +11,7 @@ import { HeaderadminComponent } from './shared/headeradmin/headeradmin.component
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ComicTableComponent } from '../app/components/comic-table/comic-table.component';
-import { ComicListComponent } from './comic-list/comic-list.component';
+import { ComiclistviewComponent } from './views/comiclistview/comiclistview.component';
 
 
 
@@ -25,7 +25,7 @@ import { ComicListComponent } from './comic-list/comic-list.component';
     HeaderadminComponent,
     HeaderclientComponent,
     ComicTableComponent,
-    ComicListComponent
+    ComiclistviewComponent
   
    
   ],

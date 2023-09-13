@@ -16,9 +16,9 @@ export class ComicTableComponent implements OnInit {
   currentPage: number = 1;
   sortByTitleAscending: boolean = true;
   currentSortOrder: 'A-Z' | 'Z-A' = 'A-Z';
-  showSearchInput: boolean = false;
-  showGenreFilter: boolean = false;
-  showCoverTypeFilter: boolean = false;
+  showSearchPopup: boolean = false;
+  showGenreFilterPopup: boolean = false;
+  showCoverTypeFilterPopup: boolean = false;
 
   constructor(private comicService: ComicService) {}
 
@@ -70,7 +70,7 @@ export class ComicTableComponent implements OnInit {
     this.comics = filteredComics;
   }
 
-  toggleSortOrder(order: 'A-Z' | 'Z-A') {
+  toggleSortOrderPopup(order: 'A-Z' | 'Z-A') {
     this.currentSortOrder = order;
     this.sortByTitleAscending = !this.sortByTitleAscending;
     this.applyFilters();
@@ -98,22 +98,20 @@ export class ComicTableComponent implements OnInit {
   }
 
   toggleSearch() {
-    this.showSearchInput = !this.showSearchInput;
-    if (!this.showSearchInput) {
+    this.showSearchPopup = !this.showSearchPopup;
+    if (!this.showSearchPopup) {
       this.searchTerm = '';
       this.applyFilters();
     }
   }
 
-  toggleFilter(filterType: 'genre' | 'coverType') {
+  toggleFilterPopup(filterType: 'genre' | 'coverType') {
     if (filterType === 'genre') {
-      this.showGenreFilter = !this.showGenreFilter;
+      this.showGenreFilterPopup = !this.showGenreFilterPopup;
     } else if (filterType === 'coverType') {
-      this.showCoverTypeFilter = !this.showCoverTypeFilter;
+      this.showCoverTypeFilterPopup = !this.showCoverTypeFilterPopup;
     }
     this.searchTerm = '';
     this.applyFilters();
   }
-  
-  
 }
