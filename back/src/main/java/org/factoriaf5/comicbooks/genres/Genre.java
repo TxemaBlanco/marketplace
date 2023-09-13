@@ -40,11 +40,8 @@ public class Genre {
 
     @ManyToMany(fetch= FetchType.EAGER, cascade = {CascadeType.ALL})
     @JoinTable(name="comics_genres", joinColumns={@JoinColumn(name="genre_id")}, inverseJoinColumns={@JoinColumn(name="comic_isbn")})
-    Set<Comic> comics;
+    Set<Comic> comics;   
     
-    public Genre() {
-       
-    }
 }
 
 
