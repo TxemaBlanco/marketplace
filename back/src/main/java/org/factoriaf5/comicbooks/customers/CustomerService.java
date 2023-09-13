@@ -1,8 +1,12 @@
 package org.factoriaf5.comicbooks.customers;
 
 import java.util.List;
+import java.util.Optional;
 
+import org.factoriaf5.comicbooks.login.LoginDTO;
+import org.factoriaf5.comicbooks.login.LoginResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -11,11 +15,15 @@ public class CustomerService {
     CustomerRepository repository;
 
     @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
     public CustomerService(CustomerRepository repository) {
         this.repository = repository;
     }
 
     public Customer create(Customer customer) {
+        customer.setPassword(this.passwordEncoder.encode(customer.getPassword()));
         return repository.save(customer);
     }
 
@@ -53,5 +61,30 @@ public class CustomerService {
 
     public List<Customer> getAll() {
         return repository.findAll();
+    }
+
+    public LoginResponse loginCustomer(LoginDTO loginDTO) {
+       String msg = "";
+        Optional<Customer> customerOptional = repository.findByEmail(loginDTO.getEmail());
+        // Customer customer1 = customerOptional.get();
+        if(customerOptional.isPresent()){
+            Customer customer1 = customerOptional.get();
+            String password = loginDTO.getPassword();
+            String encodedPassword = customer1.getPassword();
+            //Boolean isPasswordRight = true; 
+            Boolean isPasswordRight = passwordEncoder.matches(password, encodedPassword);
+            if (isPasswordRight){
+                Optional<Customer> customer = repository.findOneByEmailAndPassword(loginDTO.getEmail(), encodedPassword);
+                if(customer.isPresent()){
+                    return new LoginResponse("Login Success",true);
+                }else{
+                    return new LoginResponse("Login Failed", false);
+                }
+            }else{
+                return new LoginResponse("password Not Match", false);
+            }
+        }else{
+            return new LoginResponse("Emain not exist", false);
+        }         
     }
 }

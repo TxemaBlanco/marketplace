@@ -2,12 +2,15 @@ package org.factoriaf5.comicbooks.customers;
 
 import java.util.List;
 
+import org.factoriaf5.comicbooks.login.LoginDTO;
+import org.factoriaf5.comicbooks.login.LoginResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST})
 @RequestMapping("/customers")
 public class CustomerController {
 
@@ -46,6 +49,12 @@ public class CustomerController {
     public ResponseEntity<List<Customer>> findAll() {
         List<Customer> serviceGetAll = service.getAll();
         return ResponseEntity.status(HttpStatus.OK).body(serviceGetAll);
+    }
+
+    @PostMapping(path = "/login")
+    public ResponseEntity<LoginResponse> loginCustomer(@RequestBody LoginDTO loginDTO) {
+        LoginResponse loginResponse = service.loginCustomer(loginDTO);
+        return ResponseEntity.ok(loginResponse);       
     }
 
 }
