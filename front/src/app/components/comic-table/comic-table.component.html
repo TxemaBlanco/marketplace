@@ -2,7 +2,9 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        
+        <th>
+          ISBN
+        </th>
         <th>
           Título
           <button
@@ -91,6 +93,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let comic of comicsOnCurrentPage">
+        <td>{{ comic.isbn }}</td>
         <td>{{ comic.title }}</td>
         <td>{{ comic.author }}</td>
         <td>
