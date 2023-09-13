@@ -17,9 +17,11 @@ public class Genre {
     @Column(name = "name")
     private String name;
 
+
     
     public Genre() {
     }
+
     public Genre(long id, String name) {
         this.id = id;
         this.name = name;
@@ -40,9 +42,8 @@ public class Genre {
 
     @ManyToMany(fetch= FetchType.EAGER, cascade = {CascadeType.ALL})
     @JoinTable(name="comics_genres", joinColumns={@JoinColumn(name="genre_id")}, inverseJoinColumns={@JoinColumn(name="comic_isbn")})
-    Set<Comic> comics;
-    
- 
+    Set<Comic> comics;   
+
 }
 
 

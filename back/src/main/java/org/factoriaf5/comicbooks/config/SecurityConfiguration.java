@@ -27,7 +27,6 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 public class SecurityConfiguration  {
 
     @Bean
-
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
@@ -43,6 +42,7 @@ public class SecurityConfiguration  {
                         .requestMatchers(HttpMethod.POST).permitAll()
                         .requestMatchers(HttpMethod.GET).permitAll()
                         .requestMatchers("/customers/**").permitAll()
+                        .requestMatchers("/customers/login").permitAll()
                         .requestMatchers("/genres/**").permitAll()
                         .requestMatchers("/comics/**").permitAll()
                         .requestMatchers("/orders/**").permitAll())
@@ -56,7 +56,6 @@ public class SecurityConfiguration  {
     }
 
     @Bean
-
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowCredentials(true);
@@ -69,7 +68,6 @@ public class SecurityConfiguration  {
     }
 
     @Bean
-
     PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }

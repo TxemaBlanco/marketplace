@@ -55,7 +55,5 @@ public class Comic {
     }
     public void addGenre(Genre genre){
         genres.add(genre);
-    }
-
-    
+    }    
 }
