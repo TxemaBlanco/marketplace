@@ -29,6 +29,7 @@
           <button class="btn btn-link btn-sm fixed-sort-buttons" (click)="toggleSearch()">
             <img class="search" src="../../../assets/buscar.png" alt="Buscar" />
           </button>
+          
           <div class="search-popup" *ngIf="showSearchPopup">
             <input
               id="searchInput"
@@ -38,6 +39,7 @@
               (input)="applyFilters()"
               placeholder="Buscar..."
             />
+            <button class="btn btn-primary" (click)="refreshTable()">Refrescar</button>
           </div>
         </th>
 
@@ -58,12 +60,14 @@
               class="form-control"
               [(ngModel)]="selectedGenre"
               (change)="applyFilters()"
+              
             >
               <option [ngValue]="null">Todos</option>
               <option *ngFor="let genre of genres" [ngValue]="genre.id">
                 {{ genre.name }}
               </option>
             </select>
+            <button class="btn btn-primary"  (click)="refreshTable()">Refrescar</button>
           </div>
         </th>
         <th class="col-md-2">Precio</th>
@@ -88,6 +92,7 @@
               <option value="hard">Tapa Dura</option>
               <option value="soft">Tapa Blanda</option>
             </select>
+            <button class="btn btn-primary" (click)="refreshTable()">Refrescar</button>
           </div>
         </th>
       </tr>
