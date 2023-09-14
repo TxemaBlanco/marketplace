@@ -24,11 +24,12 @@ table tr:last-child td:last-child {
 
 
 th {
+  border: 1px solid white;
   background-color: rgba(29, 41, 81, 1);
   color: #fff;
   text-decoration: underline;
-  text-align: left;
-  border: 1px solid black;
+  text-align: center;
+  width: 5vh;
 }
 
 td {
@@ -51,6 +52,7 @@ td {
   margin-left: 10px;
   justify-content: center;
   padding: 0 0.2em;
+  width: vh;
 }
 
 tr {
@@ -93,7 +95,6 @@ tr {
 
 .filter-popup select,
 .search-popup input[type="text"] {
-  width: 100%;
   padding: 5px;
   margin-top: 5px;
 }
@@ -103,5 +104,17 @@ tr {
   display: block;
 }
 .filter-icon{
-  margin-left: 40%;
+  margin-left: 4%;
+}
+.btn-primary{
+  margin-top: 2vh;
+  float: right;
+}
+.search{
+  text-align: left;
+  width: 4vh;
+}
+img, svg {
+  width: 2.3vh;
+  vertical-align: middle;
 }
