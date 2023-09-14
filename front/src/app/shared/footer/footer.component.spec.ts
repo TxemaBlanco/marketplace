@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { FooterComponent } from './footer.component';
 
 describe('FooterComponent', () => {
@@ -8,14 +7,25 @@ describe('FooterComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [FooterComponent]
+      declarations: [FooterComponent],
     });
     fixture = TestBed.createComponent(FooterComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the component', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should display the correct copyright text', () => {
+    const footerElement: HTMLElement = fixture.nativeElement;
+    const copyrightText = footerElement.querySelector('p')!.textContent;
+    expect(copyrightText).toContain('© 2023 Comic Books. Todos los derechos reservados.');
+  });
+
+  it('should contain social media links', () => {
+    const footerElement: HTMLElement = fixture.nativeElement;
+    const socialLinks = footerElement.querySelectorAll('.social-footer a');
+    expect(socialLinks.length).toBe(3);
   });
 });

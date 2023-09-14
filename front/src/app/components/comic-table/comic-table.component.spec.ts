@@ -18,4 +18,6 @@ describe('ComicTableComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
 });
+
