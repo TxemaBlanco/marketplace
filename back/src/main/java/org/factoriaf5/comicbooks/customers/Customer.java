@@ -1,20 +1,16 @@
 package org.factoriaf5.comicbooks.customers;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
-import org.factoriaf5.comicbooks.genres.Genre;
-import org.factoriaf5.comicbooks.login.LoginDTO;
-import org.factoriaf5.comicbooks.login.LoginResponse;
 import org.factoriaf5.comicbooks.orders.Order;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -25,7 +21,7 @@ import lombok.NoArgsConstructor;
 public class Customer {
 
     @Id
-    @Column(name = "email")
+    @Column(name = "email", nullable = false)
     private String email;
 
     @Column(name = "dni")
@@ -87,7 +83,9 @@ public class Customer {
     // // @JsonIgnore
     // public Set<Order> orders = new HashSet<>();
 
-    public Customer(String email, String dni, String name, String surname, String surname2, String street, int number, String gate, String stairs, String floor, String letter, int postalcode, String town, String province, String password) {
+    public Customer(String email, String dni, String name, String surname, String surname2, String street, int number,
+            String gate, String stairs, String floor, String letter, int postalcode, String town, String province,
+            String password) {
         this.email = email;
         this.dni = dni;
         this.name = name;
@@ -104,6 +102,11 @@ public class Customer {
         this.province = province;
         this.password = password;
     }
+
+    public Customer(String email){
+        this.email = email;
+    }
+
     public String getEmail() {
         return email;
     }

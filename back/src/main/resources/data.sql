@@ -20,7 +20,7 @@ INSERT INTO comics (isbn, title, author, price, ishardcover, synopsis, photo, st
 INSERT INTO comics (isbn, title, author, price, ishardcover, synopsis, photo, stock) VALUES ("0000002030000","X-Men - The 198 #01","Luis Torrebruno",17.9,true,"María Teresa Montilla (Natalia Streignard) es una mujer acostumbrada a vivir en la ciudad, pero ella tiene que mudarse a vivir a la hacienda «La Tormenta», propiedad de su familia en los llanos orientales, para tratar de salvar a su familia de la ruina financiera.","default_comic.jpg",20);
 INSERT INTO comics (isbn, title, author, price, ishardcover, synopsis, photo, stock) VALUES ("0000005600000","pipo","Lalo",17.9,true,"María Teresa Montilla (Natalia Streignard) es una mujer acostumbrada a vivir en la ciudad, pero ella tiene que mudarse a vivir a la hacienda «La Tormenta», propiedad de su familia en los llanos orientales, para tratar de salvar a su familia de la ruina financiera.","default_comic.jpg",20);
 INSERT INTO comics (isbn, title, author, price, ishardcover, synopsis, photo, stock) VALUES ("0000004300000","lilo y stich","Luisa",17.9,true,"María Teresa Montilla (Natalia Streignard) es una mujer acostumbrada a vivir en la ciudad, pero ella tiene que mudarse a vivir a la hacienda «La Tormenta», propiedad de su familia en los llanos orientales, para tratar de salvar a su familia de la ruina financiera.","default_comic.jpg",20);
-
+/* 
 INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("1000000000000", 1);
 INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("1000000000000", 6);
 INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("0000000000001", 2);
@@ -44,7 +44,7 @@ INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("6666666666666", 1);
 INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("0000002030000", 2);
 INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("0000002030000", 1);
 INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("0001200000000", 2);
-INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("0001200000000", 1);
+INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("0001200000000", 1); */
 
 
 /* customers */
