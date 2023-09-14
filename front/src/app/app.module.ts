@@ -29,7 +29,7 @@ import { LoginComponent } from './components/login/login.component';
     HeaderclientComponent,
     ComicTableComponent,
     ComiclistviewComponent,
-  LoginComponent
+    LoginComponent,
    
   ],
   imports: [
