@@ -26,12 +26,12 @@ public class ComicService {
         return comicRepository.save(comic);
     }
     
-  /*   public Comic create(Comic comic, Genre[] genres){
+     public Comic create(Comic comic, Genre[] genres){
         for(Genre genre : genres){
           comic.addGenre(genre);  
         }
         return comicRepository.save(comic);
-    } */
+    } 
     public Comic findByIsbn(String isbn){
         return comicRepository.findByIsbn(isbn).get();        
     }

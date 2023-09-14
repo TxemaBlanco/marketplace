@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ComicControllerTest {
 
-/*     @Test
+     @Test
     public void testIndex() {
         ComicService service = mock(ComicService.class);
         when(service.getAll()).thenReturn(List.of(new Comic(), new Comic()));
@@ -25,7 +25,7 @@ public class ComicControllerTest {
 
         assertNotNull(comics);
         assertEquals(2, comics.size());
-    } */
+    } 
 
     @Test
     public void testGetComicByIsbnFound() {

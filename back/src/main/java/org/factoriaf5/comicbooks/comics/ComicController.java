@@ -3,7 +3,6 @@ package org.factoriaf5.comicbooks.comics;
 import java.util.List;
 import java.util.Optional;
 
-import org.factoriaf5.comicbooks.customers.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,17 +24,17 @@ public class ComicController {
         this.comicService = service;
     }
 
-   /*  @GetMapping
+     @GetMapping
     public List<Comic> index(){
         List<Comic> comics = comicService.getAll();
         return comics;
-    } */
+    } 
 
-     @GetMapping
+/*      @GetMapping
     public ResponseEntity<List<Comic>> findAll() {
         List<Comic> serviceGetAll = comicService.getAll();
         return ResponseEntity.status(HttpStatus.OK).body(serviceGetAll);
-    }
+    } */
 
 
 
