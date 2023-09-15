@@ -24,11 +24,20 @@ public class ComicController {
         this.comicService = service;
     }
 
-    @GetMapping
+     @GetMapping
     public List<Comic> index(){
         List<Comic> comics = comicService.getAll();
         return comics;
-    }
+    } 
+
+/*      @GetMapping
+    public ResponseEntity<List<Comic>> findAll() {
+        List<Comic> serviceGetAll = comicService.getAll();
+        return ResponseEntity.status(HttpStatus.OK).body(serviceGetAll);
+    } */
+
+
+
     @GetMapping(path = "/{isbn}")
     public ResponseEntity<Comic> getComicByIsbn(@PathVariable String isbn){
         Optional<Comic> optionalComic = comicService.getComicByIsbn(isbn);
