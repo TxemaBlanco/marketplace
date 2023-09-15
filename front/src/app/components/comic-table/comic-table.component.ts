@@ -98,11 +98,13 @@ export class ComicTableComponent implements OnInit {
   }
 
   toggleSearch() {
+   
     this.showSearchPopup = !this.showSearchPopup;
     if (!this.showSearchPopup) {
       this.searchTerm = '';
       this.applyFilters();
     }
+    
   }
 
   toggleFilterPopup(filterType: 'genre' | 'coverType') {
@@ -114,8 +116,11 @@ export class ComicTableComponent implements OnInit {
     this.searchTerm = '';
     this.applyFilters();
   }
-  refresh(){
-    this.toggleSearch();
+
+  refreshTable() {
     this.getComics();
+    this.selectedGenre = null;
+    this.selectedCoverType = null;
+    this.searchTerm = '';
   }
 }
