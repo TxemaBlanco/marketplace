@@ -114,4 +114,8 @@ export class ComicTableComponent implements OnInit {
     this.searchTerm = '';
     this.applyFilters();
   }
+  refresh(){
+    this.toggleSearch();
+    this.getComics();
+  }
 }
