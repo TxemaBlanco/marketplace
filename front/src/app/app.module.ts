@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { ComicTableComponent } from '../app/components/comic-table/comic-table.component';
 import { ComiclistviewComponent } from './views/comiclistview/comiclistview.component';
 import { LoginComponent } from './components/login/login.component';
+import { HeaderloginComponent } from './shared/headerlogin/headerlogin.component';
 
 
 
@@ -30,6 +31,7 @@ import { LoginComponent } from './components/login/login.component';
     ComicTableComponent,
     ComiclistviewComponent,
     LoginComponent,
+    HeaderloginComponent,
    
   ],
   imports: [
