@@ -12,7 +12,7 @@ export class ComicTableComponent implements OnInit {
   selectedGenre: any = null;
   selectedCoverType: string | null = null;
   searchTerm: string = '';
-  itemsPerPage: number = 5;
+  itemsPerPage: number = 4;
   currentPage: number = 1;
   sortByTitleAscending: boolean = true;
   currentSortOrder: 'A-Z' | 'Z-A' = 'A-Z';
