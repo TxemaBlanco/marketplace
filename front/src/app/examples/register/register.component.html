@@ -1,0 +1,25 @@
+<div class="col-md-6">
+    <h2 class="text-center">Add Customer</h2>
+  <form>
+    <div class="form-group">
+      <label for="email">Email address:</label>
+      <input type="email" [(ngModel)]="customer.email" placeholder="Enter Email" name="email" class="form-control" id="email">
+    </div>
+    <div class="form-group">
+        <label for="dni">dni:</label>
+       <input [(ngModel)]="customer.dni" placeholder="Enter dni" name="dni" class="form-control" id="dni">
+      </div>
+  
+    <div class="form-group">
+      <label for="firstName">First Name:</label>
+      <input [(ngModel)]="customer.name" placeholder="Enter First Name" name="firstName" class="form-control" id="firstName">
+    </div>
+  
+    <div class="form-group">
+      <label for="password">Password:</label>
+     <input [(ngModel)]="customer.password" placeholder="Enter Password" name="password" class="form-control" id="password">
+    </div>
+  
+    <button class="btn btn-success" (click)="registerCustomer()">Register</button>
+  </form>
+  </div>

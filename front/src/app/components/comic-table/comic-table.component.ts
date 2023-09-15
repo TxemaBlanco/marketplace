@@ -116,11 +116,11 @@ export class ComicTableComponent implements OnInit {
     this.searchTerm = '';
     this.applyFilters();
   }
+
   refreshTable() {
     this.getComics();
     this.selectedGenre = null;
     this.selectedCoverType = null;
     this.searchTerm = '';
   }
-  
 }
