@@ -116,12 +116,6 @@ export class ComicTableComponent implements OnInit {
     this.searchTerm = '';
     this.applyFilters();
   }
-<<<<<<< HEAD
-  refresh(){
-    this.toggleSearch();
-    this.getComics();
-  }
-=======
   refreshTable() {
     this.getComics();
     this.selectedGenre = null;
@@ -129,5 +123,4 @@ export class ComicTableComponent implements OnInit {
     this.searchTerm = '';
   }
   
->>>>>>> 902bec529e3d4e281cb0ab8e46453dc2f44f5baa
 }
