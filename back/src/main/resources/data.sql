@@ -44,7 +44,7 @@ INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("6666666666666", 1);
 INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("0000002030000", 2);
 INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("0000002030000", 1);
 INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("0001200000000", 2);
-INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("0001200000000", 1);
+INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("0001200000000", 1); 
 
 
 /* customers */

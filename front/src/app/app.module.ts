@@ -13,8 +13,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ComicTableComponent } from '../app/components/comic-table/comic-table.component';
 import { ComiclistviewComponent } from './views/comiclistview/comiclistview.component';
+<<<<<<< HEAD
 import { LoginComponent } from './examples/login/login.component';
 import { RegisterComponent } from './examples/register/register.component';
+=======
+import { LoginComponent } from './components/login/login.component';
+>>>>>>> 902bec529e3d4e281cb0ab8e46453dc2f44f5baa
 
 
 
@@ -31,8 +35,11 @@ import { RegisterComponent } from './examples/register/register.component';
     ComicTableComponent,
     ComiclistviewComponent,
     LoginComponent,
+<<<<<<< HEAD
     RegisterComponent,
   
+=======
+>>>>>>> 902bec529e3d4e281cb0ab8e46453dc2f44f5baa
    
   ],
   imports: [
