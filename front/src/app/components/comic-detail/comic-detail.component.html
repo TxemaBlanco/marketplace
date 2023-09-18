@@ -1,0 +1,17 @@
+<div *ngIf="comic" class="row my-5">
+  <div class="col-md-4">
+    <img [src]="comic.photo" alt="{{ comic.title }} Cover" class="img-fluid m-3">
+    <br>
+    <button class="m-3 px-5"><h3> editar </h3></button>
+  </div>
+  <div class="col-md-8"> 
+    <h2 class="mb-5">{{ comic.title }}</h2>
+    <p  class="my-3">
+      <span *ngFor="let genre of comic.genres; let last = last">
+        {{ genre.name }}{{ !last ? ', ' : '' }}
+      </span>
+    </p>
+    <p>Autor: {{ comic.author }}</p>
+    <p>{{ comic.synopsis }}</p>
+  </div>
+</div>

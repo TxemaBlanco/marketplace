@@ -1,0 +1,61 @@
+.custom-bg-color {
+    background: rgba(29, 41, 81, 1);
+  }
+
+
+.navbar-brand {
+    color: #ffff;
+    font-size:30px;
+    margin-left: 6vh;
+    font-family: 'Comic Neue', cursive;
+
+}
+
+.custom-stroke {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #000000;
+  }
+
+
+@media (min-width:760px) and (max-width:990px) {
+    .navbar-brand {
+        color: #ffff;
+        font-size:45px;
+        margin-left:18vh;
+        font-family: 'Comic Neue', cursive;
+    }
+    .custom-stroke {
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: #000000;
+      }
+}
+
+@media (min-width:1024px) {
+    
+    .navbar-brand {
+        color: #ffff;
+        font-size:64px;
+        margin-left:20vh;
+        font-family: 'Comic Neue', cursive;
+    }
+    .custom-stroke {
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: #000000;
+      }
+}
+
+
+@media (min-width:1100px) {
+    
+    .navbar-brand {
+        color: #ffff;
+        font-size:64px;
+        margin-left:45vh;
+        font-family: 'Comic Neue', cursive;
+    }
+    .custom-stroke {
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: #000000;
+      }
+}
+

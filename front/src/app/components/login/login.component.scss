@@ -1,5 +1,95 @@
-form {
-    justify-content: center;
+.container{
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
     justify-items: center;
-    margin: 20px 40px;
+    width: 80%;
+    margin-top: 15%;
+    
+}
+.card{
+    background: rgba(128, 128, 128, 1);
+    border: 1px solid black;
+    border-radius: 28px;
+ 
+}
+.body{
+    padding: 0%;
+}
+
+.registeryou{
+    display: none;
+}
+.mb-md-5 {
+    background: rgba(128, 128, 128, 1);
+}
+
+.fw-bold {
+    color: #ffffff;
+    margin-top: -9px;
+}
+
+.form-label {
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.form-control {
+   
+    width: 75%;
+    height: 10px;
+  
+    border: 1px solid black;
+    border-radius: 28px;
+    font-size: 14px;
+  
+
+}
+
+.text2 {
+    color: #ffffff;
+}
+ 
+.dont {
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.f-stick {
+    width: 0.938rem;
+    height: 375px;
+    background: rgba(29, 41, 81, 1);
+    border: 1px solid black;
+ 
+
+}
+
+.btn2 {
+    width: 168px;
+    height: 50px;
+    background: rgba(128, 128, 128, 1);
+    border: 1px solid black;
+    border-radius: 20px;
+    color: #ffffff;
+}
+
+@media (max-width: 500px) {
+    .f-stick{ display: none;}
+    .register{display: none;}
+    .card-body {width: 100%;
+                margin: 0;
+    }
+    .form-control{
+        width: 100%;
+    }
+    .container{
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+    .card{
+        width: 80vw;
+    } 
+    .registeryou{
+        display:inline;
+    }            
 }
