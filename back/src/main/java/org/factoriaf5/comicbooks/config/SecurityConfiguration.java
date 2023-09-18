@@ -27,15 +27,17 @@ public class SecurityConfiguration  {
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
-              /* .cors(cors -> cors.disable())  */
-                /*  .csrf(csfr -> csfr.disable())  */
+                .cors(withDefaults())
+                .csrf(csfr -> csfr.disable())
                 .formLogin(form -> form.disable())
                 .logout(out -> out
                         .logoutUrl("/logout")
                         .deleteCookies("JSESSIONID"))
 
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.POST, "/customers").permitAll()
+                        .requestMatchers(HttpMethod.PUT).permitAll()
+                        .requestMatchers(HttpMethod.POST).permitAll()
+                        .requestMatchers(HttpMethod.GET).permitAll()
                         .requestMatchers("/customers/**").permitAll()
                         .requestMatchers("/customers/login").permitAll()
                         .requestMatchers("/genres/**").permitAll()
@@ -54,8 +56,8 @@ public class SecurityConfiguration  {
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowCredentials(true);
-        configuration.setAllowedOrigins(Arrays.asList("*"));
-        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
 

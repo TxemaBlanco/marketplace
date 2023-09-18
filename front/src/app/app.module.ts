@@ -41,6 +41,9 @@ import { RouterModule, Routes } from '@angular/router';
     ComicTableComponent,
     ComiclistviewComponent,
     LoginComponent,
+    ComicdetailviewComponent,
+    ComicDetailComponent,
+    RegisterComponent
    
   ],
   imports: [
