@@ -1,66 +1,5 @@
 <div class="container">
   <div class="table-responsive">
-<table class="table table-striped" >
-    <thead>
-      <tr>
-        <th class="col-md-2">
-          CÓDIGO
-        </th>
-        <th class="col-md-2">
-          Título
-          <button
-            class="btn btn-link btn-sm fixed-sort-buttons"
-            (click)="toggleSortOrderPopup('A-Z')"
-          >
-            
-          <img
-             
-              src="../../../assets/G49.png"
-              alt="Orden Z-A"
-            />
-          </button>
-          <button
-            class="btn btn-link btn-sm fixed-sort-buttons"
-            (click)="toggleSortOrderPopup('Z-A')"
-          >
-         
-            
-          </button>
-          <button class="btn btn-link btn-sm fixed-sort-buttons" (click)="toggleSearch()">
-            <img class="search" src="../../../assets/buscar.png" alt="Buscar" />
-          </button>
-          <div class="search-popup" *ngIf="showSearchPopup">
-            <input
-              id="searchInput"
-              type="text"
-              class="form-control"
-              [(ngModel)]="searchTerm"
-              (input)="applyFilters()"
-              placeholder="Buscar..."
-              onkeydown = "if (event.keyCode == 13) tooggleSearch()"
-            />
-            <button class="btn btn-link btn-sm fixed-sort-buttons right"  (click)="refresh()">refresh</button>
-          </div>
-          
-        </th>
-
-        <th class="col-md-2">Autor</th>
-        <th class="col-md-2">
-          Géneros
-          <label for="genreFilter" class="filter-label">
-            <img
-              src="../../../assets/filter.png"
-              alt="Filtrar por Género"
-              class="filter-icon"
-              (click)="toggleFilterPopup('genre')"
-            />
-          </label>
-          <div class="filter-popup" *ngIf="showGenreFilterPopup">
-            <select
-              id="genreFilter"
-              class="form-control"
-              [(ngModel)]="selectedGenre"
-              (change)="applyFilters()"
     <table class="table table-striped">
       <thead>
         <tr>
@@ -82,31 +21,6 @@
               class="btn btn-link btn-sm fixed-sort-buttons"
               (click)="toggleSortOrderPopup('Z-A')"
             >
-
-              <option [ngValue]="null">Todos</option>
-              <option value="hard">Tapa Dura</option>
-              <option value="soft">Tapa Blanda</option>
-            </select>
-          </div>
-        </th>
-      </tr>
-    </thead>
-    <tbody >
-      <tr *ngFor="let comic of comicsOnCurrentPage">
-        <td>{{ comic.isbn }}</td>
-        <td>{{ comic.title }}</td>
-        <td>{{ comic.author }}</td>
-        <td>
-          <span *ngFor="let genre of comic.genres; let last = last">
-            {{ genre.name }}{{ !last ? ", " : "" }}
-          </span>
-        </td>
-        <td>{{ comic.price }}</td>
-        <td>{{ comic.ishardcover ? "Dura" : "Blanda" }}</td>
-      </tr>
-    </tbody>
-  </table>
-
             </button>
             <button class="btn btn-link btn-sm fixed-sort-buttons" (click)="toggleSearch()">
               <img class="search" src="../../../assets/buscar.png" alt="Buscar" />
@@ -187,7 +101,7 @@
               {{ genre.name }}{{ !last ? ", " : "" }}
             </span>
           </td>
-          <td>{{ comic.price }} €</td>
+          <td>{{ comic.price }}</td>
           <td>{{ comic.ishardcover ? "Dura" : "Blanda" }}</td>
         </tr>
       </tbody>

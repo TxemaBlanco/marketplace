@@ -16,8 +16,11 @@ import { ComiclistviewComponent } from './views/comiclistview/comiclistview.comp
 
 import { LoginComponent } from './examples/login/login.component';
 import { RegisterComponent } from './examples/register/register.component';
+import { NewcustomerComponent } from './examples/register_pablo/newcustomer/newcustomer.component';
 
+import {ReactiveFormsModule} from '@angular/forms';
 
+import { RouterModule, Routes } from '@angular/router';
 
 
 
@@ -34,6 +37,7 @@ import { RegisterComponent } from './examples/register/register.component';
     ComiclistviewComponent,
     LoginComponent,
     RegisterComponent,
+    NewcustomerComponent,
 
    
   ],
@@ -42,6 +46,8 @@ import { RegisterComponent } from './examples/register/register.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    RouterModule,
   
   ],
   providers: [],

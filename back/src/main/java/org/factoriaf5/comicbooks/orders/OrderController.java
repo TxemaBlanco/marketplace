@@ -1,5 +1,6 @@
 package org.factoriaf5.comicbooks.orders;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -63,4 +64,15 @@ public class OrderController {
         Order serviceSaved = orderService.create(order);
         return ResponseEntity.status(HttpStatus.OK).body(serviceSaved);
     }
+
+    /*  @GetMapping(path = "customer/{email}/{date}")
+    public ResponseEntity<List<Order>> getOrdersByDate(@PathVariable("email") String email, @PathVariable("date") Date date){
+        List<Order> orders = orderService.getAllFromCustomer(email);
+        if(orders!=null){
+            return ResponseEntity.ok(orders);
+        }else{
+            return ResponseEntity.notFound().build();
+        }        
+    } */
+
 }

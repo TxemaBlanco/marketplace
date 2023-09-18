@@ -1,4 +1,3 @@
-
 package org.factoriaf5.comicbooks.config;
 
 import java.util.Arrays;
@@ -21,26 +20,22 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @Configuration
-
 @EnableWebSecurity
-
 public class SecurityConfiguration  {
 
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
-                .cors(withDefaults())
-                .csrf(csfr -> csfr.disable())
+              /* .cors(cors -> cors.disable())  */
+                /*  .csrf(csfr -> csfr.disable())  */
                 .formLogin(form -> form.disable())
                 .logout(out -> out
                         .logoutUrl("/logout")
                         .deleteCookies("JSESSIONID"))
 
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.PUT).permitAll()
-                        .requestMatchers(HttpMethod.POST).permitAll()
-                        .requestMatchers(HttpMethod.GET).permitAll()
+                        .requestMatchers(HttpMethod.POST, "/customers").permitAll()
                         .requestMatchers("/customers/**").permitAll()
                         .requestMatchers("/customers/login").permitAll()
                         .requestMatchers("/genres/**").permitAll()
@@ -59,8 +54,8 @@ public class SecurityConfiguration  {
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowCredentials(true);
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
-        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
+        configuration.setAllowedOrigins(Arrays.asList("*"));
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
 
@@ -73,3 +68,5 @@ public class SecurityConfiguration  {
     }
 
 }
+
+
