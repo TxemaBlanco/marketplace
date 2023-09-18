@@ -1,16 +1,27 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, catchError, throwError } from 'rxjs';
-
+import { Observable, catchError, map, throwError } from 'rxjs';
+import { Comic } from '../models/Comic';
+import { of } from 'rxjs';
+import { Genre } from '../models/Genre';
 @Injectable({
   providedIn: 'root'
 })
 export class ComicService {
- 
+  private comics: Comic[] = [];
   private comicsUrl = 'http://localhost:8000/comics'; 
   private genresUrl = 'http://localhost:8000/genres'; 
-
-  constructor(private http: HttpClient) { }
+  private genres: Genre[] = [];
+  constructor(private http: HttpClient) { 
+    this.getGenres().subscribe(
+      (genres: Genre[]) => {
+        this.genres = genres;
+      },
+      (error) => {
+        console.error('Error al obtener la lista de géneros:', error);
+      }
+    );
+  }
 
   getComics(): Observable<any[]> {
     return this.http.get<any[]>(this.comicsUrl)
@@ -31,4 +42,9 @@ export class ComicService {
         })
       );
   }
+  getComicByISBN(isbn: string): Observable<Comic> {
+    return this.http.get<Comic>(`${this.comicsUrl}/${isbn}`);
+  }
+  
+  
 }
