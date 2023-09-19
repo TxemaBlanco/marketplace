@@ -29,7 +29,7 @@ public class Comic {
     private Boolean ishardcover;
     private String photo;
     private float price;
-    @Column(length = 700)
+    @Column(length = 2000)
     private String synopsis;
     private int stock;
 
