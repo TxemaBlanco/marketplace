@@ -156,3 +156,10 @@ export class ComicTableComponent implements OnInit {
     this.searchTerm = '';
   }
 }
+
+
+
+
+
+
+
