@@ -6,7 +6,7 @@ INSERT INTO genres (name) VALUES ("Novela Gráfica");/*4*/
 INSERT INTO genres (name) VALUES ("Humor");/*5*/
 INSERT INTO genres (name) VALUES ("Superhéroes");/*6*/
 
-/* comics */
+/* comics mmmm */
 
 INSERT INTO comics (isbn, title, author, price, ishardcover, synopsis, photo, stock) VALUES ("9788491466871","American gods sombras","Neil Gaiman y P. Craig Russell",2.37,false,"Sombra Moon acaba de salir de la cárcel y se entera de que su mujer ha muerto. Derrotado, en la ruina y sin saber adónde ir, conoce al misterioso señor Wednesday, que le da trabajo como guardaespaldas y le hace entrar en el mundo letal de lo sobrenatural, donde los fantasmas del pasado vuelven de entre los muertos y la guerra entre los viejos y los nuevos dioses está a punto de estallar. *Adaptación gráfica de la novela del multipremiado autor Neil Gaiman (The Sandman, Coraline, La última tentación, Cómo hablar con chicas en fiestas). *Portada de Dave McKean (ilustrador de The Sandman). *Obra multigalardonada por los Premios Hugo, Nébula, Bram Stroker o Locus. *Primer arco de 9 grapas. En total serán tres arcos argumentales. *Reciente adaptación a serie de TV.","AnericanGodsSombras.jpg",1);
 
