@@ -14,21 +14,26 @@ export class ComicTableComponent implements OnInit {
   searchTerm: string = '';
   itemsPerPage: number = 5;
   currentPage: number = 1;
+  sortByisbnAscending: boolean = true;
   sortByTitleAscending: boolean = true;
+  sortByAuthorAscending: boolean = true;
   currentSortOrder: 'A-Z' | 'Z-A' = 'A-Z';
   showSearchPopup: boolean = false;
   showGenreFilterPopup: boolean = false;
   showCoverTypeFilterPopup: boolean = false;
   selectedAuthor: string = '';
   showAuthorFilterPopup: boolean = false;
-  sortByAuthorAscending: boolean = true;
+  showcodigoFilterPopup: boolean = false;
+  showisbnFilterPopup: boolean = false;
+  selectedisbn: string = '';
+
 
   constructor(private comicService: ComicService) {}
 
   ngOnInit(): void {
     this.getComics();
     this.getGenres();
-    this.resetFiltersAndSorting(); // Restablecer filtros y ordenación al inicio
+    this.resetFiltersAndSorting(); 
   }
 
   getComics(): void {
@@ -47,6 +52,11 @@ export class ComicTableComponent implements OnInit {
   applyFilters(): void {
     let filteredComics = this.comics;
 
+    if (this.selectedisbn) {
+      filteredComics = filteredComics.filter((comic) =>
+        comic.isbn.toLowerCase().includes(this.selectedisbn.toLowerCase())
+      );
+    }
     if (this.selectedAuthor) {
       filteredComics = filteredComics.filter((comic) =>
         comic.author.toLowerCase().includes(this.selectedAuthor.toLowerCase())
@@ -82,12 +92,37 @@ export class ComicTableComponent implements OnInit {
       filteredComics.sort((a, b) => a.title.localeCompare(b.title));
     }
 
+    
+    if (!this.sortByisbnAscending) {
+      filteredComics.sort((a, b) => b.title.localeCompare(a.isbn));
+    } else {
+      filteredComics.sort((a, b) => a.title.localeCompare(b.isbn));
+    }
+    
+
     this.comics = filteredComics;
   }
-
+  
   toggleSortOrderPopup(order: 'A-Z' | 'Z-A') {
     this.currentSortOrder = order;
     this.sortByTitleAscending = !this.sortByTitleAscending;
+    
+    
+    this.applyFilters();
+  }
+  toggleSortOrderPopup2(order: 'A-Z' | 'Z-A') {
+    this.currentSortOrder = order;
+    this.sortByisbnAscending = !this.sortByisbnAscending;
+  
+    
+    this.applyFilters();
+  }
+
+  toggleSortOrderPopup3(order: 'A-Z' | 'Z-A') {
+    this.currentSortOrder = order;
+    this.sortByAuthorAscending = !this.sortByAuthorAscending;
+  
+    
     this.applyFilters();
   }
 
@@ -120,7 +155,10 @@ export class ComicTableComponent implements OnInit {
     }
   }
 
-  toggleFilterPopup(filterType: 'author' | 'genre' | 'coverType') {
+  toggleFilterPopup(filterType: 'isbn' |'author' | 'genre' | 'coverType') {
+    if (filterType === 'isbn') {
+      this.showisbnFilterPopup = !this.showisbnFilterPopup;
+    }
     if (filterType === 'genre') {
       this.showGenreFilterPopup = !this.showGenreFilterPopup;
     } else if (filterType === 'coverType') {
@@ -129,17 +167,15 @@ export class ComicTableComponent implements OnInit {
     if (filterType === 'author') {
       this.showAuthorFilterPopup = !this.showAuthorFilterPopup;
     }
+  
     this.applyFilters();
   }
 
-  toggleSortOrder(order: 'A-Z' | 'Z-A') {
-    if (this.currentSortOrder === order) {
-      this.sortByAuthorAscending = !this.sortByAuthorAscending;
-    } else {
-      this.currentSortOrder = order;
-      this.sortByAuthorAscending = true;
-    }
-    this.applyFilters();
+  
+  
+  refreshTable() {
+    this.resetFiltersAndSorting();
+    this.getComics();
   }
 
   resetFiltersAndSorting() {
@@ -152,8 +188,5 @@ export class ComicTableComponent implements OnInit {
     this.sortByAuthorAscending = true;
   }
 
-  refreshTable() {
-    this.resetFiltersAndSorting();
-    this.getComics();
-  }
+  
 }
