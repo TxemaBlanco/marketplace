@@ -12,7 +12,7 @@ export class ComicTableComponent implements OnInit {
   selectedGenre: any = null;
   selectedCoverType: string | null = null;
   searchTerm: string = '';
-  itemsPerPage: number = 4;
+  itemsPerPage: number = 5;
   currentPage: number = 1;
   sortByTitleAscending: boolean = true;
   currentSortOrder: 'A-Z' | 'Z-A' = 'A-Z';
@@ -22,18 +22,13 @@ export class ComicTableComponent implements OnInit {
   selectedAuthor: string = '';
   showAuthorFilterPopup: boolean = false;
   sortByAuthorAscending: boolean = true;
-  
-
-
-
 
   constructor(private comicService: ComicService) {}
 
   ngOnInit(): void {
     this.getComics();
     this.getGenres();
-    this.selectedAuthor = '';
-    this.currentSortOrder = 'A-Z';
+    this.resetFiltersAndSorting(); // Restablecer filtros y ordenación al inicio
   }
 
   getComics(): void {
@@ -118,13 +113,11 @@ export class ComicTableComponent implements OnInit {
   }
 
   toggleSearch() {
-   
     this.showSearchPopup = !this.showSearchPopup;
     if (!this.showSearchPopup) {
       this.searchTerm = '';
       this.applyFilters();
     }
-    
   }
 
   toggleFilterPopup(filterType: 'author' | 'genre' | 'coverType') {
@@ -136,9 +129,9 @@ export class ComicTableComponent implements OnInit {
     if (filterType === 'author') {
       this.showAuthorFilterPopup = !this.showAuthorFilterPopup;
     }
-   
     this.applyFilters();
   }
+
   toggleSortOrder(order: 'A-Z' | 'Z-A') {
     if (this.currentSortOrder === order) {
       this.sortByAuthorAscending = !this.sortByAuthorAscending;
@@ -148,11 +141,19 @@ export class ComicTableComponent implements OnInit {
     }
     this.applyFilters();
   }
-  refreshTable() {
-    this.getComics();
+
+  resetFiltersAndSorting() {
+    this.selectedAuthor = '';
     this.selectedGenre = null;
     this.selectedCoverType = null;
     this.searchTerm = '';
+    this.currentSortOrder = 'A-Z';
+    this.sortByTitleAscending = true;
+    this.sortByAuthorAscending = true;
   }
-  
+
+  refreshTable() {
+    this.resetFiltersAndSorting();
+    this.getComics();
+  }
 }
