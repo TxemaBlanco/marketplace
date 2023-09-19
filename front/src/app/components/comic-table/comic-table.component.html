@@ -38,7 +38,44 @@
             </div>
           </th>
 
-          <th class="col-md-2">Autor</th>
+          <th class="col-md-2">
+            Autor
+           
+            <label for="authorFilter" class="filter-label">
+              <img
+                src="../../../assets/filter.png"
+                alt="Filtrar por Autor"
+                class="filter-icon"
+                (click)="toggleFilterPopup('author')"
+              />
+            </label>
+            <div class="filter-popup" *ngIf="showAuthorFilterPopup">
+              <input
+                id="authorFilter"
+                type="text"
+                class="form-control"
+                [(ngModel)]="selectedAuthor"
+                (input)="applyFilters()"
+                placeholder="Buscar autor..."
+              />
+              <button class="btn btn-primary" (click)="refreshTable()">Refrescar</button>
+            </div>
+          
+           
+            <button
+              class="btn btn-link btn-sm fixed-sort-buttons"
+              (click)="toggleSortOrder('A-Z')"
+            >
+              <img src="../../../assets/G49.png" alt="Orden A-Z" />
+            </button>
+            <button
+            class="btn btn-link btn-sm fixed-sort-buttons"
+            (click)="toggleSortOrder('Z-A')"
+          >
+        
+          </button>
+          </th>
+        
           <th class="col-md-2">
             Géneros
             <label for="genreFilter" class="filter-label">
