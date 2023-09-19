@@ -7,48 +7,16 @@ INSERT INTO genres (name) VALUES ("Humor");/*5*/
 INSERT INTO genres (name) VALUES ("Superhéroes");/*6*/
 
 /* comics */
-INSERT INTO comics (isbn, title, author, price, ishardcover, synopsis, photo, stock) VALUES ("1000000000000","La tormenta","Luis Torrebruno",17.9,true,"defatult_comic.jpg","fkod",20);
-INSERT INTO comics (isbn, title, author, price, ishardcover, synopsis, photo, stock) VALUES ("0000000000000","La tormenta","Luis Torrebruno",17.9,true,"María Teresa Montilla (Natalia Streignard) es una mujer acostumbrada a vivir en la ciudad, pero ella tiene que mudarse a vivir a la hacienda «La Tormenta», propiedad de su familia en los llanos orientales, para tratar de salvar a su familia de la ruina financiera.","default_comic.jpg",20);
-INSERT INTO comics (isbn, title, author, price, ishardcover, synopsis, photo, stock) VALUES ("0000000000001","pokemon","jaimito",17.9,true,"Un impetuoso y joven entrenador llamado Ash Ketchum, y de Pikachu, su compañero Pokémon, mientras viajan por el mundo Pokémon visitando destinos exóticos, conociendo a montones de personas y Pokémon nuevos e interesantes, y viviendo muchas y emocionantes aventuras.","default_comic.jpg",5);
-INSERT INTO comics (isbn, title, author, price, ishardcover, synopsis, photo, stock) VALUES ("2222222222222","Terminator","Gonzalo Bermeo",17.9,true,"María Teresa Montilla (Natalia Streignard) es una mujer acostumbrada a vivir en la ciudad, pero ella tiene que mudarse a vivir a la hacienda «La Tormenta», propiedad de su familia en los llanos orientales, para tratar de salvar a su familia de la ruina financiera.","default_comic.jpg",4);
-INSERT INTO comics (isbn, title, author, price, ishardcover, synopsis, photo, stock) VALUES ("3333333333333","El Increible Hulk Vol2 #195","Juan San Valero",17.9,true,"María Teresa Montilla (Natalia Streignard) es una mujer acostumbrada a vivir en la ciudad, pero ella tiene que mudarse a vivir a la hacienda «La Tormenta», propiedad de su familia en los llanos orientales, para tratar de salvar a su familia de la ruina financiera.","default_comic.jpg",6);
-INSERT INTO comics (isbn, title, author, price, ishardcover, synopsis, photo, stock) VALUES ("4444444444444","Mortadelo Gigante #1","Luis Torrebruno",17.9,true,"Pero hombre Mortadelo, !Yo creo que tendria que haber buscado otro sistema para llegar al agua…!","default_comic.jpg",40);
-INSERT INTO comics (isbn, title, author, price, ishardcover, synopsis, photo, stock) VALUES ("5555555555555","Mortadelo Gigante #2","LuTor",17.9,true,"jMaría Teresa Montilla (Natalia Streignard) es una mujer acostumbrada a vivir en la ciudad, pero ella tiene que mudarse a vivir a la hacienda «La Tormenta», propiedad de su familia en los llanos orientales, para tratar de salvar a su familia de la ruina financiera.","default_comic.jpg",12);
-INSERT INTO comics (isbn, title, author, price, ishardcover, synopsis, photo, stock) VALUES ("0000230000000","Universitarias #01","bruno",17.9,true,"cuatro compañeras de habitación y estudiantes de la prestigiosa universidad New England Essex. Kimberly es la mejor estudiante de instituto de un humilde suburbio de Arizona. Ella puede ser cariñosa, ambiciosa y estar preparada para lo que la universidad le depara académicamente, pero allí se dará cuenta de que realmente no está preparada para lo que el New England Essex le tiene reservado socialmente hablando. ","default_comic.jpg",20);
-INSERT INTO comics (isbn, title, author, price, ishardcover, synopsis, photo, stock) VALUES ("6666666666666","Universitarias #02","Luis Torrebruno",17.9,true,"cuatro compañeras de habitación y estudiantes de la prestigiosa universidad New England Essex. Kimberly es la mejor estudiante de instituto de un humilde suburbio de Arizona. Ella puede ser cariñosa, ambiciosa y estar preparada para lo que la universidad le depara académicamente, pero allí se dará cuenta de que realmente no está preparada para lo que el New England Essex le tiene reservado socialmente hablando. ","default_comic.jpg",20);
-INSERT INTO comics (isbn, title, author, price, ishardcover, synopsis, photo, stock) VALUES ("0001200000000","Los Micronautas Vol1 #01","pepe",17.9,true,"María Teresa Montilla (Natalia Streignard) es una mujer acostumbrada a vivir en la ciudad, pero ella tiene que mudarse a vivir a la hacienda «La Tormenta», propiedad de su familia en los llanos orientales, para tratar de salvar a su familia de la ruina financiera.","default_comic.jpg",20);
-INSERT INTO comics (isbn, title, author, price, ishardcover, synopsis, photo, stock) VALUES ("0000002030000","X-Men - The 198 #01","Luis Torrebruno",17.9,true,"María Teresa Montilla (Natalia Streignard) es una mujer acostumbrada a vivir en la ciudad, pero ella tiene que mudarse a vivir a la hacienda «La Tormenta», propiedad de su familia en los llanos orientales, para tratar de salvar a su familia de la ruina financiera.","default_comic.jpg",20);
-INSERT INTO comics (isbn, title, author, price, ishardcover, synopsis, photo, stock) VALUES ("0000004300000","lilo y stich","Luisa",17.9,true,"María Teresa Montilla (Natalia Streignard) es una mujer acostumbrada a vivir en la ciudad, pero ella tiene que mudarse a vivir a la hacienda «La Tormenta», propiedad de su familia en los llanos orientales, para tratar de salvar a su familia de la ruina financiera.","default_comic.jpg",20);
+
 INSERT INTO comics (isbn, title, author, price, ishardcover, synopsis, photo, stock) VALUES ("9788491466871","American gods sombras","Neil Gaiman y P. Craig Russell",2.37,false,"Sombra Moon acaba de salir de la cárcel y se entera de que su mujer ha muerto. Derrotado, en la ruina y sin saber adónde ir, conoce al misterioso señor Wednesday, que le da trabajo como guardaespaldas y le hace entrar en el mundo letal de lo sobrenatural, donde los fantasmas del pasado vuelven de entre los muertos y la guerra entre los viejos y los nuevos dioses está a punto de estallar. *Adaptación gráfica de la novela del multipremiado autor Neil Gaiman (The Sandman, Coraline, La última tentación, Cómo hablar con chicas en fiestas). *Portada de Dave McKean (ilustrador de The Sandman). *Obra multigalardonada por los Premios Hugo, Nébula, Bram Stroker o Locus. *Primer arco de 9 grapas. En total serán tres arcos argumentales. *Reciente adaptación a serie de TV.","AnericanGodsSombras.jpg",1);
 
 
 
 /*Genres-comics*/
-INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("1000000000000", 1);
-INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("1000000000000", 6);
-INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("0000000000001", 2);
-INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("2222222222222", 5);
-INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("3333333333333", 6);
-INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("3333333333333", 1);
-INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("3333333333333", 3);
-INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("0000000000000", 1);
-INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("0000000000000", 3);
-INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("0000000000000", 5);
-INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("0000004300000", 2);
-INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("0000004300000", 3);
-INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("0000004300000", 5);
-INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("4444444444444", 1);
-INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("4444444444444", 5);
-INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("6666666666666", 4);
-INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("6666666666666", 2);
-INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("6666666666666", 1);
-INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("0000002030000", 2);
-INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("0000002030000", 1);
-INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("0001200000000", 2);
-INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("0001200000000", 1);
 
--- INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("9788491466871", 3);
--- INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("9788491466871", 4);
+
+INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("9788491466871", 3);
+INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("9788491466871", 4);
 
 
 /* customers */
