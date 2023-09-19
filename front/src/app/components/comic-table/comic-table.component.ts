@@ -12,19 +12,28 @@ export class ComicTableComponent implements OnInit {
   selectedGenre: any = null;
   selectedCoverType: string | null = null;
   searchTerm: string = '';
-  itemsPerPage: number = 5;
+  itemsPerPage: number = 4;
   currentPage: number = 1;
   sortByTitleAscending: boolean = true;
   currentSortOrder: 'A-Z' | 'Z-A' = 'A-Z';
   showSearchPopup: boolean = false;
   showGenreFilterPopup: boolean = false;
   showCoverTypeFilterPopup: boolean = false;
+  selectedAuthor: string = '';
+  showAuthorFilterPopup: boolean = false;
+  sortByAuthorAscending: boolean = true;
+  
+
+
+
 
   constructor(private comicService: ComicService) {}
 
   ngOnInit(): void {
     this.getComics();
     this.getGenres();
+    this.selectedAuthor = '';
+    this.currentSortOrder = 'A-Z';
   }
 
   getComics(): void {
@@ -42,6 +51,17 @@ export class ComicTableComponent implements OnInit {
 
   applyFilters(): void {
     let filteredComics = this.comics;
+
+    if (this.selectedAuthor) {
+      filteredComics = filteredComics.filter((comic) =>
+        comic.author.toLowerCase().includes(this.selectedAuthor.toLowerCase())
+      );
+    }
+    if (!this.sortByAuthorAscending) {
+      filteredComics.sort((a, b) => b.author.localeCompare(a.author));
+    } else {
+      filteredComics.sort((a, b) => a.author.localeCompare(b.author));
+    }
 
     if (this.selectedGenre) {
       filteredComics = filteredComics.filter((comic) =>
@@ -107,13 +127,25 @@ export class ComicTableComponent implements OnInit {
     
   }
 
-  toggleFilterPopup(filterType: 'genre' | 'coverType') {
+  toggleFilterPopup(filterType: 'author' | 'genre' | 'coverType') {
     if (filterType === 'genre') {
       this.showGenreFilterPopup = !this.showGenreFilterPopup;
     } else if (filterType === 'coverType') {
       this.showCoverTypeFilterPopup = !this.showCoverTypeFilterPopup;
     }
-    this.searchTerm = '';
+    if (filterType === 'author') {
+      this.showAuthorFilterPopup = !this.showAuthorFilterPopup;
+    }
+   
+    this.applyFilters();
+  }
+  toggleSortOrder(order: 'A-Z' | 'Z-A') {
+    if (this.currentSortOrder === order) {
+      this.sortByAuthorAscending = !this.sortByAuthorAscending;
+    } else {
+      this.currentSortOrder = order;
+      this.sortByAuthorAscending = true;
+    }
     this.applyFilters();
   }
 
