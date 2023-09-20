@@ -18,6 +18,8 @@ margin-top: 0.1vh;
   display: flex;
   align-items: end;
   justify-content: center;
+  width: 100%;
+  position: relative;
 }
 
 .container-th p{
@@ -97,6 +99,7 @@ tr {
   border: 0.13vh solid #ccc;
   padding: 1.35vh;
   z-index: 1;
+  top: 116%;
 }
 
 .filter-popup select,
@@ -118,7 +121,7 @@ margin-left: 56%;
 
 .btn-primary {
   margin-top: 2vh;
-  float: right;
+  width: 100%;
 }
 
 .search {
@@ -275,12 +278,12 @@ img, svg {
     margin-left: 1.2px;
 
   }
-  .search{
+/*   .search{
     margin-left: 4%;
     cursor: pointer;
     width: 1.5vh; 
-    margin-right: 8vh; 
-  }
+    margin-right: 8vh;  
+  } */
 
   .quitar{
     display: none;
@@ -310,5 +313,8 @@ img, svg {
     align-items: center;
     justify-content: center;
   }
-  
+
+  .search{
+    display: none;
+  }
 }

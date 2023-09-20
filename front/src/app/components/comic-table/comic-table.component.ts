@@ -160,12 +160,12 @@ export class ComicTableComponent implements OnInit {
     if (filterType === 'isbn') {
       this.showisbnFilterPopup = !this.showisbnFilterPopup;
     }
-    if (filterType === 'genre') {
+    else if (filterType === 'genre') {
       this.showGenreFilterPopup = !this.showGenreFilterPopup;
     } else if (filterType === 'coverType') {
       this.showCoverTypeFilterPopup = !this.showCoverTypeFilterPopup;
     }
-    if (filterType === 'author') {
+    else if (filterType === 'author') {
       this.showAuthorFilterPopup = !this.showAuthorFilterPopup;
     }
   
@@ -187,14 +187,22 @@ export class ComicTableComponent implements OnInit {
     this.currentSortOrder = 'A-Z';
     this.sortByTitleAscending = true;
     this.sortByAuthorAscending = true;
+    this.selectedisbn = '';
   }
 
   globalsearch(){
     this.applyFilters();
-
-
   }
 
+  popup!: HTMLElement;
+
+  onMouseOut(popup: HTMLElement){
+    popup.style.display = "none";
+  }
+
+  onMouseEnter(popup: HTMLElement){
+    popup.style.display = "block";
+  }
 
 }
 
