@@ -10,7 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST})
+@CrossOrigin(origins = "http://localhost:4200")
+// @CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST})
 @RequestMapping("/customers")
 public class CustomerController {
 
@@ -21,10 +22,11 @@ public class CustomerController {
         this.service = service;
     }
 
+    @CrossOrigin(origins="http://localhost:4200")
     @PostMapping
     public ResponseEntity<Customer> create(@RequestBody Customer customer) {
-        Customer serviceSaved = service.create(customer);
-        return ResponseEntity.status(HttpStatus.OK).body(serviceSaved);
+        Customer customerSaved = service.create(customer);
+        return ResponseEntity.status(HttpStatus.OK).body(customerSaved);
     }
 
     @GetMapping(path = { "/{email}" })
@@ -51,6 +53,7 @@ public class CustomerController {
         return ResponseEntity.status(HttpStatus.OK).body(serviceGetAll);
     }
 
+    @CrossOrigin(origins="http://localhost:4200")
     @PostMapping(path = "/login")
     public ResponseEntity<LoginResponse> loginCustomer(@RequestBody LoginDTO loginDTO) {
         LoginResponse loginResponse = service.loginCustomer(loginDTO);
