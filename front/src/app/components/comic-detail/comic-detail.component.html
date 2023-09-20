@@ -1,0 +1,25 @@
+<div *ngIf="comic" class="row my-5 text-center" style="overflow-y: auto; ">
+  <div class="col-md-6 col-sm-12" >
+    <img [src]="comic.photo" alt="{{ comic.title }} Cover" class="img-fluid m-3">
+    <br>
+   
+  </div>
+  <div class="col-md-6 col-sm-12"> 
+    <h2 class="mb-5">{{ comic.title }}</h2>
+    <p  class="my-3  text-left">
+      <span *ngFor="let genre of comic.genres; let last = last">
+        {{ genre.name }}{{ !last ? ', ' : '' }}
+      </span>
+    </p>
+    <p class="text-left">Autor: {{ comic.author }}</p>
+    <p class="m-2">{{ comic.synopsis }}</p>
+    <p class="text-center">{{ comic.price }} €</p>
+  </div>
+  <div class="col-sm-5.offset-md-3  text-center">
+    <button class="px-5 m-5"><h3>editar</h3></button>
+  </div>
+  
+  
+  
+  
+</div>
