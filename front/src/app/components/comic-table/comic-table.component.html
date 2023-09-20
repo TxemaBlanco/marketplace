@@ -1,7 +1,7 @@
 <div class="container">
   <div class="container-search">
-    <input class="search-up" formControlName="search" type="text" placeholder="Introduce tu búsqueda"><br>
-    <img class="image-search-1" src="../../../assets/buscar.png" alt="buscar">
+    <input ng-model="searchText"  class="search-up" formControlName="search" type="text" placeholder="Introduce tu búsqueda"><br>
+    <img (click)="globalsearch()" class="image-search-1" src="../../../assets/buscar.png" alt="buscar">
   </div>
   <div class="table-responsive">
     <table class="table table-striped">
@@ -102,7 +102,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let comic of comicsOnCurrentPage">
+         <tr *ngFor="let comic of comicsOnCurrentPage">
+      <!--   <tr ng-repeat=let comic in comicsOnCurrentPage | filter:searchText> -->
           <td><a [routerLink]="['/comic', comic.isbn]"></a>{{ comic.isbn }}</td>
           <td><a [routerLink]="['/comic', comic.isbn]">{{ comic.title }}</a></td>
           <td>{{ comic.author }}</td>

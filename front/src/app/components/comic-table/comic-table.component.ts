@@ -22,6 +22,7 @@ export class ComicTableComponent implements OnInit {
   selectedAuthor: string = '';
   showAuthorFilterPopup: boolean = false;
   sortByAuthorAscending: boolean = true;
+  comic: any[] = [];
   
 
 
@@ -40,6 +41,7 @@ export class ComicTableComponent implements OnInit {
     this.comicService.getComics().subscribe((comics) => {
       this.comics = comics;
       this.applyFilters();
+      this.globalsearch();
     });
   }
 
@@ -155,6 +157,14 @@ export class ComicTableComponent implements OnInit {
     this.selectedCoverType = null;
     this.searchTerm = '';
   }
+
+  globalsearch(){
+    this.applyFilters();
+
+
+  }
+
+
 }
 
 
