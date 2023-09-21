@@ -46,5 +46,9 @@ export class ComicService {
     return this.http.get<Comic>(`${this.comicsUrl}/${isbn}`);
   }
   
-  
+  searchComics(searchTerm: string): Observable<any[]> {
+    const url = `${this.comicsUrl}/buscar-comics?search=${searchTerm}`; 
+
+    return this.http.get<any[]>(`${this.comicsUrl}`);
+  }
 }

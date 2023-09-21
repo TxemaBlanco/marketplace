@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ComicService } from '../../services/comic.service';
+import { Comic } from 'src/app/models/Comic';
 
 @Component({
   selector: 'app-comic-table',
@@ -7,7 +8,7 @@ import { ComicService } from '../../services/comic.service';
   styleUrls: ['./comic-table.component.scss']
 })
 export class ComicTableComponent implements OnInit {
-  comics: any[] = [];
+  comics: Comic[] = [];
   genres: any[] = [];
   selectedGenre: any = null;
   selectedCoverType: string | null = null;
@@ -26,21 +27,22 @@ export class ComicTableComponent implements OnInit {
   showcodigoFilterPopup: boolean = false;
   showisbnFilterPopup: boolean = false;
   selectedisbn: string = '';
-
+  searchTextGlobal: string = '';
+  filteredComics: Comic[] = [];
 
   constructor(private comicService: ComicService) {}
 
   ngOnInit(): void {
     this.getComics();
     this.getGenres();
-    this.resetFiltersAndSorting(); 
+    this.filteredComics = this.comics;
+    this.resetFiltersAndSorting();
   }
 
   getComics(): void {
     this.comicService.getComics().subscribe((comics) => {
       this.comics = comics;
       this.applyFilters();
-      this.globalsearch();
     });
   }
 
@@ -51,7 +53,7 @@ export class ComicTableComponent implements OnInit {
   }
 
   applyFilters(): void {
-    let filteredComics = this.comics;
+    let filteredComics = this.comics.slice(); 
 
     if (this.selectedisbn) {
       filteredComics = filteredComics.filter((comic) =>
@@ -62,11 +64,6 @@ export class ComicTableComponent implements OnInit {
       filteredComics = filteredComics.filter((comic) =>
         comic.author.toLowerCase().includes(this.selectedAuthor.toLowerCase())
       );
-    }
-    if (!this.sortByAuthorAscending) {
-      filteredComics.sort((a, b) => b.author.localeCompare(a.author));
-    } else {
-      filteredComics.sort((a, b) => a.author.localeCompare(b.author));
     }
 
     if (this.selectedGenre) {
@@ -81,9 +78,12 @@ export class ComicTableComponent implements OnInit {
       filteredComics = filteredComics.filter((comic) => !comic.ishardcover);
     }
 
-    if (this.searchTerm) {
+    if (this.searchTerm || this.searchTextGlobal) {
+      const searchQuery = (this.searchTerm + ' ' + this.searchTextGlobal).toLowerCase();
       filteredComics = filteredComics.filter((comic) =>
-        comic.title.toLowerCase().includes(this.searchTerm.toLowerCase())
+        comic.title.toLowerCase().includes(searchQuery) ||
+        comic.isbn.toLowerCase().includes(searchQuery) ||
+        comic.author.toLowerCase().includes(searchQuery)
       );
     }
 
@@ -93,37 +93,24 @@ export class ComicTableComponent implements OnInit {
       filteredComics.sort((a, b) => a.title.localeCompare(b.title));
     }
 
-    
-    if (!this.sortByisbnAscending) {
-      filteredComics.sort((a, b) => b.title.localeCompare(a.isbn));
-    } else {
-      filteredComics.sort((a, b) => a.title.localeCompare(b.isbn));
-    }
-    
-
     this.comics = filteredComics;
   }
-  
+
   toggleSortOrderPopup(order: 'A-Z' | 'Z-A') {
     this.currentSortOrder = order;
     this.sortByTitleAscending = !this.sortByTitleAscending;
-    
-    
     this.applyFilters();
   }
+
   toggleSortOrderPopup2(order: 'A-Z' | 'Z-A') {
     this.currentSortOrder = order;
     this.sortByisbnAscending = !this.sortByisbnAscending;
-  
-    
     this.applyFilters();
   }
 
   toggleSortOrderPopup3(order: 'A-Z' | 'Z-A') {
     this.currentSortOrder = order;
     this.sortByAuthorAscending = !this.sortByAuthorAscending;
-  
-    
     this.applyFilters();
   }
 
@@ -142,38 +129,35 @@ export class ComicTableComponent implements OnInit {
     return Array.from({ length: totalPages }, (_, i) => i + 1);
   }
 
-  get comicsOnCurrentPage(): any[] {
+  get comicsOnCurrentPage(): Comic[] {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-    const endIndex = startIndex + this.itemsPerPage;
+    const endIndex = Math.min(startIndex + this.itemsPerPage, this.comics.length);
     return this.comics.slice(startIndex, endIndex);
   }
 
   toggleSearch() {
     this.showSearchPopup = !this.showSearchPopup;
-    if (!this.showSearchPopup) {
-      this.searchTerm = '';
-      this.applyFilters();
-    }
+  if (!this.showSearchPopup) {
+    this.searchTerm = '';
+    this.searchTextGlobal = ''; 
+    this.applyFilters(); 
   }
+}
 
-  toggleFilterPopup(filterType: 'isbn' |'author' | 'genre' | 'coverType') {
+  toggleFilterPopup(filterType: 'isbn' | 'author' | 'genre' | 'coverType') {
     if (filterType === 'isbn') {
       this.showisbnFilterPopup = !this.showisbnFilterPopup;
-    }
-    else if (filterType === 'genre') {
+    } else if (filterType === 'genre') {
       this.showGenreFilterPopup = !this.showGenreFilterPopup;
     } else if (filterType === 'coverType') {
       this.showCoverTypeFilterPopup = !this.showCoverTypeFilterPopup;
-    }
-    else if (filterType === 'author') {
+    } else if (filterType === 'author') {
       this.showAuthorFilterPopup = !this.showAuthorFilterPopup;
     }
-  
+
     this.applyFilters();
   }
 
-  
-  
   refreshTable() {
     this.resetFiltersAndSorting();
     this.getComics();
@@ -184,31 +168,33 @@ export class ComicTableComponent implements OnInit {
     this.selectedGenre = null;
     this.selectedCoverType = null;
     this.searchTerm = '';
+    this.searchTextGlobal = '';
     this.currentSortOrder = 'A-Z';
     this.sortByTitleAscending = true;
     this.sortByAuthorAscending = true;
+    this.sortByisbnAscending = true;
     this.selectedisbn = '';
   }
 
-  globalsearch(){
-    this.applyFilters();
+  globalsearch() {
+    if (this.searchTextGlobal.trim() === '') {
+      this.getComics(); 
+      return;
+    }
+  
+    this.comicService.searchComics(this.searchTextGlobal).subscribe((comics) => {
+      this.comics = comics;
+      this.applyFilters(); 
+    });
   }
 
   popup!: HTMLElement;
 
-  onMouseOut(popup: HTMLElement){
+  onMouseOut(popup: HTMLElement) {
     popup.style.display = "none";
   }
 
-  onMouseEnter(popup: HTMLElement){
+  onMouseEnter(popup: HTMLElement) {
     popup.style.display = "block";
   }
-
 }
-
-
-
-
-
-
-

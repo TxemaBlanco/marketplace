@@ -10,13 +10,17 @@ table {
   border-collapse: separate;
   border: 0.4vh solid black;
 }
+tbody{
+  text-align: center;
+  vertical-align: middle;
+}
 .table-responsive{
 margin-top: 0.1vh;
 }
 
 .container-th{
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   justify-content: center;
   width: 100%;
   position: relative;
@@ -60,7 +64,7 @@ td {
 }
 
 .btn {
-/*   margin-left: 1.35vh; */
+
 margin-left: 0px;
   justify-content: center;
   padding: 0 0.5vh;
@@ -99,8 +103,8 @@ tr {
   border: 0.13vh solid #ccc;
   padding: 1.35vh;
   z-index: 1;
+  top: 42%;
   border-radius: 15px;
-  top: 116%;
 }
 
 .filter-popup select,
@@ -117,6 +121,7 @@ tr {
 margin-left: 56%; 
   cursor: pointer;
   width: 3vh; 
+  margin-left: 100%;
 /*   margin-right: 8vh;  */
 }
 
@@ -197,11 +202,10 @@ img, svg {
     margin-bottom: 7.5vh;
   }
   .filter-icon {
-/*     margin-left: 4%; */
+    margin-left: 56%; 
     cursor: pointer;
     width: 3vh; 
-    margin-left: 56%;
- /*    margin-right: 8vh;  */
+    margin-left: 3vh;
   }
   img, svg {
     width: 2.3vh; 
@@ -273,6 +277,7 @@ img, svg {
   }
   .filter-icon {
     display: none;
+
   }
   img, svg {
     width: 1.4vh; 

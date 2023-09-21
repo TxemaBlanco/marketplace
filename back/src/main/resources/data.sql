@@ -68,31 +68,6 @@ INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("7596060791480", 6);
 
 
 
-
-
-
-/*Genres-comics*/
-
-
-INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("9788491466871", 3);
-INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("9788491466871", 4);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-INSERT INTO comics (isbn, title, author, price, ishardcover, synopsis, photo, stock) VALUES ("9788402421432","Mortadelo y Filemón Drones Matones","Francisco Ibañez ",5,60,false,"En esta nueva aventura, Mortadelo y Filemón incorporan las nuevas tecnologías a las misiones de la T.I.A. En esta historieta, el profesor Bacterio ha construido un dron ideado especialmente para ayudar a Mortadelo y Filemón en sus misiones y también para neutralizar drones del enemigo, pero la situación empeorará por momentos, ya que todo invento de Bacterio no puede acabar bien. La T.I.A. intentará hacer una demostración al presidente de los Estados Juntitos, que acabará en drama, seguro. ","mortadeloDrones.jpg",1);
-
 /* customers */
 INSERT INTO customers (email, dni, name, surname, surname2, province, town, postalcode, street, number, stair,floor, gate, letter, password) VALUES ("user@user.com","29920371A","Lola","Flores","Rosas","Madrid","Madrid",30033,"La buenecita",14,"dcha","3","3","A","$2a$12$BwyEzyYm8ssMjYY9HLvrq.LwIxYbfApeAM41kyP7o6ZyYq8B542wO");
 INSERT INTO customers (email, dni, name, surname, surname2, province, town, postalcode, street, number, stair,floor, gate, letter, password) VALUES ("lola@gmail.com","29920371A","Lola","Flores","Rosas","Madrid","Madrid",30033,"La buenecita",14,"dcha","3","3","A","$2a$12$BwyEzyYm8ssMjYY9HLvrq.LwIxYbfApeAM41kyP7o6ZyYq8B542wO");
@@ -100,10 +75,6 @@ INSERT INTO customers (email, dni, name, surname, surname2, province, town, post
 INSERT INTO customers (email, dni, name, surname, surname2, province, town, postalcode, street, number, stair,floor, gate, letter, password) VALUES ("lala@gmail.com","29920371A","Lala","cruz","santos","Madrid","Madrid",30033,"La buenecita",14,"dcha","3","3","A","$2a$12$BwyEzyYm8ssMjYY9HLvrq.LwIxYbfApeAM41kyP7o6ZyYq8B542wO");
 INSERT INTO customers (email, dni, name, surname, surname2, province, town, postalcode, street, number, stair,floor, gate, letter, password) VALUES ("jaime@gmail.com","29920371A","jaime","sanchez","sanchez","malaga","malaga",30033,"El Coronel La Piara",14,"dcha","3","3","A","$2a$12$BwyEzyYm8ssMjYY9HLvrq.LwIxYbfApeAM41kyP7o6ZyYq8B542wO");
 INSERT INTO customers (email, dni, name, surname, surname2, province, town, postalcode, street, number, stair,floor, gate, letter, password) VALUES ("Bartolomeo@gmail.com","29920371A","Bartolomeo","Gutierrez","Queleveo","malaga","malaga",30033,"c/La Princesa Cisne",14,"izda","98","5","H","$2a$12$BwyEzyYm8ssMjYY9HLvrq.LwIxYbfApeAM41kyP7o6ZyYq8B542wO");
-
-
-
-
 
 
 

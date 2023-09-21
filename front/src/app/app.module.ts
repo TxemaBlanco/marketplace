@@ -45,8 +45,8 @@ import { LoginViewComponent } from './views/login-view/login-view.component';
     ComicdetailviewComponent,
     ComicDetailComponent,
     RegisterComponent,
-    LoginViewComponent
-   
+    LoginViewComponent,
+    HeaderloginComponent,
   ],
   imports: [
     BrowserModule,
