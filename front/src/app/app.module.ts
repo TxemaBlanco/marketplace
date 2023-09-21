@@ -26,6 +26,7 @@ import { NewcustomerComponent } from './examples/register_pablo/newcustomer/newc
 import {ReactiveFormsModule} from '@angular/forms';
 
 import { RouterModule, Routes } from '@angular/router';
+import { LoginViewComponent } from './views/login-view/login-view.component';
 
 
 
@@ -43,7 +44,8 @@ import { RouterModule, Routes } from '@angular/router';
     LoginComponent,
     ComicdetailviewComponent,
     ComicDetailComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginViewComponent
    
   ],
   imports: [
