@@ -22,6 +22,7 @@ export class ComicDetailComponent implements OnInit {
       this.comicService.getComicByISBN(isbn).subscribe(
         (comic: Comic) => {
           this.comic = comic;
+          console.log(this.comic.photo)
         },
         (error) => {
           console.error('Error al obtener el cómic:', error);
