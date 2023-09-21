@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class HeaderclientComponent {
   isMenuOpen = false;
+  loggedInUsername: string = ""; 
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen; 

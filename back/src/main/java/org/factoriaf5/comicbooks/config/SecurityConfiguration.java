@@ -27,7 +27,7 @@ public class SecurityConfiguration  {
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
-                .cors(withDefaults())
+                // .cors(withDefaults())
                 .csrf(csfr -> csfr.disable())
                 .formLogin(form -> form.disable())
                 .logout(out -> out

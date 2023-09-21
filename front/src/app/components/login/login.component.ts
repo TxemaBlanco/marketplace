@@ -22,7 +22,7 @@ export class LoginComponent {
         alert("El email no existe")
        } else if (resultData.message == "Login Success"){
         alert("Logueado con éxito")
-        this.router.navigateByUrl('/home');
+        this.router.navigateByUrl('comicList');
        } else {
         alert("Incorrecto la contraseña y el email no coinciden")
        }
