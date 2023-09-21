@@ -1,4 +1,3 @@
-
 package org.factoriaf5.comicbooks.config;
 
 import java.util.Arrays;
@@ -21,9 +20,7 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @Configuration
-
 @EnableWebSecurity
-
 public class SecurityConfiguration  {
 
     @Bean
@@ -73,3 +70,5 @@ public class SecurityConfiguration  {
     }
 
 }
+
+

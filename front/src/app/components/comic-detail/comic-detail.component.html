@@ -1,17 +1,25 @@
-<div *ngIf="comic" class="row my-5">
-  <div class="col-md-4">
-    <img [src]="comic.photo" alt="{{ comic.title }} Cover" class="img-fluid m-3">
+<div *ngIf="comic" class="row my-5" style="overflow-y: auto; ">
+  <div class="col-md-6 col-sm-12" >
+    <img [src]="'../../../assets/images/comics/'+comic.photo" alt="{{ comic.title }} Cover" class="img-fluid m-5">
     <br>
-    <button class="m-3 px-5"><h3> editar </h3></button>
+   
   </div>
-  <div class="col-md-8"> 
-    <h2 class="mb-5">{{ comic.title }}</h2>
-    <p  class="my-3">
+  <div class="col-md-6 col-sm-12"> 
+    <h2 class="mt-2 mb-3 mx-3 text-justify ">{{ comic.title }}</h2>
+    <p  class="m-3  text-justify">
       <span *ngFor="let genre of comic.genres; let last = last">
         {{ genre.name }}{{ !last ? ', ' : '' }}
       </span>
     </p>
-    <p>Autor: {{ comic.author }}</p>
-    <p>{{ comic.synopsis }}</p>
+    <p class="text-justify m-3">Autor: {{ comic.author }}</p>
+    <p class="m-3  text-justify">{{ comic.synopsis }}</p>
+    <h3 style="text-align: right;" class="m-5">{{ comic.price }} €</h3>
   </div>
+  <div class="col-sm-5.offset-md-3  text-center">
+    <button class="px-5 mx-5"><h3>Añadir al carrito</h3></button>
+  </div>
+  
+  
+  
+  
 </div>

@@ -20,6 +20,15 @@ import { HeaderloginComponent } from './shared/headerlogin/headerlogin.component
 
 
 
+import { RegisterComponent } from './examples/register/register.component';
+import { NewcustomerComponent } from './examples/register_pablo/newcustomer/newcustomer.component';
+
+import {ReactiveFormsModule} from '@angular/forms';
+
+import { RouterModule, Routes } from '@angular/router';
+import { LoginViewComponent } from './views/login-view/login-view.component';
+
+
 
 @NgModule({
   declarations: [
@@ -33,9 +42,10 @@ import { HeaderloginComponent } from './shared/headerlogin/headerlogin.component
     ComicTableComponent,
     ComiclistviewComponent,
     LoginComponent,
-    ComicDetailComponent,
     ComicdetailviewComponent,
-    HeaderloginComponent,
+    ComicDetailComponent,
+    RegisterComponent,
+    LoginViewComponent
    
   ],
   imports: [
@@ -43,6 +53,8 @@ import { HeaderloginComponent } from './shared/headerlogin/headerlogin.component
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    RouterModule,
   
   ],
   providers: [],
