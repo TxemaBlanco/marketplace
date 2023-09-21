@@ -1,7 +1,13 @@
 <div class="container">
   <div class="container-search">
-    <input ng-model="searchText" class="search-up" formControlName="search" type="text"
-      placeholder="Introduce tu búsqueda"><br>
+   <input
+  ng-model="searchText"
+  class="search-up"
+  type="text"
+  placeholder="Introduce tu búsqueda"
+  [(ngModel)]="searchTextGlobal"
+  (input)="globalsearch()"
+/>
     <img (click)="globalsearch()" class="image-search-1" src="../../../assets/buscar.png" alt="buscar">
   </div>
   
@@ -29,17 +35,17 @@
                 
                 />
               </label>
-              <div #popup (mouseleave)="onMouseOut(popup)" class="filter-popup" *ngIf="showisbnFilterPopup">
-                <input
-                  id="authorFilter"
-                  type="text"
-                  class="form-control"
-                  [(ngModel)]="selectedisbn"
-                  (input)="applyFilters()"
-                  placeholder="Buscar código..."
-                />
-                <button class="btn btn-primary" (click)="refreshTable()">Refrescar</button>
-              </div>
+            </div>
+            <div #popup (mouseleave)="onMouseOut(popup)" class="filter-popup" *ngIf="showisbnFilterPopup">
+              <input
+                id="authorFilter"
+                type="text"
+                class="form-control"
+                [(ngModel)]="selectedisbn"
+                (input)="applyFilters()"
+                placeholder="Buscar código..."
+              />
+              <button class="btn btn-primary" (click)="refreshTable()">Refrescar</button>
             </div>
             </th>
   
@@ -58,8 +64,9 @@
               </button>
            
               <button class="btn btn-link btn-sm fixed-sort-buttons" (click)="toggleSearch()">
-                <img class="search" src="../../../assets/buscar.png" alt="Buscar" />
+                <img class="filter-icon" src="../../../assets/buscar.png" alt="Buscar" />
               </button>
+              </div>
               <div #popup (mouseleave)="onMouseOut(popup)" class="filter-popup" *ngIf="showSearchPopup">
                 <input
                   id="searchInput"
@@ -71,7 +78,6 @@
                 />
                 <button class="btn btn-primary" (click)="refreshTable()">Refrescar</button>
               </div>
-              </div>
             </th>
   
             <th class="col-md-2">
@@ -79,7 +85,8 @@
               <p>Autor</p>
               <button
               class="btn btn-link btn-sm fixed-sort-buttons"
-              (click)="toggleSortOrderPopup('A-Z')"
+              (click)="toggleSortOrderPopup3('A-Z')"
+  
             >
               <img src="../../../assets/G49.png" alt="Orden A-Z" />
             </button>
@@ -92,6 +99,7 @@
                   (click)="toggleFilterPopup('author')"
                 />
               </label>
+              </div>
               <div #popup (mouseleave)="onMouseOut(popup)" class="filter-popup" *ngIf="showAuthorFilterPopup">
                 <input
                   id="authorFilter"
@@ -102,7 +110,6 @@
                   placeholder="Buscar autor..."
                 />
                 <button class="btn btn-primary" (click)="refreshTable()">Refrescar</button>
-              </div>
               </div>
             </th>
           
@@ -117,6 +124,8 @@
                   (click)="toggleFilterPopup('genre')"
                 />
               </label>
+              
+              </div>
               <div #popup (mouseleave)="onMouseOut(popup)" class="filter-popup" *ngIf="showGenreFilterPopup">
                 <select
                   id="genreFilter"
@@ -131,7 +140,6 @@
                 </select>
                 <button class="btn btn-primary" (click)="refreshTable()">Refrescar</button>
               </div>
-              </div>
             </th>
             <th class="col-md-2">Precio</th>
             <th class="col-md-2">
@@ -145,19 +153,20 @@
                   (click)="toggleFilterPopup('coverType')"
                 />
               </label>
-              <div #popup (mouseleave)="onMouseOut(popup)" class="filter-popup" *ngIf="showCoverTypeFilterPopup">
-                <select
-                  id="coverTypeFilter"
-                  class="form-control filter-dropdown"
-                  [(ngModel)]="selectedCoverType"
-                  (change)="applyFilters()"
-                >
-                  <option [ngValue]="null">Todos</option>
-                  <option value="hard">Tapa Dura</option>
-                  <option value="soft">Tapa Blanda</option>
-                </select>
-                <button class="btn btn-primary" (click)="refreshTable()">Refrescar</button>
-              </div>
+              
+            </div>
+            <div #popup (mouseleave)="onMouseOut(popup)" class="filter-popup" *ngIf="showCoverTypeFilterPopup">
+              <select
+                id="coverTypeFilter"
+                class="form-control filter-dropdown"
+                [(ngModel)]="selectedCoverType"
+                (change)="applyFilters()"
+              >
+                <option [ngValue]="null">Todos</option>
+                <option value="hard">Tapa Dura</option>
+                <option value="soft">Tapa Blanda</option>
+              </select>
+              <button class="btn btn-primary" (click)="refreshTable()">Refrescar</button>
             </div>
             </th>
          
