@@ -1,13 +1,13 @@
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ComiclistviewComponent } from './views/comiclistview/comiclistview.component';
-import { ComicdetailviewComponent } from './views/comicdetailview/comicdetailview.component';
-import { LoginViewComponent } from './views/login-view/login-view.component';
+import { ComicTableComponent } from './components/comic-table/comic-table.component';
+import { ComicDetailComponent } from './components/comic-detail/comic-detail.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
-  { path: 'comic/:isbn', component: ComicdetailviewComponent },
-  { path: 'comicList', component: ComiclistviewComponent},
-  { path: '', component:  LoginViewComponent},
+  { path: 'comic/:isbn', component:  ComicDetailComponent },
+  { path: 'comicList', component: ComicTableComponent},
+  { path: '', component:  LoginComponent},
  
 ];
 

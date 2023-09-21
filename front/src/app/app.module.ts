@@ -11,22 +11,13 @@ import { HeaderadminComponent } from './shared/headeradmin/headeradmin.component
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ComicTableComponent } from '../app/components/comic-table/comic-table.component';
-import { ComiclistviewComponent } from './views/comiclistview/comiclistview.component';
 import { LoginComponent } from './components/login/login.component';
 import { ComicDetailComponent } from './components/comic-detail/comic-detail.component';
-import { ComicdetailviewComponent } from './views/comicdetailview/comicdetailview.component';
 import { HeaderloginComponent } from './shared/headerlogin/headerlogin.component';
-
-
-
-
 import { RegisterComponent } from './examples/register/register.component';
 import { NewcustomerComponent } from './examples/register_pablo/newcustomer/newcustomer.component';
-
 import {ReactiveFormsModule} from '@angular/forms';
-
 import { RouterModule, Routes } from '@angular/router';
-import { LoginViewComponent } from './views/login-view/login-view.component';
 
 
 
@@ -40,12 +31,9 @@ import { LoginViewComponent } from './views/login-view/login-view.component';
     HeaderadminComponent,
     HeaderclientComponent,
     ComicTableComponent,
-    ComiclistviewComponent,
     LoginComponent,
-    ComicdetailviewComponent,
     ComicDetailComponent,
     RegisterComponent,
-    LoginViewComponent,
     HeaderloginComponent,
   ],
   imports: [
