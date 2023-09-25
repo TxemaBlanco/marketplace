@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ComicService } from '../../services/comic.service';
 import { Comic } from 'src/app/models/Comic';
 
 @Component({
-  selector: 'app-comic-table',
-  templateUrl: './comic-table.component.html',
-  styleUrls: ['./comic-table.component.scss']
+  selector: 'app-shoping-cart-client',
+  templateUrl: './shoping-cart-client.component.html',
+  styleUrls: ['./shoping-cart-client.component.scss']
 })
-export class ComicTableComponent implements OnInit {
+export class ShopingCartClientComponent {
+
   comics: Comic[] = [];
   genres: any[] = [];
   selectedGenre: any = null;
