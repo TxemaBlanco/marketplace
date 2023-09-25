@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ComicService } from 'src/app/services/comic.service';
 import { Comic } from 'src/app/models/Comic';
 import { CartService } from 'src/app/services/cart.service';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-comic-detail',
   templateUrl: './comic-detail.component.html',
@@ -11,15 +11,12 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ComicDetailComponent implements OnInit {
   comic: Comic | undefined;
-  modal: any;
-  message = 'Añadido al carrito';
-  modalContent: any = null;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private comicService: ComicService,
     private cartService: CartService,
-    private modalService: NgbModal 
   ) {}
 
   ngOnInit(): void {
@@ -42,14 +39,20 @@ export class ComicDetailComponent implements OnInit {
       this.cartService.addToCart(this.comic);
       const cartItems = this.cartService.getCartItems();
       console.log('Carrito:', cartItems);
-
-      this.modal = this.modalService.open(this.modalContent);
-  
-      setTimeout(() => {
-        this.modal.close();
-        this.router.navigate(['/comicList']); 
-      }, 2000);
     }
     
+  }
+  openConfirmationModal() {
+    this.addToCart();
+    Swal.fire({
+      title: 'Cómic añadido al carrito',
+      icon: 'success',
+      confirmButtonColor: 'rgba(29, 41, 81, 1)',
+      confirmButtonText: 'Volver a la lista de comics',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.router.navigate(['/comicList']); 
+      }
+    });
   }
 }
