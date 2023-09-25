@@ -20,6 +20,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; 
 import { ShopingCartClientComponent } from './components/shoping-cart-client/shoping-cart-client.component';
+import { RegisterAComponent } from './components/register-a/register-a.component';
 
 
 
@@ -38,6 +39,7 @@ import { ShopingCartClientComponent } from './components/shoping-cart-client/sho
     RegisterComponent,
     HeaderloginComponent,
     ShopingCartClientComponent,
+    RegisterAComponent,
   ],
   imports: [
     BrowserModule,
