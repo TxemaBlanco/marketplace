@@ -17,8 +17,8 @@
                 <img src="../../../assets/G49.png" alt="Orden A-Z" />
               </button>
 
-              <label for="codigoFilter"  class="filter-label">
-                <img (click)="toggleFilterPopup('isbn')" src="../../../assets/buscar.png" alt="Filtrar por codigo" class="filter-icon" />
+              <label for="codigoFilter" (click)="toggleFilterPopup('isbn')" class="filter-label">
+                <img src="../../../assets/buscar.png" alt="Filtrar por codigo" class="filter-icon" />
               </label>
             </div>
             <div #popup (mouseleave)="onMouseOut(popup)" class="filter-popup" *ngIf="showisbnFilterPopup">
@@ -35,16 +35,16 @@
               <button class="btn btn-link btn-sm fixed-sort-buttons" (click)="toggleSortOrderPopup('A-Z')">
                 <img src="../../../assets/G49.png" alt="Orden Z-A" />
               </button>
-                <button class="btn btn-link btn-sm fixed-sort-buttons" (click)="toggleSearch()">
-                <img  class="filter-icon" src="../../../assets/buscar.png" alt="Buscar" />
-                </button>
+
+              <button class="btn btn-link btn-sm fixed-sort-buttons" (click)="toggleSearch()">
+                <img class="filter-icon" src="../../../assets/buscar.png" alt="Buscar" />
+              </button>
             </div>
-              <div #popup (mouseleave)="onMouseOut(popup)" class="filter-popup" *ngIf="showSearchPopup">
-                <input id="searchInput" type="text" class="form-control" [(ngModel)]="searchTerm" (input)="applyFilters()"
-                  placeholder="Buscar Titulo..." />
-                <button class="btn btn-primary" (click)="refreshTable()">Refrescar</button>
-              </div>
-           
+            <div #popup (mouseleave)="onMouseOut(popup)" class="filter-popup" *ngIf="showSearchPopup">
+              <input id="searchInput" type="text" class="form-control" [(ngModel)]="searchTerm" (input)="applyFilters()"
+                placeholder="Buscar Titulo..." />
+              <button class="btn btn-primary" (click)="refreshTable()">Refrescar</button>
+            </div>
           </th>
 
           <th class="col-md-2">
@@ -118,7 +118,7 @@
               {{ genre.name }}{{ !last ? ", " : "" }}
             </span>
           </td>
-          <td>{{ comic.price }} €</td>
+          <td>{{ comic.price }}</td>
           <td>{{ comic.ishardcover ? "Dura" : "Blanda" }}</td>
         </tr>
       </tbody>
@@ -129,11 +129,11 @@
       <ul class="pagination">
         <li class="page-item" [class.disabled]="currentPage === 1">
           <a class="page-link" (click)="goToPage(1)" aria-label="First">
-            << </a>
+             </a>
         </li>
         <li class="page-item" [class.disabled]="currentPage === 1">
           <a class="page-link" (click)="goToPage(currentPage - 1)" aria-label="Previous">
-            < </a>
+             </a>
         </li>
         <li class="page-item">
           <span class="page-link">
