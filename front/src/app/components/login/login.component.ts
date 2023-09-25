@@ -37,7 +37,6 @@ export class LoginComponent {
           showConfirmButton: true,
           width: 300, 
           confirmButtonColor: 'rgba(29, 41, 81, 1)',
-          
         });
       } else if (resultData.message == "Login Success") {
         Swal.fire({
@@ -54,7 +53,6 @@ export class LoginComponent {
         });
       } else {
         Swal.fire({
-         
           title: 'Error',
           text: 'La contraseña y el email no coinciden',
           customClass: 'custom-swal' ,
