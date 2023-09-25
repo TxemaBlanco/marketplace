@@ -19,6 +19,8 @@ import { NewcustomerComponent } from './examples/register_pablo/newcustomer/newc
 import {ReactiveFormsModule} from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; 
+import { ShopingCartClientComponent } from './components/shoping-cart-client/shoping-cart-client.component';
+
 
 
 @NgModule({
@@ -35,6 +37,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ComicDetailComponent,
     RegisterComponent,
     HeaderloginComponent,
+    ShopingCartClientComponent,
   ],
   imports: [
     BrowserModule,
