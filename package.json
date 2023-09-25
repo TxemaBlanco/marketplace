@@ -9,5 +9,8 @@
     "karma-cli": "^2.0.0",
     "karma-jasmine": "^5.1.0",
     "karma-jasmine-html-reporter": "^2.1.0"
+  },
+  "dependencies": {
+    "@ng-bootstrap/ng-bootstrap": "^15.1.1"
   }
 }

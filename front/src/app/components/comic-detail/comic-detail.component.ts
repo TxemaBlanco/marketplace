@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ComicService } from 'src/app/services/comic.service';
 import { Comic } from 'src/app/models/Comic';
 import { CartService } from 'src/app/services/cart.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-comic-detail',
   templateUrl: './comic-detail.component.html',
@@ -10,11 +11,15 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class ComicDetailComponent implements OnInit {
   comic: Comic | undefined;
-
+  modal: any;
+  message = 'Añadido al carrito';
+  modalContent: any = null;
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private comicService: ComicService,
-    private cartService: CartService
+    private cartService: CartService,
+    private modalService: NgbModal 
   ) {}
 
   ngOnInit(): void {
@@ -37,6 +42,14 @@ export class ComicDetailComponent implements OnInit {
       this.cartService.addToCart(this.comic);
       const cartItems = this.cartService.getCartItems();
       console.log('Carrito:', cartItems);
+
+      this.modal = this.modalService.open(this.modalContent);
+  
+      setTimeout(() => {
+        this.modal.close();
+        this.router.navigate(['/comicList']); 
+      }, 2000);
     }
+    
   }
 }

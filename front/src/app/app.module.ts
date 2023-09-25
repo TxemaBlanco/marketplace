@@ -18,7 +18,7 @@ import { RegisterComponent } from './examples/register/register.component';
 import { NewcustomerComponent } from './examples/register_pablo/newcustomer/newcustomer.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; 
 
 
 @NgModule({
@@ -43,7 +43,7 @@ import { RouterModule, Routes } from '@angular/router';
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule,
-  
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
