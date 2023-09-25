@@ -1,5 +1,5 @@
-package org.factoriaf5.comicbooks.config;
 
+package org.factoriaf5.comicbooks.config;
 import java.util.Arrays;
 import static org.springframework.security.config.Customizer.withDefaults;
 // import org.factoriaf5.comicbooks.customers.Customer;
@@ -18,22 +18,35 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @Configuration
-@EnableWebSecurity
-public class SecurityConfiguration  {
-
+@EnableWebMvc
+public class SecurityConfiguration  implements WebMvcConfigurer{
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+            .allowCredentials(false)
+            .allowedOrigins("*")
+            .allowedMethods("GET","POST","PUT","DELETE");
+    }
+    @Bean
+    PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-
         http
-                // .cors(withDefaults())
+                .cors(withDefaults())
                 .csrf(csfr -> csfr.disable())
                 .formLogin(form -> form.disable())
                 .logout(out -> out
                         .logoutUrl("/logout")
                         .deleteCookies("JSESSIONID"))
-
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.PUT).permitAll()
                         .requestMatchers(HttpMethod.POST).permitAll()
@@ -43,32 +56,9 @@ public class SecurityConfiguration  {
                         .requestMatchers("/genres/**").permitAll()
                         .requestMatchers("/comics/**").permitAll()
                         .requestMatchers("/orders/**").permitAll())
-
                 .httpBasic(withDefaults())
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED));
-
         return http.build();
-
     }
-
-    @Bean
-    CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowCredentials(true);
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
-        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
-
-        return source;
-    }
-
-    @Bean
-    PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
 }
-
-
