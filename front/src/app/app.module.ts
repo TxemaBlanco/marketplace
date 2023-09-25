@@ -18,6 +18,7 @@ import { RegisterComponent } from './examples/register/register.component';
 import { NewcustomerComponent } from './examples/register_pablo/newcustomer/newcustomer.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { ShopingCartClientComponent } from './components/shoping-cart-client/shoping-cart-client.component';
 
 
 
@@ -35,6 +36,7 @@ import { RouterModule, Routes } from '@angular/router';
     ComicDetailComponent,
     RegisterComponent,
     HeaderloginComponent,
+    ShopingCartClientComponent,
   ],
   imports: [
     BrowserModule,
