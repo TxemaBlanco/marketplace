@@ -42,7 +42,7 @@ export class ComicTableComponent implements OnInit {
   getComics(): void {
     this.comicService.getComics().subscribe((comics) => {
       this.comics = comics;
-       this.applyFilters();
+      this.applyFilters();
     });
   }
 
@@ -176,18 +176,18 @@ export class ComicTableComponent implements OnInit {
     this.selectedisbn = '';
   }
 
-    globalsearch() {
+  globalsearch() {
     if (this.searchTextGlobal.trim() === '') {
       this.getComics(); 
       return;
     }
   
-     this.comicService.searchComics(this.searchTextGlobal).subscribe((comics) => {
+    this.comicService.searchComics(this.searchTextGlobal).subscribe((comics) => {
       this.comics = comics;
       this.applyFilters(); 
-    }); 
+    });
   }
- 
+
   popup!: HTMLElement;
 
   onMouseOut(popup: HTMLElement) {
@@ -198,3 +198,4 @@ export class ComicTableComponent implements OnInit {
     popup.style.display = "block";
   }
 }
+
