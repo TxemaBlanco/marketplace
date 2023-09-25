@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ComicService } from 'src/app/services/comic.service';
 import { Comic } from 'src/app/models/Comic';
+import { CartService } from 'src/app/services/cart.service';
 @Component({
   selector: 'app-comic-detail',
   templateUrl: './comic-detail.component.html',
@@ -12,7 +13,8 @@ export class ComicDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private comicService: ComicService
+    private comicService: ComicService,
+    private cartService: CartService
   ) {}
 
   ngOnInit(): void {
@@ -28,6 +30,13 @@ export class ComicDetailComponent implements OnInit {
           console.error('Error al obtener el cómic:', error);
         }
       );
+    }
+  }
+  addToCart() {
+    if (this.comic) {
+      this.cartService.addToCart(this.comic);
+      const cartItems = this.cartService.getCartItems();
+      console.log('Carrito:', cartItems);
     }
   }
 }
