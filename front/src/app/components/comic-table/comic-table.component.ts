@@ -198,3 +198,4 @@ export class ComicTableComponent implements OnInit {
     popup.style.display = "block";
   }
 }
+
