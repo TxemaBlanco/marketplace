@@ -13,42 +13,42 @@ export class ComicService {
   private genresUrl = 'http://localhost:8000/genres'; 
   private genres: Genre[] = [];
   constructor(private http: HttpClient) { 
-    this.getGenres().subscribe(
+     this.getGenres().subscribe(
       (genres: Genre[]) => {
         this.genres = genres;
       },
       (error) => {
         console.error('Error al obtener la lista de géneros:', error);
       }
-    );
+    ); 
   }
 
   getComics(): Observable<any[]> {
     return this.http.get<any[]>(this.comicsUrl)
-      .pipe(
-        catchError(error => {
+     .pipe( 
+         catchError(error => {
           console.error('Error en la solicitud HTTP:', error);
           return throwError(error);
-        })
-      );
+        }) 
+       ); 
   }
 
   getGenres(): Observable<any[]> {
     return this.http.get<any[]>(this.genresUrl)
       .pipe(
-        catchError(error => {
+         catchError(error => {
           console.error('Error en la solicitud HTTP:', error);
           return throwError(error);
-        })
+        }) 
       );
   }
   getComicByISBN(isbn: string): Observable<Comic> {
     return this.http.get<Comic>(`${this.comicsUrl}/${isbn}`);
   }
   
-  searchComics(searchTerm: string): Observable<any[]> {
+   searchComics(searchTerm: string): Observable<any[]> {
     const url = `${this.comicsUrl}/buscar-comics?search=${searchTerm}`; 
 
     return this.http.get<any[]>(`${this.comicsUrl}`);
-  }
+  } 
 }

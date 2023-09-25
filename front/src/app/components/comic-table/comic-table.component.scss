@@ -118,11 +118,11 @@ tr {
 }
 
 .filter-icon {
-margin-left: 56%; 
   cursor: pointer;
-  width: 3vh; 
-  margin-left: 100%;
-/*   margin-right: 8vh;  */
+  width: 3vh;
+  position: relative;
+  left: 2vw;
+
 }
 
 .btn-primary {
@@ -202,10 +202,11 @@ img, svg {
     margin-bottom: 7.5vh;
   }
   .filter-icon {
-    margin-left: 56%; 
     cursor: pointer;
-    width: 3vh; 
-    margin-left: 3vh;
+    width: 3vh;
+    position: relative;
+    left: 2vw; 
+
   }
   img, svg {
     width: 2.3vh; 
