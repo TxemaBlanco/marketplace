@@ -46,7 +46,7 @@ export class RegisterAComponent {
       dni: ['', [Validators.required, Validators.pattern('[0-9]{8}[A-Z]')]],
       name: ['', [Validators.required, Validators.pattern('[A-Za-z]*')]],
       surname: ['', [Validators.required, Validators.pattern('[A-Za-z]*')]],
-      surname2: ['', [Validators.required, Validators.pattern('[A-Za-z]*')]],
+      surname2: [''],
       street: ['', [Validators.required]],
       number: [''],
       gate: [''],
@@ -72,20 +72,20 @@ export class RegisterAComponent {
   }
 
   
-  registerCustomer(): void {
-    if (this.registrationForm.valid) {
+  registerCustomer(): void {    
+    if (this.registrationForm.valid) {    
       const registrationData = this.registrationForm.value;
       this.customerService.register(registrationData).subscribe(
         (response: any) => {
           console.log('Registro realizado con éxito!:', response);
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/comicList']);
         },
         (error: any) => {
           console.error('Error durante el registro', error);
         }
       );
     } else {
-      alert('Por favor, complete todos los campos.');
+     
     }
   }
   
