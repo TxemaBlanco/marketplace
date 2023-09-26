@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { Customer } from 'src/app/models/Customer.model';
 import { Router } from '@angular/router';
 import { CustomerService } from 'src/app/examples/service/customer.service';
-
 @Component({
   selector: 'app-register-a',
   templateUrl: './register-a.component.html',
@@ -17,7 +16,7 @@ export class RegisterAComponent {
     id: 0,
     email: '',
     name: '',
-    surname: '',    
+    surname: '',
     dni: '',
     surname2: '',
     street: '',
@@ -31,12 +30,10 @@ export class RegisterAComponent {
     province: '',
     password: '',
     confirmPassword: ''
-  } 
-  
-
+  }
   constructor(
     private formBuilder: FormBuilder,
-    private http: HttpClient, 
+    private http: HttpClient,
     private router: Router,
     private customerService: CustomerService
   ) {
@@ -53,27 +50,24 @@ export class RegisterAComponent {
       stairs: [''],
       floor: [''],
       letter: [''],
-      postalCode: [''],
+      postalcode: [''],
       town: [''],
       province: [''],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', [Validators.required]]
     }, { validators: this.passwordMatchValidator.bind(this) });
-  }  
-
+  }
   passwordMatchValidator(formGroup: FormGroup) {
     const password = formGroup.get('password')?.value;
-    const confirmPassword = formGroup.get('confirmPassword')?.value;  
+    const confirmPassword = formGroup.get('confirmPassword')?.value;
     if (password !== confirmPassword) {
       formGroup.get('confirmPassword')?.setErrors({ passwordMismatch: true });
     } else {
       formGroup.get('confirmPassword')?.setErrors(null);
     }
   }
-
-  
-  registerCustomer(): void {    
-    if (this.registrationForm.valid) {    
+  registerCustomer(): void {
+    if (this.registrationForm.valid) {
       const registrationData = this.registrationForm.value;
       this.customerService.register(registrationData).subscribe(
         (response: any) => {
@@ -85,8 +79,6 @@ export class RegisterAComponent {
         }
       );
     } else {
-     
     }
   }
-  
 }
