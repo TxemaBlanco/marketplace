@@ -1,0 +1,36 @@
+<<<<<<< HEAD
+.container {
+    
+    form{
+        width: 46vh;
+        margin-bottom: 10vh;
+        background: #606060;
+        border-radius: 3.61vh;
+        h2{
+            color: #fff;
+            text-align: center;
+        }
+    
+        .small-input{
+           display: grid;
+           grid-template-columns: repeat(2, 1fr); 
+           width: 3vh;
+        }
+    }
+}
+
+
+
+=======
+.contnainer{
+   form{
+    h2{
+        text-align: center;
+        color: #fff;
+        background: #606060;
+    }
+   } 
+    
+    
+}
+>>>>>>> feature/register

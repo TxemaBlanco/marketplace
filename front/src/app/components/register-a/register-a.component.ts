@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { Customer } from 'src/app/models/Customer.model';
+import { Router } from '@angular/router';
+import { CustomerService } from 'src/app/examples/service/customer.service';
 
 @Component({
   selector: 'app-register-a',
@@ -7,42 +11,82 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./register-a.component.scss']
 })
 export class RegisterAComponent {
-  register: any = {};
-  confirmPassword: string = '';
-  passwordsDoNotMatch: boolean = false;
-  registerForm: FormGroup;
+  selectedDniType: string = 'DNI';
+  registrationForm!: FormGroup;
+  newCustomer : Customer = {
+    id: 0,
+    email: '',
+    name: '',
+    surname: '',    
+    dni: '',
+    surname2: '',
+    street: '',
+    number: 0,
+    stairs: '',
+    gate: 0,
+    floor: 0,
+    letter: '',
+    postalCode: 0,
+    town: '',
+    province: '',
+    password: '',
+    confirmPassword: ''
+  } 
+  
 
-
-  constructor(private formBuilder: FormBuilder) {
-    this.registerForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email, Validators.pattern(/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/)]],
+  constructor(
+    private formBuilder: FormBuilder,
+    private http: HttpClient, 
+    private router: Router,
+    private customerService: CustomerService
+  ) {
+    this.registrationForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]],
       dniType: ['', Validators.required],
-      dniNumber: ['', [Validators.required, Validators.pattern(/^[XYZ]?\d{0-9}[A-Z]$/)]],
-      name: ['', Validators.required, Validators.pattern(/^[A-Za-záéíóúÁÉÍÓÚñÑ\s'-]+$/)],
-      surname: ['', Validators.required, Validators.pattern(/^[A-Za-záéíóúÁÉÍÓÚñÑ\s'-]+$/)],
-      surname2: ['', Validators.required, Validators.pattern(/^[A-Za-záéíóúÁÉÍÓÚñÑ\s'-]+$/)],
-      street: ['', Validators.required],
+      dni: ['', [Validators.required, Validators.pattern('[0-9]{8}[A-Z]')]],
+      name: ['', [Validators.required, Validators.pattern('[A-Za-z]*')]],
+      surname: ['', [Validators.required, Validators.pattern('[A-Za-z]*')]],
+      surname2: ['', [Validators.required, Validators.pattern('[A-Za-z]*')]],
+      street: ['', [Validators.required]],
+      number: [''],
       gate: [''],
-      number: ['', Validators.pattern(/^[0-9]+$/) ],
       stairs: [''],
       floor: [''],
-      letter: ['', Validators.pattern(/^[A-Z]+$/)],
-      postalcode: ['', Validators.required, Validators.pattern(/^[0-9]+$/)],
-      town: ['', Validators.required],
-      province: ['', Validators.required],
-      password: ['', [Validators.required,Validators.pattern(/^(?=.*\d)(?=.*[a-zñ])(?=.*[A-ZÑ])(?=.*[a-zA-ZñÑ]).{8,}$/)]],
-      confirmPassword: ['', Validators.required],
-  
-    });
-  }
+      letter: [''],
+      postalCode: [''],
+      town: [''],
+      province: [''],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmPassword: ['', [Validators.required]]
+    }, { validators: this.passwordMatchValidator.bind(this) });
+  }  
 
-  submitForm() {
-    if (this.registerForm.invalid) {
-      
-      return;
+  passwordMatchValidator(formGroup: FormGroup) {
+    const password = formGroup.get('password')?.value;
+    const confirmPassword = formGroup.get('confirmPassword')?.value;  
+    if (password !== confirmPassword) {
+      formGroup.get('confirmPassword')?.setErrors({ passwordMismatch: true });
+    } else {
+      formGroup.get('confirmPassword')?.setErrors(null);
     }
-
-    const formData = this.registerForm.value;
-    console.log('Formulario enviado:', formData);
   }
+
+  
+  registerCustomer(): void {
+    if (this.registrationForm.valid) {
+      const registrationData = this.registrationForm.value;
+      this.customerService.register(registrationData).subscribe(
+        (response: any) => {
+          console.log('Registro realizado con éxito!:', response);
+          this.router.navigate(['/dashboard']);
+        },
+        (error: any) => {
+          console.error('Error durante el registro', error);
+        }
+      );
+    } else {
+      alert('Por favor, complete todos los campos.');
+    }
+  }
+  
 }
