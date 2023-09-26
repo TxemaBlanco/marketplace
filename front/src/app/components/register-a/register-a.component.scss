@@ -1,36 +1,121 @@
-<<<<<<< HEAD
-.container {
-    
-    form{
-        width: 46vh;
-        margin-bottom: 10vh;
-        background: #606060;
-        border-radius: 3.61vh;
-        h2{
-            color: #fff;
-            text-align: center;
-        }
-    
-        .small-input{
-           display: grid;
-           grid-template-columns: repeat(2, 1fr); 
-           width: 3vh;
-        }
+.container{
+    margin-top: 3vh;  
+    background: #808080;
+    border-radius: 3.00vh;
+    margin-bottom: 15vh; 
+    width: 45vh;
+    height: 84.5vh;
+  
+    h1{
+      color: #fff;
+      font-size: 4vh;
+      text-align: center;
+      font-family: 'Alice', serif;
     }
-}
-
-
-
-=======
-.contnainer{
-   form{
-    h2{
-        text-align: center;
-        color: #fff;
-        background: #606060;
+    form{   
+      padding: 2vh;         
+      input, select{
+        margin: 0.5vh;
+        font-family: 'Alice', serif;
+        height: 4vh;
+        font-size: 2vh;
+   
+      }
+  
+      #email{
+        margin-top: -1vh;
+      }
+  
+      .form-row{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        
+        #dniType{
+          width: 11vh;             
+        }
+  
+        #dniNumber{
+          width: 19vh;
+          margin-right: -0.3vh;
+        }
+       
+      }
+  
+      #name{
+        width: 100%;
+      }  
+        
+        #surname1{
+          width: 100%;
+        }
+        #surname2{
+          width: 100%;
+        }
+      
+  
+      .form-group-adress{
+        margin: 2.8vh 0 3.75vh 0;
+        #numb{
+          width: 5.9vh;
+          margin-left: 0.1vh;
+        }
+        
+        #portal {
+          width: 7vh;
+        }
+  
+        #stairs{
+          width: 7vh;
+        }
+  
+        #flat{        
+           width: 7vh;        
+        }
+  
+        #letter{
+          width: 7.2vh;
+        }
+     
+        .form-row-inline{
+          width: 2.79vh;
+          display: grid;
+          grid-template-columns: repeat(5,1fr);
+          padding: 0.53vh;
+        }
+  
+        .form-row{
+         
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+        }
+        #postalCode{
+          width: 18vh;
+        }
+  
+        #municipality{
+          width: 18vh;
+        }
+  
+        #province{
+          width: 19vh;
+        }
+  
+      }
+      button{
+        margin: 1vh 0 0 12vh;
+        background: #fff;
+        border: 0.10vh solid #000;
+        
+        width: 15vh;
+        height: 4vh;
+        font-size: 2vh;
+        border-radius: 3.00vh;
+        p{
+          color: #000;
+          margin-top: -0.5vh;
+        }
+       }
     }
-   } 
+  
     
-    
-}
->>>>>>> feature/register
+  }
