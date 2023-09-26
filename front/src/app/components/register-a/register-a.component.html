@@ -78,4 +78,29 @@
             <input type="text" id="province" class="form-control small-input" formControlName="province" required placeholder="Provincia">
         </div>
       </div>  
-    </div>                      
+    </div>
+                 
+    <div class="form-group">                 
+      <input type="password" id="password" class="form-control" formControlName="password" required placeholder="Contraseña" [(ngModel)]="newCustomer.password">
+      <div *ngIf="registrationForm.get('password')?.hasError('required') && registrationForm.get('password')?.touched" class="text-light">
+        La contraseña es requerida.
+      </div>
+      <div *ngIf="registrationForm.get('password')?.hasError('minlength') && registrationForm.get('password')?.touched"class="text-light">
+        La contraseña debe tener al menos 6 caracteres.
+      </div>
+  </div>
+
+  <div class="form-group">                
+      <input type="password" id="confirmPassword" class="form-control" formControlName="confirmPassword" required placeholder="Confirmar Contraseña">
+      <div *ngIf="registrationForm.get('confirmPassword')?.hasError('passwordMismatch') && registrationForm.get('confirmPassword')?.touched" class="text-light">
+        Las contraseñas no coinciden.
+      </div>
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="registerCustomer()">
+    <p>Registro</p>
+  </button>
+</form>
+</div>
+</div>
+</div>
+          
