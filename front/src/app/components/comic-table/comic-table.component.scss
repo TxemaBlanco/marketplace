@@ -10,6 +10,12 @@ table {
   border: 0.4vh solid black;
 }
 
+/* table th:nth-child(4) {
+  border: 0px;
+  background-color: white;
+  border-collapse: none !important;
+} */
+
 tbody {
   text-align: center;
   vertical-align: middle;

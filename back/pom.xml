@@ -16,6 +16,9 @@
 	<properties>
 		<java.version>17</java.version>
 	</properties>
+	
+	 
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -64,6 +67,8 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+				 <executable>true</executable>
+      <jvmArguments>-Dfile.encoding=UTF8</jvmArguments>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
