@@ -32,4 +32,16 @@
                 <div *ngIf="registrationForm.get('name')?.hasError('pattern') && registrationForm.get('name')?.touched" class="text-light">
                   Ingresa un nombre válido.
                 </div>
-            </div>            
+            </div> 
+            <div class="form-group-surname">                  
+              <input type="text" id="surname1" class="form-control" formControlName="surname" required placeholder="Apellido 1">
+              <div class="text-light" *ngIf="registrationForm.get('surname')?.hasError('required') && registrationForm.get('surname')?.touched">
+                El apellido es obligatorio.
+              </div>
+              <div class="text-light" *ngIf="registrationForm.get('surname')?.hasError('pattern') && registrationForm.get('surname')?.touched">
+                Ingresa un apellido válido.
+              </div>    
+          <div class="form-group">                  
+              <input type="text" id="surname2" class="form-control" formControlName="surname2" required placeholder="Apellido 2">
+          </div>  
+        </div>                      
