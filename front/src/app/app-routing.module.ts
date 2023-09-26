@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'comicList', component: HomeuserviewComponent},
   { path: '', component:  HomeadminviewComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'login', component: LoginComponent},
  
 ];
 
