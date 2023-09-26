@@ -15,7 +15,6 @@ import { LoginComponent } from './components/login/login.component';
 import { ComicDetailComponent } from './components/comic-detail/comic-detail.component';
 import { HeaderloginComponent } from './shared/headerlogin/headerlogin.component';
 import { RegisterComponent } from './examples/register/register.component';
-import { NewcustomerComponent } from './examples/register_pablo/newcustomer/newcustomer.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { ShopingCartClientComponent } from './components/shoping-cart-client/shoping-cart-client.component';
@@ -47,7 +46,7 @@ import { RegisterAComponent } from './components/register-a/register-a.component
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule,
-  
+ 
   ],
   providers: [],
   bootstrap: [AppComponent]
