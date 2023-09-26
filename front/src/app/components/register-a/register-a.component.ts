@@ -68,5 +68,23 @@ export class RegisterAComponent {
       formGroup.get('confirmPassword')?.setErrors(null);
     }
   }
+
+  
+  registerCustomer(): void {
+    if (this.registrationForm.valid) {
+      const registrationData = this.registrationForm.value;
+      this.customerService.register(registrationData).subscribe(
+        (response: any) => {
+          console.log('Registro realizado con éxito!:', response);
+          this.router.navigate(['/dashboard']);
+        },
+        (error: any) => {
+          console.error('Error durante el registro', error);
+        }
+      );
+    } else {
+      alert('Por favor, complete todos los campos.');
+    }
+  }
   
 }
