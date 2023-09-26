@@ -58,5 +58,15 @@ export class RegisterAComponent {
       confirmPassword: ['', [Validators.required]]
     }, { validators: this.passwordMatchValidator.bind(this) });
   }  
+
+  passwordMatchValidator(formGroup: FormGroup) {
+    const password = formGroup.get('password')?.value;
+    const confirmPassword = formGroup.get('confirmPassword')?.value;  
+    if (password !== confirmPassword) {
+      formGroup.get('confirmPassword')?.setErrors({ passwordMismatch: true });
+    } else {
+      formGroup.get('confirmPassword')?.setErrors(null);
+    }
+  }
   
 }
