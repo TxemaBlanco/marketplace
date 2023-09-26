@@ -22,7 +22,7 @@ export class RegisterAComponent {
     surname2: '',
     street: '',
     number: 0,
-    gate: 0,
+    portal: 0,
     floor: 0,
     letter: '',
     postalCode: '',
@@ -31,4 +31,32 @@ export class RegisterAComponent {
     password: '',
     confirmPassword: ''
   } 
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private http: HttpClient, 
+    private router: Router,
+    private customerService: CustomerService
+  ) {
+    this.registrationForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]],
+      dniType: ['', Validators.required],
+      dni: ['', [Validators.required, Validators.pattern('[0-9]{8}[A-Z]')]],
+      name: ['', [Validators.required, Validators.pattern('[A-Za-z]*')]],
+      surname: ['', [Validators.required, Validators.pattern('[A-Za-z]*')]],
+      surname2: ['', [Validators.required, Validators.pattern('[A-Za-z]*')]],
+      street: ['', [Validators.required]],
+      number: [''],
+      gate: [''],
+      stairs: [''],
+      floor: [''],
+      letter: [''],
+      postalCode: [''],
+      town: [''],
+      province: [''],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmPassword: ['', [Validators.required]]
+    }, { validators: this.passwordMatchValidator.bind(this) });
+  }  
+  
 }
