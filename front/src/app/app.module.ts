@@ -17,7 +17,7 @@ import { HeaderloginComponent } from './shared/headerlogin/headerlogin.component
 import {ReactiveFormsModule} from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { ShopingCartClientComponent } from './components/shoping-cart-client/shoping-cart-client.component';
-import { RegisterComponent } from './components/register/register.component';
+import { RegisterAComponent } from './components/register-a/register-a.component';
 
 
 
@@ -36,7 +36,7 @@ import { RegisterComponent } from './components/register/register.component';
     ComicDetailComponent,
     HeaderloginComponent,
     ShopingCartClientComponent,
-    RegisterComponent
+    RegisterAComponent,
   ],
   imports: [
     BrowserModule,
