@@ -6,12 +6,12 @@ export interface Customer{
     surname: string;
     surname2: string;
     street: string;
-    gate: string;
+    gate: number;
     number: number;
     stairs: string;
     floor: number;
     letter: string;
-    postalcode: number;
+    postalCode: number;
     town: string;
     province: string;
     password: string;

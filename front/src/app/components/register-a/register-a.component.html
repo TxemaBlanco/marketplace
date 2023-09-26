@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container mt-5">  
   <form (ngSubmit)="submitForm()" #registroForm="ngForm">
     <h2>Formulario de Registro</h2>
@@ -93,3 +94,111 @@
         <button type="submit" class="btn btn-primary">Registrarse</button>
         <!-- </form> -->
       </div>
+=======
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-12">
+            <h1>Registro</h1>
+          <form [formGroup]="registrationForm">
+              <div class="form-group">           
+                  <input  type="email" id="email" class="form-control" formControlName="email" required placeholder="Correo Electrónico" [(ngModel)]="newCustomer.email">               
+                  <div *ngIf="registrationForm.get('email')?.hasError('required') && registrationForm.get('email')?.touched" class="text-light">
+                    El correo electrónico es obligatorio.
+                    </div>
+                  <div *ngIf="registrationForm.get('email')?.hasError('email') && registrationForm.get('email')?.touched" class="text-light">
+                    Ingresa un correo electrónico válido.
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6"> 
+                    <select id="dniType" class="form-control" formControlName="dniType" required [(ngModel)]="selectedDniType">
+                      <option [value]="'DNI'">DNI <i class="bi bi-chevron-down"></i></option>
+                      <option [value]="'NIE'">NIE</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-6">                   
+                      <input type="text" id="dniNumber" class="form-control" formControlName="dni" required placeholder="Nº" [(ngModel)]="newCustomer.dni">
+                </div>
+              </div> 
+              <div class="form-group">             
+                <input  type="text" id="name" class="form-control" formControlName="name" required placeholder="Nombre" [(ngModel)]="newCustomer.name">
+                <div *ngIf="registrationForm.get('name')?.hasError('required') && registrationForm.get('name')?.touched" class="text-light">
+                  El nombre es obligatorio.
+                </div>
+                <div *ngIf="registrationForm.get('name')?.hasError('pattern') && registrationForm.get('name')?.touched" class="text-light">
+                  Ingresa un nombre válido.
+                </div>
+            </div> 
+            <div class="form-group-surname">                  
+              <input type="text" id="surname1" class="form-control" formControlName="surname" required placeholder="Apellido 1">
+              <div class="text-light" *ngIf="registrationForm.get('surname')?.hasError('required') && registrationForm.get('surname')?.touched">
+                El apellido es obligatorio.
+              </div>
+              <div class="text-light" *ngIf="registrationForm.get('surname')?.hasError('pattern') && registrationForm.get('surname')?.touched">
+                Ingresa un apellido válido.
+              </div>    
+          <div class="form-group">                  
+              <input type="text" id="surname2" class="form-control" formControlName="surname2" required placeholder="Apellido 2">
+          </div>  
+        </div>     
+        <div class="form-group-adress">                 
+          <input type="text" id="street" class="form-control" formControlName="street" placeholder="Calle">
+                  
+      <div class="form-row-inline">
+          <div class="form-group col-md-2">
+              <input type="text" id="number" class="form-control small-input" formControlName="number" placeholder="Nº">
+          </div>
+          <div class="form-group col-md-2">                   
+              <input type="text" id="gate" class="form-control small-input" formControlName="gate"placeholder="Portal">
+          </div>
+          <div class="form-group col-md-2">
+             
+              <input type="text" id="stairs" class="form-control small-input" formControlName="stairs" placeholder="Escalera">
+          </div>
+          <div class="form-group col-md-2">
+      
+              <input type="text" id="floor" class="form-control small-input" formControlName="floor" placeholder="Piso">
+          </div>
+          <div class="form-group col-md-2">
+              <input type="text" id="letter" class="form-control small-input" formControlName="letter" placeholder="Letra">
+          </div>
+      </div>            
+      <div class="form-row">
+          <div class="form-group col-md-6">
+              <input type="text" id="postalCode" class="form-control small-input" formControlName="postalCode" required placeholder="Código Postal">
+          </div>
+          <div class="form-group col-md-6">                    
+              <input type="text" id="municipality" class="form-control small-input" formControlName="town" required placeholder="Municipio">
+          </div>
+          <div class="form-group col-md-6">                    
+            <input type="text" id="province" class="form-control small-input" formControlName="province" required placeholder="Provincia">
+        </div>
+      </div>  
+    </div>
+                 
+    <div class="form-group">                 
+      <input type="password" id="password" class="form-control" formControlName="password" required placeholder="Contraseña" [(ngModel)]="newCustomer.password">
+      <div *ngIf="registrationForm.get('password')?.hasError('required') && registrationForm.get('password')?.touched" class="text-light">
+        La contraseña es requerida.
+      </div>
+      <div *ngIf="registrationForm.get('password')?.hasError('minlength') && registrationForm.get('password')?.touched"class="text-light">
+        La contraseña debe tener al menos 6 caracteres.
+      </div>
+  </div>
+
+  <div class="form-group">                
+      <input type="password" id="confirmPassword" class="form-control" formControlName="confirmPassword" required placeholder="Confirmar Contraseña">
+      <div *ngIf="registrationForm.get('confirmPassword')?.hasError('passwordMismatch') && registrationForm.get('confirmPassword')?.touched" class="text-light">
+        Las contraseñas no coinciden.
+      </div>
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="registerCustomer()">
+    <p>Registro</p>
+  </button>
+</form>
+</div>
+</div>
+</div>
+          
+>>>>>>> feature/register
