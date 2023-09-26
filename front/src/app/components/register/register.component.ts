@@ -72,7 +72,8 @@ export class RegisterComponent {
   }
 
   
-  registerCustomer(): void {    
+  registerCustomer(): void {  
+    console.log("registrando");  
     if (this.registrationForm.valid) {    
       const registrationData = this.registrationForm.value;
       this.customerService.register(registrationData).subscribe(
@@ -85,7 +86,7 @@ export class RegisterComponent {
         }
       );
     } else {
-     
+     console.log("form invalido");
     }
   }
   
