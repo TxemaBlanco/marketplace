@@ -32,7 +32,8 @@
         
         #dniType{
           width: 11vh; 
-          margin-left:-4.2vh ;            
+          margin-left:-4.2vh ; 
+          height: 5vh;           
         }
   
         #dniNumber{
@@ -103,6 +104,7 @@
   
         #province{
           width: 19vh;
+          margin-left: 1vh;
         }
   
       }
@@ -119,6 +121,12 @@
           color: #000;
           margin-top: -0.5vh;
         }
+       }
+       .login{
+        text-align: center;
+        color: #fff;
+        margin-top: 1vh;
+        cursor: pointer;
        }
     }
   

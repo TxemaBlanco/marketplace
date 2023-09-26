@@ -5,15 +5,14 @@ import { ComicDetailComponent } from './components/comic-detail/comic-detail.com
 import { LoginComponent } from './components/login/login.component';
 import { HomeuserviewComponent } from './views/homeuserview/homeuserview.component';
 import { HomeadminviewComponent } from './views/homeadminview/homeadminview.component';
-import { CartComponent } from './examples/cart/cart.component';
-import { RegisterComponent } from './examples/register/register.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   { path: 'comic/:isbn', component:  ComicDetailComponent },
   { path: 'comicList', component: HomeuserviewComponent},
   { path: '', component:  HomeadminviewComponent},
-  { path: 'cart', component:  CartComponent},
-  { path: 'register', component:  RegisterComponent},
+  {path: 'register', component: RegisterComponent},
+  {path: 'login', component: LoginComponent},
  
 ];
 

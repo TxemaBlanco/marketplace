@@ -14,10 +14,11 @@ import { ComicTableComponent } from '../app/components/comic-table/comic-table.c
 import { LoginComponent } from './components/login/login.component';
 import { ComicDetailComponent } from './components/comic-detail/comic-detail.component';
 import { HeaderloginComponent } from './shared/headerlogin/headerlogin.component';
-import { RegisterComponent } from './examples/register/register.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { CartComponent } from './examples/cart/cart.component';
+import { ShopingCartClientComponent } from './components/shoping-cart-client/shoping-cart-client.component';
+import { RegisterComponent } from './components/register/register.component';
+
 
 
 
@@ -33,9 +34,9 @@ import { CartComponent } from './examples/cart/cart.component';
     ComicTableComponent,
     LoginComponent,
     ComicDetailComponent,
-    RegisterComponent,
     HeaderloginComponent,
-    CartComponent,
+    ShopingCartClientComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

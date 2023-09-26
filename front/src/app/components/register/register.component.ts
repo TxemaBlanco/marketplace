@@ -6,11 +6,11 @@ import { Router } from '@angular/router';
 import { CustomerService } from 'src/app/examples/service/customer.service';
 
 @Component({
-  selector: 'app-register-a',
-  templateUrl: './register-a.component.html',
-  styleUrls: ['./register-a.component.scss']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss']
 })
-export class RegisterAComponent {
+export class RegisterComponent {
   selectedDniType: string = 'DNI';
   registrationForm!: FormGroup;
   newCustomer : Customer = {
