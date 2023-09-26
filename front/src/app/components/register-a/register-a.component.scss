@@ -1,85 +1,65 @@
 .container{
-    margin-top: 3vh;  
+    margin-top: 3vh;
     background: #808080;
     border-radius: 3.00vh;
-    margin-bottom: 15vh; 
+    margin-bottom: 15vh;
     width: 45vh;
     height: 84.5vh;
-  
     h1{
       color: #fff;
       font-size: 4vh;
       text-align: center;
       font-family: 'Alice', serif;
     }
-    form{   
-      padding: 2vh;         
+    form{
+      padding: 2vh;
       input, select{
         margin: 0.5vh;
         font-family: 'Alice', serif;
         height: 4vh;
         font-size: 2vh;
-   
       }
-  
       #email{
         margin-top: -1vh;
       }
-  
       .form-row{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        
         #dniType{
-          width: 11vh; 
-          margin-left:-4.2vh ; 
-          height: 5vh;           
+          width: 11vh;
+          margin-left:-4.2vh ;
         }
-  
         #dniNumber{
           width: 14.2vh;
           margin-right: 0.6vh;
         }
-       
       }
-  
       #name{
         width: 100%;
-      }  
-        
+      }
         #surname1{
           width: 100%;
         }
         #surname2{
           width: 100%;
         }
-      
-  
       .form-group-adress{
         margin: 2.8vh 0 3.75vh 0 ;
-
-        
         #number{
           width: 5.9vh;
-         
         }
-        
         #gate {
           width: 7vh;
         }
-  
         #stairs{
           width: 7vh;
         }
-  
-        #floor{        
-           width: 7vh;        
+        #floor{
+           width: 7vh;
         }
-  
         #letter{
           width: 7.2vh;
         }
-     
         .form-row-inline{
           width: 2.79vh;
           display: grid;
@@ -87,8 +67,7 @@
           padding: 0.53vh;
           margin-left: -4vh;
         }
-  
-        .form-row{         
+        .form-row{
           display: grid;
           grid-template-columns: repeat(2, 1fr);
           margin-left: -6vh;
@@ -96,23 +75,18 @@
         #postalCode{
           width: 13vh;
         }
-  
         #town{
           width: 18vh;
           margin-right: 6vh;
         }
-  
         #province{
           width: 19vh;
-          margin-left: 1vh;
         }
-  
       }
       button{
         margin: 1vh 0 0 12vh;
         background: #fff;
         border: 0.10vh solid #000;
-        
         width: 15vh;
         height: 4vh;
         font-size: 2vh;
@@ -129,6 +103,4 @@
         cursor: pointer;
        }
     }
-  
-    
   }
