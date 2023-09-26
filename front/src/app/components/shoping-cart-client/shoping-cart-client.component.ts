@@ -14,7 +14,7 @@ export class ShopingCartClientComponent {
   selectedGenre: any = null;
   selectedCoverType: string | null = null;
   searchTerm: string = '';
-  itemsPerPage: number = 5;
+  itemsPerPage: number = 4;
   currentPage: number = 1;
   sortByisbnAscending: boolean = true;
   sortByTitleAscending: boolean = true;
