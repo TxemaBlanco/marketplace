@@ -23,7 +23,7 @@
       </div>
 
       <p class="small mt-4 pb-lg-1"><a class="text2" href="#!">¿Has olvidado la contraseña?</a></p>
-      <p class="small mt-4 pb-lg-1  registeryou text2">¿No estás registrado?<a href="#!"> <span> Resistrate </span></a>
+      <p class="small mt-4 pb-lg-1  registeryou text2">¿No estás registrado?<a routerLink="/register"> <span> Resistrate </span></a>
       </p>
       <button class="btn btn-light  mt-2 px-4" (click)="login()" type="submit">Enviar</button>
 
@@ -32,6 +32,10 @@
   <div class="f-stick  "></div>
 
   <div class="register">
-    <button class="btn2 " type="submit"><strong>Crear cuenta</strong></button>
+    <button class="btn2 " type="submit" ><a routerLink="/register" class="btn2"><strong>Crear cuenta</strong></a></button>
   </div>
+
 </div>
+
+
+
