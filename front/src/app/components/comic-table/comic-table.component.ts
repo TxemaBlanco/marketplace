@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ComicService } from '../../services/comic.service';
 import { Comic } from 'src/app/models/Comic';
-
+import { Genre } from 'src/app/models/Genre';
 @Component({
   selector: 'app-comic-table',
   templateUrl: './comic-table.component.html',
@@ -9,7 +9,7 @@ import { Comic } from 'src/app/models/Comic';
 })
 export class ComicTableComponent implements OnInit {
   comics: Comic[] = [];
-  genres: any[] = [];
+  genres:  Genre[] = [];
   selectedGenre: any = null;
   selectedCoverType: string | null = null;
   searchTerm: string = '';
@@ -178,16 +178,35 @@ export class ComicTableComponent implements OnInit {
 
   globalsearch() {
     if (this.searchTextGlobal.trim() === '') {
-      this.getComics(); 
+      this.getComics();
       return;
     }
   
     this.comicService.searchComics(this.searchTextGlobal).subscribe((comics) => {
       this.comics = comics;
-      this.applyFilters(); 
+  
+      const searchKeywords = this.searchTextGlobal.toLowerCase().split(' ');
+  
+      const filteredComics = this.comics.filter((comic) => {
+        const comicTitle = comic.title.toLowerCase();
+        const comicAuthor = comic.author.toLowerCase();
+        const comicISBN = comic.isbn.toLowerCase();
+        const comicGenres = comic.genres.map((genre) => genre.name.toLowerCase());
+  
+        return (
+          searchKeywords.some(keyword => comicTitle.includes(keyword)) ||
+          searchKeywords.some(keyword => comicAuthor.includes(keyword)) ||
+          searchKeywords.some(keyword => comicISBN.includes(keyword)) ||
+          searchKeywords.some(keyword => comicGenres.some(genre => genre.includes(keyword)))
+        );
+      });
+  
+      this.comics = filteredComics;
     });
   }
-
+  
+  
+  
   popup!: HTMLElement;
 
   onMouseOut(popup: HTMLElement) {
