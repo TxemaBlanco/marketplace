@@ -31,12 +31,13 @@
         grid-template-columns: repeat(2, 1fr);
         
         #dniType{
-          width: 11vh;             
+          width: 11vh; 
+          margin-left:-4.2vh ;            
         }
   
         #dniNumber{
-          width: 19vh;
-          margin-right: -0.3vh;
+          width: 14.2vh;
+          margin-right: 0.6vh;
         }
        
       }
@@ -54,13 +55,15 @@
       
   
       .form-group-adress{
-        margin: 2.8vh 0 3.75vh 0;
-        #numb{
+        margin: 2.8vh 0 3.75vh 0 ;
+
+        
+        #number{
           width: 5.9vh;
-          margin-left: 0.1vh;
+         
         }
         
-        #portal {
+        #gate {
           width: 7vh;
         }
   
@@ -68,7 +71,7 @@
           width: 7vh;
         }
   
-        #flat{        
+        #floor{        
            width: 7vh;        
         }
   
@@ -81,19 +84,20 @@
           display: grid;
           grid-template-columns: repeat(5,1fr);
           padding: 0.53vh;
+          margin-left: -4vh;
         }
   
-        .form-row{
-         
+        .form-row{         
           display: grid;
           grid-template-columns: repeat(2, 1fr);
+          margin-left: -6vh;
         }
         #postalCode{
           width: 18vh;
         }
   
-        #municipality{
-          width: 18vh;
+        #town{
+          width: 16.2vh;
         }
   
         #province{
