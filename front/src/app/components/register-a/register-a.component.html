@@ -92,7 +92,7 @@
   <div class="form-group">                
       <input type="password" id="confirmPassword" class="form-control" formControlName="confirmPassword" required placeholder="Confirmar Contraseña">
       <div *ngIf="registrationForm.get('confirmPassword')?.hasError('passwordMismatch') && registrationForm.get('confirmPassword')?.touched" class="text-light">
-        Las contraseñas no coinciden.
+        Las contraseñas no coinciden..
       </div>
   </div>
   <button type="submit" class="btn btn-primary" (click)="registerCustomer()">
