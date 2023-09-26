@@ -66,6 +66,8 @@
 				<configuration>
 					<executable>true</executable>
       				<jvmArguments>-Dfile.encoding=UTF8</jvmArguments>
+				 <executable>true</executable>
+      			<jvmArguments>-Dfile.encoding=UTF8</jvmArguments>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
