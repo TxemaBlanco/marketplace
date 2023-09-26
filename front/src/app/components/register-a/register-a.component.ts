@@ -53,7 +53,7 @@ export class RegisterAComponent {
       stairs: [''],
       floor: [''],
       letter: [''],
-      postalCode: [''],
+      postalcode: [''],
       town: [''],
       province: [''],
       password: ['', [Validators.required, Validators.minLength(6)]],
