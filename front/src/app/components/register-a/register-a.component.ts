@@ -22,15 +22,17 @@ export class RegisterAComponent {
     surname2: '',
     street: '',
     number: 0,
-    portal: 0,
+    stairs: '',
+    gate: 0,
     floor: 0,
     letter: '',
-    postalCode: '',
-    municipality: '',
+    postalCode: 0,
+    town: '',
     province: '',
     password: '',
     confirmPassword: ''
   } 
+  
 
   constructor(
     private formBuilder: FormBuilder,
