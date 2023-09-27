@@ -4,7 +4,6 @@ import org.factoriaf5.comicbooks.comics.Comic;
 import org.factoriaf5.comicbooks.customers.Customer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
