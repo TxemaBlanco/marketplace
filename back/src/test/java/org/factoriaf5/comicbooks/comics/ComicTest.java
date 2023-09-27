@@ -38,8 +38,6 @@ public class ComicTest {
     public void testAddGenreNull() {
         Comic comic = new Comic();
 
-        Genre genre1 = new Genre(23191212L,"Aventura");
-
         assertTrue(comic.getGenres().isEmpty());
     }
        @Test
