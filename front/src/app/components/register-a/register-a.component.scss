@@ -25,10 +25,13 @@
       .form-row{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+
         #dniType{
           width: 11vh;
-          margin-left:-4.2vh ;
+          margin-left:-4.2vh;
+          height: 4.2vh;
         }
+
         #dniNumber{
           width: 14.2vh;
           margin-right: 0.6vh;
@@ -47,6 +50,7 @@
         margin: 2.8vh 0 3.75vh 0 ;
         #number{
           width: 5.9vh;
+          margin-left: 4vh;
         }
         #gate {
           width: 7vh;
@@ -72,7 +76,7 @@
           grid-template-columns: repeat(2, 1fr);
           margin-left: -6vh;
         }
-        
+
         #postalcode{
           width: 13vh;         
         }
@@ -83,7 +87,7 @@
         }
         #province{
           width: 19vh;
-          margin-left: 5.7vh;
+          margin-left: 6vh;
         }
       }
       button{
