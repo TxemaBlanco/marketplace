@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeuserviewComponent } from './views/homeuserview/homeuserview.component';
-import { HomeadminviewComponent } from './views/homeadminview/homeadminview.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderclientComponent } from './shared/headerclient/headerclient.component';
@@ -18,6 +17,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { ShopingCartClientComponent } from './components/shoping-cart-client/shoping-cart-client.component';
 import { RegisterAComponent } from './components/register-a/register-a.component';
+import { HomeloginviewComponent } from './views/homeloginview/homeloginview.component';
 
 
 
@@ -26,7 +26,7 @@ import { RegisterAComponent } from './components/register-a/register-a.component
   declarations: [
     AppComponent,
     HomeuserviewComponent,
-    HomeadminviewComponent,
+    HomeloginviewComponent,
     BannerComponent,
     FooterComponent,
     HeaderadminComponent,

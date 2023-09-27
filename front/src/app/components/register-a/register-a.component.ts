@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Customer } from 'src/app/models/Customer.model';
 import { Router } from '@angular/router';
-import { CustomerService } from 'src/app/examples/service/customer.service';
+import { CustomerService } from 'src/app/services/customer.service';
 @Component({
   selector: 'app-register-a',
   templateUrl: './register-a.component.html',
@@ -25,7 +25,7 @@ export class RegisterAComponent {
     gate: 0,
     floor: 0,
     letter: '',
-    postalCode: 0,
+    postalcode: 0,
     town: '',
     province: '',
     password: '',
