@@ -64,9 +64,8 @@ public class CustomerService {
     }
 
     public LoginResponse loginCustomer(LoginDTO loginDTO) {
-       String msg = "";
-        Optional<Customer> customerOptional = repository.findByEmail(loginDTO.getEmail());
-        // Customer customer1 = customerOptional.get();
+       Optional<Customer> customerOptional = repository.findByEmail(loginDTO.getEmail());
+       
         if(customerOptional.isPresent()){
             Customer customer1 = customerOptional.get();
             String password = loginDTO.getPassword();
