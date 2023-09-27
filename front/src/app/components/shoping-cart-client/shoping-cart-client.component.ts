@@ -13,18 +13,23 @@ export class ShopingCartClientComponent {
   comics: Comic[] = [];
   genres: any[] = [];
   
+  subtotal!:number;
 
-  constructor(private cartService: CartService,private comicService: ComicService) {}
+  total!:number;
+   
+
+
+  constructor(private comicService: ComicService,private cartService: CartService) {}
 
   ngOnInit(): void {
     this.getComics();
     this.getGenres();
-    
+    this.setSubtotal();
+    this.setTotal();
   }
 
   getComics(): void {
-    this.comics = this.cartService.getCartItems();   
-    
+    this.comics = this.cartService.getCartItems();
   }
 
   getGenres(): void {
@@ -32,8 +37,21 @@ export class ShopingCartClientComponent {
       this.genres = genres;
     });
   }
-  
 
-  
+  deleteShoppingComic(index:number): void{
+    this.cartService.removeFromCart(index);
+    this.setSubtotal();
+    this.setTotal();
+  }
+
+  setSubtotal(): void {
+    this.subtotal = this.cartService.getSubtotal();
+
+  }
+
+  setTotal() : void {
+    this.total = this.subtotal + 6;
+    console.log ("total=" + this.total);
+  }
 }
 

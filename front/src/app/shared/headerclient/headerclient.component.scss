@@ -42,15 +42,15 @@
 
 
 @media (min-width:768px) and (max-width:999px) {
-    .icons{
-        img{
-            display: none;
-        }
+  .icons {
+    img {
+      display: none;
     }
+  }
 
-    .nav-item{
-        width: 95%;
-    }
+  .nav-item {
+    width: 95%;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -59,7 +59,9 @@
     font-size: 43px;
     margin-left: 1.1vh;
   }
-
+.cartlink{
+  display: none;
+}
   .navbar-nav {
     display: flex;
   }
@@ -71,11 +73,12 @@
 
   .icons {
     img {
-        margin: 0 0 0 3vh
+      cursor: pointer;
+      margin: 0 0 0 3vh
     }
   }
 
-  .nav-item{
+  .nav-item {
     width: 131px;
   }
 }
@@ -99,11 +102,12 @@
 
   .icons {
     img {
+      cursor: pointer;
       margin: 0 0 0 2vh;
     }
   }
 
-  .nav-item{
+  .nav-item {
     width: 131px;
   }
 }
