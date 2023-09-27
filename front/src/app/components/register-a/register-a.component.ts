@@ -66,16 +66,8 @@ export class RegisterAComponent {
       formGroup.get('confirmPassword')?.setErrors(null);
     }
   }
-<<<<<<< HEAD:front/src/app/components/register/register.component.ts
-
-  
-  registerCustomer(): void {  
-    console.log("registrando");  
-    if (this.registrationForm.valid) {    
-=======
   registerCustomer(): void {
     if (this.registrationForm.valid) {
->>>>>>> a3b5c883ecdea191bcd52496b650b5e7d5d8a33e:front/src/app/components/register-a/register-a.component.ts
       const registrationData = this.registrationForm.value;
       this.customerService.register(registrationData).subscribe(
         (response: any) => {
@@ -87,10 +79,6 @@ export class RegisterAComponent {
         }
       );
     } else {
-<<<<<<< HEAD:front/src/app/components/register/register.component.ts
-     console.log("form invalido");
-=======
->>>>>>> a3b5c883ecdea191bcd52496b650b5e7d5d8a33e:front/src/app/components/register-a/register-a.component.ts
     }
   }
 }
