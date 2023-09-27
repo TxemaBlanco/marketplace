@@ -11,7 +11,7 @@ export interface Customer{
     stairs: string;
     floor: number;
     letter: string;
-    postalCode: number;
+    postalcode: number;
     town: string;
     province: string;
     password: string;

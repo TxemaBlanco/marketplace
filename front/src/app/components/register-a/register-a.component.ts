@@ -25,7 +25,7 @@ export class RegisterAComponent {
     gate: 0,
     floor: 0,
     letter: '',
-    postalCode: 0,
+    postalcode: 0,
     town: '',
     province: '',
     password: '',

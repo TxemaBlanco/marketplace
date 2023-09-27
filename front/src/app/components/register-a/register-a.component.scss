@@ -72,15 +72,18 @@
           grid-template-columns: repeat(2, 1fr);
           margin-left: -6vh;
         }
-        #postalCode{
-          width: 13vh;
+        
+        #postalcode{
+          width: 13vh;         
         }
+
         #town{
           width: 18vh;
-          margin-right: 6vh;
+          margin-right: -1vh;
         }
         #province{
           width: 19vh;
+          margin-left: 5.7vh;
         }
       }
       button{
