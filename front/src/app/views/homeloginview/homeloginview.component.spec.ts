@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeadminviewComponent } from './homeadminview.component';
+import { HomeadminviewComponent } from './homeloginview.component';
 
 describe('HomeadminviewComponent', () => {
   let component: HomeadminviewComponent;
