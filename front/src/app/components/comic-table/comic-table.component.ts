@@ -9,6 +9,7 @@ import { Genre } from 'src/app/models/Genre';
 })
 export class ComicTableComponent implements OnInit {
   comics: Comic[] = [];
+  originalComics: Comic[] = [];
   genres:  Genre[] = [];
   selectedGenre: any = null;
   selectedCoverType: string | null = null;
@@ -48,13 +49,12 @@ export class ComicTableComponent implements OnInit {
     this.getComics();
     this.getGenres();
     this.filteredComics = this.comics;
-    this.resetFiltersAndSorting();
   }
 
   getComics(): void {
     this.comicService.getComics().subscribe((comics) => {
       this.comics = comics;
-      this.applyFilters();
+      this.originalComics=comics;
     });
   }
 
@@ -65,8 +65,8 @@ export class ComicTableComponent implements OnInit {
   }
 
   applyFilters(): void {
-    this.getComics()
-    let filteredComics = this.comics.slice();
+    console.log("AAAAA")
+    let filteredComics =  this.originalComics.slice();
   
     if (this.columnFilters.isbn) {
       filteredComics = filteredComics.filter((comic) =>
@@ -105,8 +105,9 @@ export class ComicTableComponent implements OnInit {
     } else {
       filteredComics.sort((a, b) => a.title.localeCompare(b.title));
     }
-  
+    console.log(this.filteredComics)
     this.comics = filteredComics;
+    console.log(this.comics)
   }
   
   
@@ -173,10 +174,7 @@ export class ComicTableComponent implements OnInit {
     this.applyFilters();
   }
 
-  refreshTable() {
-    this.resetFiltersAndSorting();
-    this.getComics();
-  }
+ 
 
   resetFiltersAndSorting() {
     this.selectedAuthor = '';
@@ -215,7 +213,6 @@ export class ComicTableComponent implements OnInit {
           searchKeywords.some(keyword => comicGenres.some(genre => genre.includes(keyword)))
         );
       });
-  
       this.comics = filteredComics;
     });
   }
