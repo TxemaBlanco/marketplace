@@ -7,7 +7,7 @@ import { CustomerService } from 'src/app/services/customer.service';
 @Component({
   selector: 'app-register-a',
   templateUrl: './register-a.component.html',
-  styleUrls: ['./register-a.component.scss']
+  styleUrls: ['./register-a.component.scss'],
 })
 export class RegisterAComponent {
   selectedDniType: string = 'DNI';
