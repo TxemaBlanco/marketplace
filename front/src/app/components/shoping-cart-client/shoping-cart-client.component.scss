@@ -10,7 +10,9 @@ table {
   border-collapse: separate;
   border: 0.4vh solid black;
 }
-
+.trash{
+  cursor: pointer;
+}
 tbody {
   text-align: center;
   vertical-align: middle;
