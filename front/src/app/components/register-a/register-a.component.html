@@ -91,7 +91,7 @@
         Las contraseñas no coinciden.
       </div>
   </div>
-  <button type="submit" class="btn btn-primary" (click)="registerCustomer()">
+  <button type="submit" class="btn btn-primary" (click)="registerCustomer()" [disabled]="!registrationForm.valid" >
     <p>Registro</p>
   </button>
   <div class="login">
