@@ -58,7 +58,7 @@ export class LoginComponent {
           width: 300, 
           confirmButtonColor: '#008000',
         }).then(() => {
-          this.userService.setLoggedInUsername(resultData.username);
+          this.userService.setLogdeInEmail(resultData.email);
           this.router.navigateByUrl('comicList');
         });
       } else {
