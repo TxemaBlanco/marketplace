@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ComicService } from '../../services/comic.service';
+import { ComicService } from '../../../services/comic.service';
 import { Comic } from 'src/app/models/Comic';
 import { CartService } from 'src/app/services/cart.service';
 
