@@ -11,7 +11,10 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
 
-public postLogin(loginObject?: Login): Observable<Object>{
-  return this.http.post<Login>('http://localhost:8000/customers/login', loginObject)
+// public postLogin(loginObject?: Login): Observable<Object>{
+//   return this.http.post<Login>('http://localhost:8000/customers/login', loginObject)
+// }
+public postLogin(loginObject: Login): Observable<Login> {
+  return this.http.post<Login>('http://localhost:8000/customers/login', loginObject, { withCredentials: true });
 }
 }

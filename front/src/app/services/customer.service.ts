@@ -11,4 +11,7 @@ export class CustomerService {
   register(customer : Customer){
     return this.httpClient.post<Customer>(this.customerUrl, customer);
   }
+  getCustomer(email: string) : any{
+    return this.httpClient.get<any>(this.customerUrl + "/" + email);
+  }
 }

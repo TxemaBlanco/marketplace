@@ -31,7 +31,19 @@ export class CartService {
   private updateCartStorage() {
     localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
   }
-
+  getSubtotal(): number{
+    let subtotal:number= 0 ;
+    for(let comic of this.cartItems){
+      subtotal += comic.price;
+    } 
+    return subtotal;
+  }
+  removeAll(){
+    for ( let index = this.cartItems.length;index>=0;index--) {
+      this.cartItems.splice(index, 1);
+      this.updateCartStorage();
+    }
+  }
  
 
 }

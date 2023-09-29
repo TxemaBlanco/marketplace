@@ -4,7 +4,8 @@
     border-radius: 3.00vh;
     margin-bottom: 15vh;
     width: 45vh;
-    height: 84.5vh;
+    height: 98vh;
+    border: 1px solid #000;
     h1{
       color: #fff;
       font-size: 4vh;
@@ -12,95 +13,63 @@
       font-family: 'Alice', serif;
     }
     form{
+      margin-top: -2.8vh;
       padding: 2vh;
       input, select{
         margin: 0.5vh;
         font-family: 'Alice', serif;
         height: 4vh;
-        font-size: 2vh;
+        font-size: 2.5vh;
+        margin-left: 0.1vh;
       }
-      #email{
-        margin-top: -1vh;
-      }
-      .form-row{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        #dniType{
-          width: 11vh;
-          margin-left:-4.2vh ;
-        }
-        #dniNumber{
-          width: 14.2vh;
-          margin-right: 0.6vh;
-        }
-      }
-      #name{
-        width: 100%;
-      }
-        #surname1{
-          width: 100%;
-        }
-        #surname2{
-          width: 100%;
-        }
-      .form-group-adress{
-        margin: 2.8vh 0 3.75vh 0 ;
-        #number{
-          width: 5.9vh;
-        }
-        #gate {
-          width: 7vh;
-        }
-        #stairs{
-          width: 7vh;
-        }
-        #floor{
-           width: 7vh;
-        }
-        #letter{
-          width: 7.2vh;
-        }
-        .form-row-inline{
-          width: 2.79vh;
-          display: grid;
-          grid-template-columns: repeat(5,1fr);
-          padding: 0.53vh;
-          margin-left: -4vh;
-        }
-        .form-row{
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          margin-left: -6vh;
-        }
-        #postalCode{
-          width: 13vh;
-        }
-        #town{
-          width: 18vh;
-          margin-right: 6vh;
-        }
-        #province{
-          width: 19vh;
-        }
-      }
-      button{
-        margin: 1vh 0 0 12vh;
+
+     #dniType{    
+      height: 4.8vh;      
+     }
+    
+   
+      .btn{
+        border: 1px solid #000;
+        border-radius: 1.29vh;
         background: #fff;
-        border: 0.10vh solid #000;
-        width: 15vh;
-        height: 4vh;
-        font-size: 2vh;
-        border-radius: 3.00vh;
-        p{
-          color: #000;
-          margin-top: -0.5vh;
-        }
-       }
-       .login{
-        text-align: center;
+        color: #000;
+        margin: 4vh 0 2vh 15vh;
+        height: 5vh;
+        width: 12vh;
+      }
+
+      .login{
         color: #fff;
-        margin-top: 1vh;
-        cursor: pointer;
-       }
+        text-align: center;  
+        cursor: pointer;     
+      }
     }
-  }
+
+    @media (min-width:760px) {
+      
+      .container{
+        height: 98vh;
+      
+      }
+      
+
+
+      .text-light{
+        font-size: 2.2vh;
+      }
+
+
+      .btn{
+        font-size: 2.5vh;
+      }
+
+      .login{
+        font-size: 2.4vh;
+      }
+
+      
+   
+      
+      
+    }
+  } 
