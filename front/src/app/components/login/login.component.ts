@@ -51,6 +51,15 @@ export class LoginComponent {
           this.userService.setLoggedInUsername(resultData.username);
           this.router.navigateByUrl('comicList');
         });
+      }else if(resultData.message == "password Not Match"){
+        Swal.fire({
+          title: 'Error',
+          text: 'La contraseña para ese email no coincide',
+          customClass: 'custom-swal' ,
+          showConfirmButton: true,
+          width: 300, 
+          confirmButtonColor: '#ff0000',
+        });
       } else {
         Swal.fire({
           title: 'Error',
