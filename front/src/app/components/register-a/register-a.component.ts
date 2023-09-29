@@ -75,7 +75,7 @@ export class RegisterAComponent {
         (response: any) => {
           Swal.fire({
             icon: 'success',
-            title: 'Éxito',
+            title: 'Bienvenid@',
             text: 'Registro realizado con éxito!'
           }).then(() => {
             this.router.navigate(['/comicList']);
