@@ -38,6 +38,12 @@ export class CartService {
     } 
     return subtotal;
   }
+  removeAll(){
+    for ( let index = this.cartItems.length;index>=0;index--) {
+      this.cartItems.splice(index, 1);
+      this.updateCartStorage();
+    }
+  }
  
 
 }

@@ -20,5 +20,8 @@ export class HeaderclientComponent {
   getLoggedInUsername(): string {
     return this.userService.getLoggedInUsername();
   }
+  onCloseSession():void{
+    this.userService.logout();
+  }
 }
 
