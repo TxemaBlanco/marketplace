@@ -64,7 +64,8 @@ INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("9788411404440", 7);
 INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("981-260-771-4", 3);
 INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("7596060791480", 4);
 INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("7596060791480", 6);
-
+INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("9780843133134", 7);
+INSERT INTO comics_genres (comic_isbn, genre_id) VALUES ("9788412183900", 7);
 
 
 
