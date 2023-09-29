@@ -43,8 +43,8 @@ export class RegisterAComponent {
       email: ['', [Validators.required, Validators.email, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)]],
       dniType: ['', Validators.required],
       dni: ['', [Validators.required, Validators.pattern('[0-9]{8}[A-Z]')]],
-      name: ['', [Validators.required, Validators.pattern('[A-Za-z]*')]],
-      surname: ['', [Validators.required, Validators.pattern('[A-Za-z]*')]],
+      name: ['', [Validators.required, Validators.pattern('[A-Za-z ]*')]], 
+      surname:  ['', [Validators.required, Validators.pattern('[A-Za-z ]*')]], 
       surname2: [''],
       street: ['', [Validators.required]],
       number: [''],
@@ -57,7 +57,7 @@ export class RegisterAComponent {
       province: [''],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', [Validators.required]]
-    }, { validators: this.passwordMatchValidator.bind(this) });
+    },  { validators: this.passwordMatchValidator.bind(this) });
   }
   passwordMatchValidator(formGroup: FormGroup) {
     const password = formGroup.get('password')?.value;
