@@ -1,44 +1,23 @@
-
-<div class="container  ">
+<div class="container">
   <div class="card">
-
-
-
-    <div class="card-body   p-5 text-center">
-
-
-
+    <div class="card-body p-5 text-center">
       <h3 class="fw-bold mb-1 text-uppercase">Acceso</h3>
-
-
-      <div class="form-outline form-white d-flex flex-column align-items-center ">
+      <div class="form-outline form-white d-flex flex-column align-items-center">
         <label class="form-label mt-3" for="typeEmailX">Correo</label>
         <input type="email" id="typeEmailX" [(ngModel)]="email" class="form-control text-center form-control-lg" />
-
       </div>
-
       <div class="form-outline form-white mb-3 d-flex flex-column align-items-center">
         <label class="form-label" for="typePasswordX">Contraseña</label>
-        <input type="password" id="typePasswordX" [(ngModel)]="password"  class="form-control form-control-lg" />
-
+        <input type="password" id="typePasswordX" [(ngModel)]="password" class="form-control form-control-lg" />
       </div>
-
       <p class="small mt-4 pb-lg-1"><a class="text2" href="#!">¿Has olvidado la contraseña?</a></p>
-      <p class="small mt-4 pb-lg-1  registeryou text2">¿No estás registrado?<a routerLink="/register"> <span> Resistrate </span></a>
-      </p>
-      <button class="btn btn-light  mt-2 px-4" (click)="login()" type="submit">Enviar</button>
-
+      <p class="small mt-4 pb-lg-1 registeryou text2">¿No estás registrado?<a routerLink="/register"> <span> Regístrate </span></a></p>
+      <button class="btn btn-light mt-2 px-4" (click)="login()" type="submit">Enviar</button>
     </div>
   </div>
-  <div class="f-stick  "></div>
-
-  <div class="register">  
-
-
-    <button class="btn2 " type="submit" ><a routerLink="/register" class="btn2"><strong>Crear cuenta</strong></a></button>
+  <div class="f-stick"></div>
+  <div class="register">
+    <button class="btn2" type="submit"><a routerLink="/register" class="btn2"><strong>Crear cuenta</strong></a></button>
   </div>
-
 </div>
-
-
 
