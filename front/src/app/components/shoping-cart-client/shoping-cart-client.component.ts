@@ -33,7 +33,7 @@ export class ShopingCartClientComponent {
   }
 
   getGenres(): void {
-    this.comicService.getGenres().subscribe((genres) => {
+    this.comicService.getGenres().subscribe((genres: any) => {
       this.genres = genres;
     });
   }

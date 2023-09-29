@@ -88,6 +88,8 @@
   <button type="submit" class="btn btn-primary" (click)="registerCustomer()" [disabled]="!registrationForm.valid">
     <p>Registro</p>
   </button>
+  <p class="alert alert-danger " *ngIf="!registrationForm.valid">Por favor complete todos los campos
+  </p>
   <div class="login">
     <p><u>¿Ya tienes una cuenta? <strong routerLink="">Accede</strong></u> </p>
   </div>
