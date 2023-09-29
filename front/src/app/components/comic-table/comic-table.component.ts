@@ -9,6 +9,7 @@ import { Genre } from 'src/app/models/Genre';
 })
 export class ComicTableComponent implements OnInit {
   comics: Comic[] = [];
+  originalComics: Comic[] = [];
   genres:  Genre[] = [];
   selectedGenre: any = null;
   selectedCoverType: string | null = null;
@@ -29,20 +30,31 @@ export class ComicTableComponent implements OnInit {
   selectedisbn: string = '';
   searchTextGlobal: string = '';
   filteredComics: Comic[] = [];
-
+  columnFilters: {
+    isbn: string;
+    title: string;
+    author: string;
+    genre: number | null;
+    coverType: string | null;
+  } = {
+    isbn: '',
+    title: '',
+    author: '',
+    genre: null,
+    coverType: null,
+  };
   constructor(private comicService: ComicService) {}
 
   ngOnInit(): void {
     this.getComics();
     this.getGenres();
     this.filteredComics = this.comics;
-    this.resetFiltersAndSorting();
   }
 
   getComics(): void {
     this.comicService.getComics().subscribe((comics) => {
       this.comics = comics;
-      this.applyFilters();
+      this.originalComics=comics;
     });
   }
 
@@ -53,48 +65,52 @@ export class ComicTableComponent implements OnInit {
   }
 
   applyFilters(): void {
-    let filteredComics = this.comics.slice(); 
-
-    if (this.selectedisbn) {
+    console.log("AAAAA")
+    let filteredComics =  this.originalComics.slice();
+  
+    if (this.columnFilters.isbn) {
       filteredComics = filteredComics.filter((comic) =>
-        comic.isbn.toLowerCase().includes(this.selectedisbn.toLowerCase())
+        comic.isbn.toLowerCase().includes(this.columnFilters.isbn.toLowerCase())
       );
     }
-    if (this.selectedAuthor) {
+  
+    if (this.columnFilters.title) {
       filteredComics = filteredComics.filter((comic) =>
-        comic.author.toLowerCase().includes(this.selectedAuthor.toLowerCase())
+        comic.title.toLowerCase().includes(this.columnFilters.title.toLowerCase())
       );
     }
-
-    if (this.selectedGenre) {
+  
+    if (this.columnFilters.author) {
       filteredComics = filteredComics.filter((comic) =>
-        comic.genres.some((g: any) => g.id === this.selectedGenre)
+        comic.author.toLowerCase().includes(this.columnFilters.author.toLowerCase())
       );
     }
-
-    if (this.selectedCoverType === 'hard') {
-      filteredComics = filteredComics.filter((comic) => comic.ishardcover);
-    } else if (this.selectedCoverType === 'soft') {
-      filteredComics = filteredComics.filter((comic) => !comic.ishardcover);
-    }
-
-    if (this.searchTerm || this.searchTextGlobal) {
-      const searchQuery = (this.searchTerm + ' ' + this.searchTextGlobal).toLowerCase();
+  
+    if (this.columnFilters.genre !== null) {
       filteredComics = filteredComics.filter((comic) =>
-        comic.title.toLowerCase().includes(searchQuery) ||
-        comic.isbn.toLowerCase().includes(searchQuery) ||
-        comic.author.toLowerCase().includes(searchQuery)
+        comic.genres.some((g: any) => g.id === this.columnFilters.genre)
       );
     }
-
+  
+    if (this.columnFilters.coverType !== null) {
+      if (this.columnFilters.coverType === 'hard') {
+        filteredComics = filteredComics.filter((comic) => comic.ishardcover);
+      } else {
+        filteredComics = filteredComics.filter((comic) => !comic.ishardcover);
+      }
+    }
+  
     if (!this.sortByTitleAscending) {
       filteredComics.sort((a, b) => b.title.localeCompare(a.title));
     } else {
       filteredComics.sort((a, b) => a.title.localeCompare(b.title));
     }
-
+    console.log(this.filteredComics)
     this.comics = filteredComics;
+    console.log(this.comics)
   }
+  
+  
 
   toggleSortOrderPopup(order: 'A-Z' | 'Z-A') {
     this.currentSortOrder = order;
@@ -158,10 +174,7 @@ export class ComicTableComponent implements OnInit {
     this.applyFilters();
   }
 
-  refreshTable() {
-    this.resetFiltersAndSorting();
-    this.getComics();
-  }
+ 
 
   resetFiltersAndSorting() {
     this.selectedAuthor = '';
@@ -200,7 +213,6 @@ export class ComicTableComponent implements OnInit {
           searchKeywords.some(keyword => comicGenres.some(genre => genre.includes(keyword)))
         );
       });
-  
       this.comics = filteredComics;
     });
   }

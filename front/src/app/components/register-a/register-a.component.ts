@@ -4,10 +4,12 @@ import { HttpClient } from '@angular/common/http';
 import { Customer } from 'src/app/models/Customer.model';
 import { Router } from '@angular/router';
 import { CustomerService } from 'src/app/services/customer.service';
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-register-a',
   templateUrl: './register-a.component.html',
-  styleUrls: ['./register-a.component.scss']
+  styleUrls: ['./register-a.component.scss'],
 })
 export class RegisterAComponent {
   selectedDniType: string = 'DNI';
@@ -38,7 +40,7 @@ export class RegisterAComponent {
     private customerService: CustomerService
   ) {
     this.registrationForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]],
+      email: ['', [Validators.required, Validators.email, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)]],
       dniType: ['', Validators.required],
       dni: ['', [Validators.required, Validators.pattern('[0-9]{8}[A-Z]')]],
       name: ['', [Validators.required, Validators.pattern('[A-Za-z]*')]],
@@ -71,14 +73,29 @@ export class RegisterAComponent {
       const registrationData = this.registrationForm.value;
       this.customerService.register(registrationData).subscribe(
         (response: any) => {
-          console.log('Registro realizado con éxito!:', response);
-          this.router.navigate(['/comicList']);
+          Swal.fire({
+            icon: 'success',
+            title: 'Bienvenid@',
+            text: 'Registro realizado con éxito!'
+          }).then(() => {
+            this.router.navigate(['/comicList']);
+          });
         },
         (error: any) => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Error durante el registro'
+          });
           console.error('Error durante el registro', error);
         }
       );
     } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error de validación',
+        text: 'Por favor, complete todos los campos correctamente'
+      });
     }
   }
-}
+}  
