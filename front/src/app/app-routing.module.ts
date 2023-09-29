@@ -1,12 +1,12 @@
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ComicTableComponent } from './components/comic-table/comic-table.component';
-import { ComicDetailComponent } from './components/comic-detail/comic-detail.component';
-import { LoginComponent } from './components/login/login.component';
+import { ComicTableComponent } from './components/user/comic-table/comic-table.component';
+import { ComicDetailComponent } from './components/user/comic-detail/comic-detail.component';
+import { LoginComponent } from './components/user/login/login.component';
 import { HomeuserviewComponent } from './views/homeuserview/homeuserview.component';
 import { HomeloginviewComponent } from './views/homeloginview/homeloginview.component';
-import { RegisterAComponent } from './components/register-a/register-a.component';
-import { ShopingCartClientComponent } from './components/shoping-cart-client/shoping-cart-client.component';
+import { RegisterAComponent } from './components/user/register-a/register-a.component';
+import { ShopingCartClientComponent } from './components/user/shoping-cart-client/shoping-cart-client.component';
 
 
 const routes: Routes = [
