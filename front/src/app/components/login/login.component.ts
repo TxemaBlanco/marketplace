@@ -37,7 +37,17 @@ export class LoginComponent {
           showConfirmButton: true,
           width: 300, 
           confirmButtonColor: 'rgba(29, 41, 81, 1)',
+          showCancelButton: true, 
+          cancelButtonText: 'Cancelar', 
+          showCloseButton: true, 
+          confirmButtonText: 'Registrate', 
+        }).then((result) => {
+          if (result.isConfirmed) {
+            
+            this.router.navigateByUrl('register');
+          }
         });
+        
       } else if (resultData.message == "Login Success") {
         Swal.fire({
         
@@ -50,15 +60,6 @@ export class LoginComponent {
         }).then(() => {
           this.userService.setLoggedInUsername(resultData.username);
           this.router.navigateByUrl('comicList');
-        });
-      }else if(resultData.message == "password Not Match"){
-        Swal.fire({
-          title: 'Error',
-          text: 'La contraseña para ese email no coincide',
-          customClass: 'custom-swal' ,
-          showConfirmButton: true,
-          width: 300, 
-          confirmButtonColor: '#ff0000',
         });
       } else {
         Swal.fire({

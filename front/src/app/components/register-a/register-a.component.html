@@ -85,7 +85,7 @@
         Las contraseñas no coinciden.
       </div>
   </div>
-  <button type="submit" class="btn btn-primary" (click)="registerCustomer()" [disabled]="!registrationForm.valid">
+  <button type="submit" class="btn btn-primary" (click)="registerCustomer()">
     <p>Registro</p>
   </button>
   <p class="alert alert-danger " *ngIf="!registrationForm.valid">Por favor complete todos los campos
