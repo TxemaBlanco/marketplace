@@ -41,7 +41,7 @@ export class LoginComponent {
       } else if (resultData.message == "Login Success") {
         Swal.fire({
         
-          title: 'Éxito',
+          title: 'Bienvenid@',
           text: 'Logueado con éxito',
           customClass: 'custom-swal', 
           showConfirmButton: true,

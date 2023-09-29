@@ -8,6 +8,7 @@ import { HomeloginviewComponent } from './views/homeloginview/homeloginview.comp
 import { RegisterAComponent } from './components/register-a/register-a.component';
 import { ShopingCartClientComponent } from './components/shoping-cart-client/shoping-cart-client.component';
 
+
 const routes: Routes = [
   { path: 'comic/:isbn', component:  ComicDetailComponent },
   { path: 'comicList', component: HomeuserviewComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'register', component: RegisterAComponent},
   {path: 'login', component: LoginComponent},
   {path: 'cart', component: ShopingCartClientComponent},
+
  
 ];
 
