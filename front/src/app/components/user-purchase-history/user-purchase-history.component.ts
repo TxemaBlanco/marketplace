@@ -35,7 +35,7 @@ export class UserPurchaseHistoryComponent implements OnInit {
    this.orderService.getOrdersByEmail(this.userEmail).subscribe(orders => {
       this.orders = orders.map(order => ({
         ...order,
-        date: this.formatDate(order.date) // Formatea la fecha
+        date: this.formatDate(order.date) 
       }));
     });
   }
