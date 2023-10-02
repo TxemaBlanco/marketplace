@@ -1,6 +1,8 @@
 import { Genre } from "./Genre";
 
+
 export interface Comic {
+isEditing: any;
     isbn: string;
     title: string;
     author: string;
@@ -10,5 +12,6 @@ export interface Comic {
     synopsis: string;
     stock: number;
     genres: Genre[]; 
+    
   }
   
