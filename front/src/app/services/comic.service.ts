@@ -1,16 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, map, throwError } from 'rxjs';
-import { Comic } from '../models/Comic';
+import { Comic, UpdateComicDTO } from '../models/Comic';
 import { of } from 'rxjs';
 import { Genre } from '../models/Genre';
 @Injectable({
   providedIn: 'root'
 })
 export class ComicService {
-  actualizarComic(comic: any) {
-    throw new Error('Method not implemented.');
-  }
+
   private comics: Comic[] = [];
   private comicsUrl = 'http://localhost:8000/comics'; 
   private genresUrl = 'http://localhost:8000/genres'; 
@@ -55,16 +53,11 @@ export class ComicService {
     return this.http.get<any[]>(`${this.comicsUrl}`);
   }
   
-  updateComic(isbn: string, updatedComicData: Comic): Observable<any> {
-    const url = `${this.comicsUrl}/${isbn}`;
+  updateComic(isbn: string, dto:UpdateComicDTO): Observable<any> {
+  
+    return this.http.put<Comic>(`${this.comicsUrl}/${isbn}`,dto)
     
-    return this.http.put(url, updatedComicData)
-      .pipe(
-        catchError(error => {
-          console.error('Error en la solicitud HTTP:', error);
-          return throwError(error);
-        })
-      );
+      
   }
   editComic(comic: Comic): Observable<Comic> {
     const editUrl = `${this.comicsUrl}/editar/${comic.isbn}`;
