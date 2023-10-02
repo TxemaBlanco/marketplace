@@ -51,4 +51,17 @@ export class ComicService {
 
     return this.http.get<any[]>(`${this.comicsUrl}`);
   }
+  
+  updateComic(isbn: string, updatedComicData: Comic): Observable<any> {
+    const url = `${this.comicsUrl}/${isbn}`;
+    
+    return this.http.put(url, updatedComicData)
+      .pipe(
+        catchError(error => {
+          console.error('Error en la solicitud HTTP:', error);
+          return throwError(error);
+        })
+      );
+  }
 }
+
