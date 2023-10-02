@@ -19,6 +19,12 @@ import { ShopingCartClientComponent } from './components/user/shoping-cart-clien
 import { RegisterAComponent } from './components/user/register-a/register-a.component';
 import { HomeloginviewComponent } from './views/homeloginview/homeloginview.component';
 import { ClientDetailsComponent } from './components/admin/client-details/client-details.component';
+import { UserPurchaseHistoryComponent } from './components/user-purchase-history/user-purchase-history.component';
+import { ModificateComicsComponent } from './components/admin/modificate-comics/modificate-comics.component';
+import { ComictableadminComponent } from './components/admin/comictableadmin/comictableadmin.component';
+import { EditComicComponent } from './components/admin/edit-comic/edit-comic.component';
+import { AdminloginviewComponent } from './views/adminloginview/adminloginview.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 
@@ -39,6 +45,11 @@ import { ClientDetailsComponent } from './components/admin/client-details/client
     ShopingCartClientComponent,
     RegisterAComponent,
     ClientDetailsComponent,
+    UserPurchaseHistoryComponent,
+    ModificateComicsComponent,
+    ComictableadminComponent,
+    EditComicComponent,
+    AdminloginviewComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +58,8 @@ import { ClientDetailsComponent } from './components/admin/client-details/client
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule,
+    ModalModule.forRoot()
+    
  
   ],
   providers: [],
