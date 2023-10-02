@@ -115,11 +115,12 @@
             </td>
             <td>{{ comic.price }}€</td>
             <td>{{ comic.ishardcover ? "Dura" : "Blanda" }}</td>
-            <td>
-              <a [routerLink]="['/editar', comic.isbn]">
-                <img src="../../../assets/pencil.png" alt="Editar" />
-              </a>
-            </td>
+              <td>
+                <button class="btn btn-link btn-sm" (click)="openEditModal(comic)">
+                  <img src="../../../assets/pencil.png" alt="Editar" />
+                </button>
+              </td>
+          
           </tr>
         </tbody>
       </table>

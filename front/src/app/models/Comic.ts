@@ -1,6 +1,6 @@
 import { Genre } from "./Genre";
 
-
+export class Comic{}
 export interface Comic {
 isEditing: any;
     isbn: string;
