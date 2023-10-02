@@ -37,7 +37,17 @@ export class LoginComponent {
           showConfirmButton: true,
           width: 300, 
           confirmButtonColor: 'rgba(29, 41, 81, 1)',
+          showCancelButton: true, 
+          cancelButtonText: 'Cancelar', 
+          showCloseButton: true, 
+          confirmButtonText: 'Registrate', 
+        }).then((result) => {
+          if (result.isConfirmed) {
+            
+            this.router.navigateByUrl('register');
+          }
         });
+        
       } else if (resultData.message == "Login Success") {
         Swal.fire({
         
@@ -48,7 +58,7 @@ export class LoginComponent {
           width: 300, 
           confirmButtonColor: '#008000',
         }).then(() => {
-          this.userService.setLoggedInUsername(resultData.username);
+          this.userService.setLogdeInEmail(resultData.email);
           this.router.navigateByUrl('comicList');
         });
       } else {

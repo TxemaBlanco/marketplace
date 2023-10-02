@@ -83,7 +83,7 @@ public class CustomerService {
                 return new LoginResponse("password Not Match", false);
             }
         }else{
-            return new LoginResponse("Emain not exist", false);
+            return new LoginResponse("Email not exist", false);
         }         
     }
 }

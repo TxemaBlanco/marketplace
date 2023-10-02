@@ -27,7 +27,7 @@ describe('HeaderadminComponent', () => {
   });
 
   it('should close the menu when closeMenu() is called', () => {
-    component.isMenuOpen = true; // Open the menu first
+    component.isMenuOpen = true; 
     component.closeMenu();
     expect(component.isMenuOpen).toBe(false);
   });

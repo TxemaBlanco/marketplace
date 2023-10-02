@@ -4,7 +4,7 @@
     border-radius: 3.00vh;
     margin-bottom: 15vh;
     width: 45vh;
-    height: 109vh;
+    height: 98vh;
     border: 1px solid #000;
     h1{
       color: #fff;
@@ -27,11 +27,7 @@
       height: 4.8vh;      
      }
     
-     .less{
-      width: 37.6vh;
-      margin-left: 2.3vh;
-     }
-
+   
       .btn{
         border: 1px solid #000;
         border-radius: 1.29vh;
@@ -44,7 +40,8 @@
 
       .login{
         color: #fff;
-        text-align: center;       
+        text-align: center;  
+        cursor: pointer;     
       }
     }
 

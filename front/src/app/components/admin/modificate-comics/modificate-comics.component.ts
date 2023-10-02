@@ -1,14 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { ComicService } from '../../services/comic.service';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Comic } from 'src/app/models/Comic';
 import { Genre } from 'src/app/models/Genre';
+import { ComicService } from 'src/app/services/comic.service';
+import { EditComicComponent } from '../edit-comic/edit-comic.component';
+
 @Component({
-  selector: 'app-comic-table',
-  templateUrl: './comic-table.component.html',
-  styleUrls: ['./comic-table.component.scss']
+  selector: 'app-modificate-comics',
+  templateUrl: './modificate-comics.component.html',
+  styleUrls: ['./modificate-comics.component.scss']
 })
-export class ComicTableComponent implements OnInit {
+export class ModificateComicsComponent implements OnInit {
+  bsModalRef: BsModalRef | undefined;
   comics: Comic[] = [];
+  originalComics: Comic[] = [];
   genres:  Genre[] = [];
   selectedGenre: any = null;
   selectedCoverType: string | null = null;
@@ -42,19 +47,25 @@ export class ComicTableComponent implements OnInit {
     genre: null,
     coverType: null,
   };
-  constructor(private comicService: ComicService) {}
+  constructor(private comicService: ComicService,private modalService: BsModalService) {}
+  
+  openEditModal(comic: Comic) {
+    const initialState = {
+      comicToEdit: comic,
+    };
+    this.bsModalRef = this.modalService.show(EditComicComponent, { initialState });
+  }
 
   ngOnInit(): void {
     this.getComics();
     this.getGenres();
     this.filteredComics = this.comics;
-    this.resetFiltersAndSorting();
   }
 
   getComics(): void {
     this.comicService.getComics().subscribe((comics) => {
       this.comics = comics;
-      this.applyFilters();
+      this.originalComics=comics;
     });
   }
 
@@ -65,8 +76,8 @@ export class ComicTableComponent implements OnInit {
   }
 
   applyFilters(): void {
-    this.getComics()
-    let filteredComics = this.comics.slice();
+    console.log("AAAAA")
+    let filteredComics =  this.originalComics.slice();
   
     if (this.columnFilters.isbn) {
       filteredComics = filteredComics.filter((comic) =>
@@ -105,8 +116,9 @@ export class ComicTableComponent implements OnInit {
     } else {
       filteredComics.sort((a, b) => a.title.localeCompare(b.title));
     }
-  
+    console.log(this.filteredComics)
     this.comics = filteredComics;
+    console.log(this.comics)
   }
   
   
@@ -173,10 +185,7 @@ export class ComicTableComponent implements OnInit {
     this.applyFilters();
   }
 
-  refreshTable() {
-    this.resetFiltersAndSorting();
-    this.getComics();
-  }
+ 
 
   resetFiltersAndSorting() {
     this.selectedAuthor = '';
@@ -215,7 +224,6 @@ export class ComicTableComponent implements OnInit {
           searchKeywords.some(keyword => comicGenres.some(genre => genre.includes(keyword)))
         );
       });
-  
       this.comics = filteredComics;
     });
   }
@@ -232,4 +240,5 @@ export class ComicTableComponent implements OnInit {
     popup.style.display = "block";
   }
 }
+
 
