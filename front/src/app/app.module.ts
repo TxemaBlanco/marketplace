@@ -19,6 +19,7 @@ import { ShopingCartClientComponent } from './components/user/shoping-cart-clien
 import { RegisterAComponent } from './components/user/register-a/register-a.component';
 import { HomeloginviewComponent } from './views/homeloginview/homeloginview.component';
 import { ModificateComicsComponent } from './components/admin/modificate-comics/modificate-comics.component';
+import { ComictableadminComponent } from './components/admin/comictableadmin/comictableadmin.component';
 
 
 
@@ -39,6 +40,7 @@ import { ModificateComicsComponent } from './components/admin/modificate-comics/
     ShopingCartClientComponent,
     RegisterAComponent,
     ModificateComicsComponent,
+    ComictableadminComponent,
   ],
   imports: [
     BrowserModule,
