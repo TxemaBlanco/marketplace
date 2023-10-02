@@ -1,12 +1,28 @@
 <div class="container-global">
     <div class="container-left">
-        <form class="form">
-
-
-
-
-
-            
+        
+            <h2>Cliente</h2>
+            <label for="email">Elige un email</label> <br>
+            <select (ngModelChange)="selectedemail($event)"  [ngModel]="email"  name="email" required>
+            <option *ngFor="let customer of customers" value={{customer.email}}>{{customer.email}} </option>
+            </select>
+               <br><br>
+               <form [formGroup]="formcustomer" class="form">
+               <input type="text" formControlName="dni" placeholder="DNI">
+               <br>
+               <input type="text" formControlName="name" placeholder="nombre"> <br>
+               <input type="text" formControlName="surname" placeholder="Apellido 1"> <br>
+               <input type="text" formControlName="surname2" placeholder="Apellido 2"><br>
+               <input type="text" formControlName="street" placeholder="Calle"> <br>
+               <input class="up up1" type="text" formControlName="number" placeholder="Nº"> 
+               <input class="up" type="text" formControlName="gate" placeholder="Portal"> <br>
+               <input class="down down2" type="text" formControlName="stairs" placeholder="Escalera"> 
+               <input class="down down2" type="text" formControlName="floor" placeholder="Piso"> 
+               <input class="down" type="text" formControlName="letter" placeholder="Puerta"><br>
+               <input type="text" formControlName="postalcode" placeholder="Codigo postal"> <br>
+               <input type="text" formControlName="town" placeholder="Ciudad"><br>
+               <input type="text" formControlName="province" placeholder="Provincia">
+          
         </form>
 
         
