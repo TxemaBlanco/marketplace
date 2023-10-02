@@ -1,75 +1,61 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ComicService } from 'src/app/services/comic.service';
-import { Comic } from 'src/app/models/Comic'; 
+import { Comic } from '../../../models/Comic'; 
 import { Genre } from '../../../models/Genre';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
+const allGenres: string[] = [
+  "Infantil",
+  "Juvenil",
+  "Manga",
+  "Novela Gráfica",
+  "Humor",
+  "Superhéroes",
+  "Ciencia Ficción",
+  "Fantasía"
+];
 @Component({
   selector: 'app-edit-comic',
   templateUrl: './edit-comic.component.html',
   styleUrls: ['./edit-comic.component.scss']
 })
 export class EditComicComponent implements OnInit {
-  comic: Comic = {
-    isbn: '',
-    title: '',
-    author: '',
-    ishardcover: false,
-    photo: '',
-    price: 0,
-    synopsis: '',
-    stock: 0,
-    genres: [],
-    isEditing: undefined
-  };
-  isLoading: boolean = false;
-  isError: boolean = false;
+  comicToEdit: Comic = new Comic(); 
+  editedComic: Comic = new Comic();
+  allGenres = allGenres; 
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private comicService: ComicService
-  ) {}
+  constructor(public bsModalRef: BsModalRef, private comicService: ComicService) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((params) => {
-      const isbn = params['isbn'];
-      if (isbn) {
-        this.loadComic(isbn);
-      }
+   
+    this.editedComic = { ...this.comicToEdit };
+  }
+  openEditForm(comic: Comic) {
+    
+    this.editedComic = { ...comic };
+    
+   
+    this.comicService.getGenres().subscribe((genres) => {
+     
+      this.editedComic.genres = this.editedComic.genres.map((genreName) => {
+        const matchingGenre = genres.find((genre) => genre.name === genreName);
+        return matchingGenre || { id: 0, name: genreName }; 
+      });
     });
   }
-
-  loadComic(isbn: string): void {
-    this.isLoading = true;
-    this.isError = false;
-
-    this.comicService.getComicByISBN(isbn).subscribe(
-      (comic) => {
-        this.comic = comic;
-        this.isLoading = false;
+  saveChanges() {
+    const isbn = this.comicToEdit.isbn;
+    this.comicService.updateComic(isbn, this.editedComic).subscribe(
+      (updatedComic) => {
+        
+        console.log('Cómic actualizado:', updatedComic);
+        this.bsModalRef.hide(); 
       },
       (error) => {
-        console.error('Error al obtener el cómic:', error);
-        this.isLoading = false;
-        this.isError = true;
-      }
-    );
-  }
-
-  updateComic(): void {
-    this.isLoading = true;
-    this.isError = false;
-
-    this.comicService.updateComic(this.comic.isbn, this.comic).subscribe(
-      () => {
-        this.isLoading = false;
-        this.router.navigate(['/comic', this.comic.isbn]);
-      },
-      (error) => {
+        
         console.error('Error al actualizar el cómic:', error);
-        this.isLoading = false;
-        this.isError = true;
+       
       }
     );
   }

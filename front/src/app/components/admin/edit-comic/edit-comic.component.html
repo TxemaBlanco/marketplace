@@ -1,44 +1,114 @@
-<div class="container">
-  <h2>Editar Cómic</h2>
-  <div *ngIf="isLoading; else content">
-    <p>Cargando...</p>
-  </div>
-  <ng-template #content>
-    <div *ngIf="isError">
-      <p>Error al cargar el cómic. Por favor, inténtelo de nuevo más tarde.</p>
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Editar Cómic</h4>
+      <button type="button" class="close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
-    <form (submit)="updateComic()">
-      <div class="form-group">
-        <label for="isbn">ISBN:</label>
-        <input type="text" id="isbn" name="isbn" [(ngModel)]="comic.isbn" class="form-control" readonly>
+    <div class="modal-body">
+      <form (ngSubmit)="saveChanges()" #editForm="ngForm">
+        <div class="form-group">
+          <label for="isbn">ISBN</label>
+          <input
+            type="text"
+            class="form-control"
+            id="isbn"
+            name="isbn"
+            [(ngModel)]="editedComic.isbn"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="title">Título</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            name="title"
+            [(ngModel)]="editedComic.title"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="author">Autor</label>
+          <input
+            type="text"
+            class="form-control"
+            id="author"
+            name="author"
+            [(ngModel)]="editedComic.author"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="coverType">Tapa</label>
+          <select
+            class="form-control"
+            id="coverType"
+            name="coverType"
+            [(ngModel)]="editedComic.ishardcover"
+            required
+          >
+            <option value="true">Dura</option>
+            <option value="false">Blanda</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="photo">Foto</label>
+          <input
+            type="text"
+            class="form-control"
+            id="photo"
+            name="photo"
+            [(ngModel)]="editedComic.photo"
+          />
+        </div>
+        <div class="form-group">
+          <label for="price">Precio</label>
+          <input
+            type="number"
+            class="form-control"
+            id="price"
+            name="price"
+            [(ngModel)]="editedComic.price"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="synopsis">Sinopsis</label>
+          <textarea
+            class="form-control"
+            id="synopsis"
+            name="synopsis"
+            [(ngModel)]="editedComic.synopsis"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="stock">Stock</label>
+          <input
+            type="number"
+            class="form-control"
+            id="stock"
+            name="stock"
+            [(ngModel)]="editedComic.stock"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="genres">Géneros</label>
+          <select class="form-control" id="genres" name="genres" [(ngModel)]="editedComic.genres" multiple>
+              <option *ngFor="let genre of allGenres" [value]="genre">{{ genre }}</option>
+          </select>
       </div>
-      <div class="form-group">
-        <label for="title">Título:</label>
-        <input type="text" id="title" name="title" [(ngModel)]="comic.title" class="form-control">
-      </div>
-      <div class="form-group">
-        <label for="author">Autor:</label>
-        <input type="text" id="author" name="author" [(ngModel)]="comic.author" class="form-control">
-      </div>
-      <div class="form-group">
-  <label for="genre">Género:</label>
-  <select id="genre" name="genre" [(ngModel)]="comic.genres" class="form-control">
-    <option *ngFor="let genre of comic.genres" [value]="genre.id">{{ genre.name }}</option>
-  </select>
-</div>
-      <div class="form-group">
-        <label for="price">Precio:</label>
-        <input type="number" id="price" name="price" [(ngModel)]="comic.price" class="form-control">
-      </div>
-      <div class="form-group">
-        <label for="coverType">Tapa:</label>
-        <select id="coverType" name="coverType" [(ngModel)]="comic.ishardcover" class="form-control">
-          <option value="hard">Tapa Dura</option>
-          <option value="soft">Tapa Blanda</option>
-        </select>
-      </div>
-      <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-      <a routerLink="/comic/{{ comic.isbn }}" class="btn btn-secondary">Cancelar</a>
-    </form>
-  </ng-template>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">
+            Cancelar
+          </button>
+          <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

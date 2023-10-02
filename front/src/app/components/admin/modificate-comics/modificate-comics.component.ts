@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Comic } from 'src/app/models/Comic';
 import { Genre } from 'src/app/models/Genre';
 import { ComicService } from 'src/app/services/comic.service';
-
+import { EditComicComponent } from '../edit-comic/edit-comic.component';
 
 @Component({
   selector: 'app-modificate-comics',
@@ -10,6 +11,7 @@ import { ComicService } from 'src/app/services/comic.service';
   styleUrls: ['./modificate-comics.component.scss']
 })
 export class ModificateComicsComponent implements OnInit {
+  bsModalRef: BsModalRef | undefined;
   comics: Comic[] = [];
   originalComics: Comic[] = [];
   genres:  Genre[] = [];
@@ -45,7 +47,14 @@ export class ModificateComicsComponent implements OnInit {
     genre: null,
     coverType: null,
   };
-  constructor(private comicService: ComicService) {}
+  constructor(private comicService: ComicService,private modalService: BsModalService) {}
+  
+  openEditModal(comic: Comic) {
+    const initialState = {
+      comicToEdit: comic,
+    };
+    this.bsModalRef = this.modalService.show(EditComicComponent, { initialState });
+  }
 
   ngOnInit(): void {
     this.getComics();

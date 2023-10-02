@@ -22,7 +22,7 @@ import { ModificateComicsComponent } from './components/admin/modificate-comics/
 import { ComictableadminComponent } from './components/admin/comictableadmin/comictableadmin.component';
 import { EditComicComponent } from './components/admin/edit-comic/edit-comic.component';
 import { AdminloginviewComponent } from './views/adminloginview/adminloginview.component';
-
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 
@@ -54,6 +54,7 @@ import { AdminloginviewComponent } from './views/adminloginview/adminloginview.c
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule,
+    ModalModule.forRoot()
     
  
   ],
