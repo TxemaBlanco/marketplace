@@ -27,16 +27,6 @@ export class UserService {
   getLoggedInUsername(): string {
     return this.loggedInUsername;
   }
-<<<<<<< HEAD
- 
-}
-
-
-
-
-
-
-=======
   setLogged(isLog:boolean){
     this.isLogged = isLog;
   }
@@ -51,4 +41,3 @@ export class UserService {
     this.router.navigateByUrl('/');
   }
 }
->>>>>>> develop
