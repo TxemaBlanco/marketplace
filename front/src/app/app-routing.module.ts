@@ -5,6 +5,7 @@ import { ComicDetailComponent } from './components/user/comic-detail/comic-detai
 import { LoginComponent } from './components/user/login/login.component';
 import { HomeuserviewComponent } from './views/homeuserview/homeuserview.component';
 import { HomeloginviewComponent } from './views/homeloginview/homeloginview.component';
+import { UserPurchaseHistoryComponent } from './components/user-purchase-history/user-purchase-history.component';
 import { RegisterAComponent } from './components/user/register-a/register-a.component';
 import { ShopingCartClientComponent } from './components/user/shoping-cart-client/shoping-cart-client.component';
 import { AdminloginviewComponent } from './views/adminloginview/adminloginview.component';
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'register', component: RegisterAComponent},
   {path: 'login', component: LoginComponent},
   {path: 'cart', component: ShopingCartClientComponent},
+  { path: 'purchase-history/:email', component: UserPurchaseHistoryComponent},
   { path: 'editar/:isbn', component: EditComicComponent },
   { path: 'admin', component: AdminloginviewComponent},
 ];

@@ -46,7 +46,12 @@ export class ComicService {
   getComicByISBN(isbn: string): Observable<Comic> {
     return this.http.get<Comic>(`${this.comicsUrl}/${isbn}`);
   }
-  
+  getMultipleComicsByISBNs(isbns: string[]): Observable<Comic[]> {
+    const queryParams = isbns.map(isbn => `isbn=${isbn}`).join('&');
+    const url = `${this.comicsUrl}/by-isbns?${queryParams}`;
+
+    return this.http.get<Comic[]>(url);
+  }
   searchComics(searchTerm: string): Observable<any[]> {
     const url = `${this.comicsUrl}/buscar-comics?search=${searchTerm}`; 
 
