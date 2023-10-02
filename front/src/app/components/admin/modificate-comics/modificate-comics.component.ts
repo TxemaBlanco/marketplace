@@ -38,13 +38,13 @@ export class ModificateComicsComponent implements OnInit {
     isbn: string;
     title: string;
     author: string;
-    genre: number | null;
+    genre: string;
     coverType: string | null;
   } = {
     isbn: '',
     title: '',
     author: '',
-    genre: null,
+    genre: "",
     coverType: null,
   };
   constructor(private comicService: ComicService,private modalService: BsModalService) {}

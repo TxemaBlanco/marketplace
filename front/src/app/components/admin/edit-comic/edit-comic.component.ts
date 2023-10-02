@@ -24,12 +24,29 @@ export class EditComicComponent implements OnInit {
   comicToEdit: Comic = new Comic(); 
   editedComic: Comic = new Comic();
   allGenres = allGenres; 
-
+  newGenres: string[] = [];
   constructor(public bsModalRef: BsModalRef, private comicService: ComicService) {}
 
   ngOnInit(): void {
    
     this.editedComic = { ...this.comicToEdit };
+  }
+
+  addNewGenres() {
+   
+    const newGenresArray = this.newGenres.join(',').split(',').map((genre) => genre.trim());
+  
+
+    const uniqueNewGenres = newGenresArray.filter((genre) => genre !== '');
+  
+   
+    this.editedComic.genres = [
+      ...this.editedComic.genres,
+      ...uniqueNewGenres.map((genreName) => ({ id: 0, name: genreName } as Genre))
+    ];
+  
+  
+    this.newGenres = [];
   }
   openEditForm(comic: Comic) {
     

@@ -96,11 +96,23 @@
           />
         </div>
         <div class="form-group">
-          <label for="genres">Géneros</label>
+          <label for="genres">Géneros Actuales</label>
           <select class="form-control" id="genres" name="genres" [(ngModel)]="editedComic.genres" multiple>
-              <option *ngFor="let genre of allGenres" [value]="genre">{{ genre }}</option>
+            <option *ngFor="let genre of editedComic.genres" [value]="genre.id">{{ genre.name }}</option>
           </select>
-      </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="newGenres">Agregar Nuevos Géneros</label>
+          <input
+            type="text"
+            class="form-control"
+            id="newGenres"
+            name="newGenres"
+            [(ngModel)]="newGenres"
+            (blur)="addNewGenres()"
+          />
+        </div>
 
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">
