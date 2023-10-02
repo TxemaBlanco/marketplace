@@ -8,6 +8,9 @@ import { Genre } from '../models/Genre';
   providedIn: 'root'
 })
 export class ComicService {
+  actualizarComic(comic: any) {
+    throw new Error('Method not implemented.');
+  }
   private comics: Comic[] = [];
   private comicsUrl = 'http://localhost:8000/comics'; 
   private genresUrl = 'http://localhost:8000/genres'; 
@@ -63,5 +66,10 @@ export class ComicService {
         })
       );
   }
+  editComic(comic: Comic): Observable<Comic> {
+    const editUrl = `${this.comicsUrl}/editar/${comic.isbn}`;
+    return this.http.put<Comic>(editUrl, comic);
+  }
 }
+
 

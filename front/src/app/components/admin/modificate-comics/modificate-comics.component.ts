@@ -3,6 +3,7 @@ import { Comic } from 'src/app/models/Comic';
 import { Genre } from 'src/app/models/Genre';
 import { ComicService } from 'src/app/services/comic.service';
 
+
 @Component({
   selector: 'app-modificate-comics',
   templateUrl: './modificate-comics.component.html',

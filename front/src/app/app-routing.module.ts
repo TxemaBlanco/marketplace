@@ -7,7 +7,8 @@ import { HomeuserviewComponent } from './views/homeuserview/homeuserview.compone
 import { HomeloginviewComponent } from './views/homeloginview/homeloginview.component';
 import { RegisterAComponent } from './components/user/register-a/register-a.component';
 import { ShopingCartClientComponent } from './components/user/shoping-cart-client/shoping-cart-client.component';
-
+import { AdminloginviewComponent } from './views/adminloginview/adminloginview.component';
+import { EditComicComponent } from './components/admin/edit-comic/edit-comic.component';
 
 const routes: Routes = [
   { path: 'comic/:isbn', component:  ComicDetailComponent },
@@ -16,8 +17,8 @@ const routes: Routes = [
   {path: 'register', component: RegisterAComponent},
   {path: 'login', component: LoginComponent},
   {path: 'cart', component: ShopingCartClientComponent},
-
- 
+  { path: 'editar/:isbn', component: EditComicComponent },
+  { path: 'admin', component: AdminloginviewComponent},
 ];
 
 @NgModule({
