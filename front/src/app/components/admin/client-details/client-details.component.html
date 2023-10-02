@@ -1,31 +1,31 @@
 <div class="container-global">
     <div class="container-left">
-        
-            <h2>Cliente</h2>
-            <label for="email">Elige un email</label> <br>
-            <select (ngModelChange)="selectedemail($event)"  [ngModel]="email"  name="email" required>
+
+        <h2>Cliente</h2>
+        <label for="email">Elige un email</label> <br>
+        <select (ngModelChange)="selectedemail($event)" [ngModel]="email" name="email" required>
             <option *ngFor="let customer of customers" value={{customer.email}}>{{customer.email}} </option>
-            </select>
-               <br><br>
-               <form [formGroup]="formcustomer" class="form">
-               <input type="text" formControlName="dni" placeholder="DNI">
-               <br>
-               <input type="text" formControlName="name" placeholder="nombre"> <br>
-               <input type="text" formControlName="surname" placeholder="Apellido 1"> <br>
-               <input type="text" formControlName="surname2" placeholder="Apellido 2"><br>
-               <input type="text" formControlName="street" placeholder="Calle"> <br>
-               <input class="up up1" type="text" formControlName="number" placeholder="Nº"> 
-               <input class="up" type="text" formControlName="gate" placeholder="Portal"> <br>
-               <input class="down down2" type="text" formControlName="stairs" placeholder="Escalera"> 
-               <input class="down down2" type="text" formControlName="floor" placeholder="Piso"> 
-               <input class="down" type="text" formControlName="letter" placeholder="Puerta"><br>
-               <input type="text" formControlName="postalcode" placeholder="Codigo postal"> <br>
-               <input type="text" formControlName="town" placeholder="Ciudad"><br>
-               <input type="text" formControlName="province" placeholder="Provincia">
-          
+        </select>
+        <br><br>
+        <form [formGroup]="formcustomer" class="form">
+            <input type="text" formControlName="dni" placeholder="DNI">
+            <br>
+            <input type="text" formControlName="name" placeholder="nombre"> <br>
+            <input type="text" formControlName="surname" placeholder="Apellido 1"> <br>
+            <input type="text" formControlName="surname2" placeholder="Apellido 2"><br>
+            <input type="text" formControlName="street" placeholder="Calle"> <br>
+            <input class="up up1" type="text" formControlName="number" placeholder="Nº">
+            <input class="up" type="text" formControlName="gate" placeholder="Portal"> <br>
+            <input class="down down2" type="text" formControlName="stairs" placeholder="Escalera">
+            <input class="down down2" type="text" formControlName="floor" placeholder="Piso">
+            <input class="down" type="text" formControlName="letter" placeholder="Puerta"><br>
+            <input type="text" formControlName="postalcode" placeholder="Codigo postal"> <br>
+            <input type="text" formControlName="town" placeholder="Ciudad"><br>
+            <input type="text" formControlName="province" placeholder="Provincia">
+
         </form>
 
-        
+
 
     </div>
     <div class="container-right">
@@ -34,37 +34,39 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th class="col-md-2">
-                            <p>Código</p>
+                        <th>Fecha</th>
+                        <th>
+                            ISBN
                         </th>
-                        <th class="col-md-2">
-                            <p>Título</p>
+                        <th>
+                            Título del Cómic
                         </th>
 
-                        <th class="col-md-2">
-                            <p>Autor</p>
+                        <th>
+                            Autor
                         </th>
-                        <th class="col-md-2">
-                            <p>Géneros</p>
+                        <th>
+                            Géneros
                         </th>
-                        <th class="col-md-2"><p>Precio</p></th>
-                        <th class="col-md-2">
-                            <p>Tapa</p>
+                        <th>Precio</th>
+                        <th>
+                            Tapa
                         </th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr *ngFor="let comic of comicsOnCurrentPage">
-                        <td><a [routerLink]="['/comic', comic.isbn]"></a>{{ comic.isbn }}</td>
-                        <td><a [routerLink]="['/comic', comic.isbn]">{{ comic.title }}</a></td>
-                        <td>{{ comic.author }}</td>
+                <tbody *ngIf="orderemail">
+                    <tr *ngFor="let order of ordersOnCurrentPage">
+                        <td>{{order.date | date: 'dd-MM-yyyy'}}</td>
+                        <td><a [routerLink]="['/comic', order.comic.isbn]"></a>{{ order.comic.isbn }}</td>
+                        <td><a [routerLink]="['/comic', order.comic.isbn]">{{ order.comic.title }}</a></td>
+                        <td>{{ order.comic.author }}</td>
                         <td>
-                            <span *ngFor="let genre of comic.genres; let last = last">
+                            <span *ngFor="let genre of order.comic.genres; let last = last">
                                 {{ genre.name }}{{ !last ? ", " : "" }}
                             </span>
                         </td>
-                        <td>{{ comic.price }}€</td>
-                        <td>{{ comic.ishardcover ? "Dura" : "Blanda" }}</td>
+                        <td>{{ order.comic.price }}€</td>
+                        <td>{{ order.comic.ishardcover ? "Dura" : "Blanda" }}</td>
                     </tr>
                 </tbody>
             </table>

@@ -1,36 +1,40 @@
-import { Component, OnInit } from '@angular/core';
-import { Comic } from 'src/app/models/Comic';
-import { Genre } from 'src/app/models/Genre';
+import {Component, OnInit } from '@angular/core';
+/* import { Comic } from 'src/app/models/Comic';
+import { Genre } from 'src/app/models/Genre'; */
 import { ComicService } from '../../../services/comic.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup} from '@angular/forms';
 import {CustomerService} from '../../../services/customer.service';
 import { Customer } from 'src/app/models/Customer.model';
+import { Order } from 'src/app/models/Order';
+import {OrderService} from '../../../services/order.service';
 
 @Component({
   selector: 'app-client-details',
   templateUrl: './client-details.component.html',
   styleUrls: ['./client-details.component.scss']
 })
-export class ClientDetailsComponent implements OnInit {
-  comics: Comic[] = [];
+export class ClientDetailsComponent implements OnInit{
+/*   comics: Comic[] = [];
   originalComics: Comic[] = [];
-  genres:  Genre[] = [];
+  genres:  Genre[] = []; */
+ /*  orders: Order[] = []; */
   customers: Customer[] = [];
   itemsPerPage: number = 5;
   currentPage: number = 1;
 
   formcustomer!: FormGroup;
   email!: FormControl;
-  emailcustomer!: string;
   customersemail!: Customer; 
+  orderemail: Order[]  = [];
 
  
-  constructor(private comicService: ComicService, private customerservice: CustomerService) {}
+  constructor(private comicService: ComicService, private customerservice: CustomerService, private orderservice:OrderService) {}
 
   ngOnInit(): void {
-    this.getComics();
-    this.getGenres();
-    this.getCustomers();
+/*     this.getComics();
+    this.getGenres(); */
+     this.getCustomers(); 
+   
 
   
 
@@ -55,9 +59,25 @@ export class ClientDetailsComponent implements OnInit {
 
   }
 
+  ngAfterViewInit(): void{
+/*     this.ordersOnCurrentPage; */
+  }
 
 
-  getComics(): void {
+
+/* 
+  getordersbyemail(): void{
+    this.orderservice.getOrdersByEmail(email).subscribe((orders: Order[]) =>{
+      this.orderemail = orders;
+  
+    });
+  } */
+    
+
+
+
+
+ /*  getComics(): void {
     this.comicService.getComics().subscribe((comics) => {
       this.comics = comics;
       this.originalComics=comics;
@@ -68,7 +88,7 @@ export class ClientDetailsComponent implements OnInit {
     this.comicService.getGenres().subscribe((genres) => {
       this.genres = genres;
     });
-  }
+  } */
 
   getCustomers(): void {
     this.customerservice.getCustomers().subscribe((customers: Customer[]) =>{
@@ -83,7 +103,7 @@ export class ClientDetailsComponent implements OnInit {
   }
 
   getTotalPages(): number {
-    return Math.ceil(this.comics.length / this.itemsPerPage);
+    return Math.ceil(this.orderemail.length / this.itemsPerPage);
   }
 
   getPages(): number[] {
@@ -91,14 +111,13 @@ export class ClientDetailsComponent implements OnInit {
     return Array.from({ length: totalPages }, (_, i) => i + 1);
   }
 
-  get comicsOnCurrentPage(): Comic[] {
+  get ordersOnCurrentPage(): Order[] {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-    const endIndex = Math.min(startIndex + this.itemsPerPage, this.comics.length);
-    return this.comics.slice(startIndex, endIndex);
+    const endIndex = Math.min(startIndex + this.itemsPerPage, this.orderemail.length);
+    return this.orderemail.slice(startIndex, endIndex);
   }
 
   selectedemail(email: any){
- /*    this.emailcustomer = this.formcustomer.get('email')?.value;  */
     this.customerservice.getCustomer(email).subscribe((customers: Customer) =>{
       this.customersemail = customers;
       this.formcustomer.setValue({dni: this.customersemail.dni, name: this.customersemail.name,
@@ -109,6 +128,12 @@ export class ClientDetailsComponent implements OnInit {
         postalcode: this.customersemail.postalcode, town: this.customersemail.town,
         province: this.customersemail.province})
     });
+    this.orderservice.getOrdersByEmail(email).subscribe((orders: Order[]) =>{
+     this.orderemail = orders;
+    
+    
+    
+  });
   }
 
 
