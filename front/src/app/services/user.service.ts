@@ -5,6 +5,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class UserService {
+  [x: string]: any;
   loggedInUsername: string = "";
 
   setLoggedInUsername(username: string) {
@@ -14,6 +15,7 @@ export class UserService {
   getLoggedInUsername(): string {
     return this.loggedInUsername;
   }
+ 
 }
 
 

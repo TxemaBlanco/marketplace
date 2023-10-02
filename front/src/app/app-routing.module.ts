@@ -7,7 +7,7 @@ import { HomeuserviewComponent } from './views/homeuserview/homeuserview.compone
 import { HomeloginviewComponent } from './views/homeloginview/homeloginview.component';
 import { RegisterAComponent } from './components/register-a/register-a.component';
 import { ShopingCartClientComponent } from './components/shoping-cart-client/shoping-cart-client.component';
-
+import { UserPurchaseHistoryComponent } from './components/user-purchase-history/user-purchase-history.component';
 const routes: Routes = [
   { path: 'comic/:isbn', component:  ComicDetailComponent },
   { path: 'comicList', component: HomeuserviewComponent},
@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: 'register', component: RegisterAComponent},
   {path: 'login', component: LoginComponent},
   {path: 'cart', component: ShopingCartClientComponent},
- 
+  { path: 'purchase-history/:email', component: UserPurchaseHistoryComponent},
 ];
 
 @NgModule({

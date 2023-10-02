@@ -18,6 +18,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ShopingCartClientComponent } from './components/shoping-cart-client/shoping-cart-client.component';
 import { RegisterAComponent } from './components/register-a/register-a.component';
 import { HomeloginviewComponent } from './views/homeloginview/homeloginview.component';
+import { UserPurchaseHistoryComponent } from './components/user-purchase-history/user-purchase-history.component';
 
 
 
@@ -37,6 +38,7 @@ import { HomeloginviewComponent } from './views/homeloginview/homeloginview.comp
     HeaderloginComponent,
     ShopingCartClientComponent,
     RegisterAComponent,
+    UserPurchaseHistoryComponent,
   ],
   imports: [
     BrowserModule,
