@@ -110,6 +110,9 @@
             </td>
             <td>{{ comic.price }}€</td>
             <td>{{ comic.ishardcover ? "Dura" : "Blanda" }}</td>
+            <td> <a (click)="deleteShoppingComic(i)">
+                <img class="trash" src="../../../assets/trash_icon_213986.svg" />
+              </a></td>
           </tr>
         </tbody>
       </table>
