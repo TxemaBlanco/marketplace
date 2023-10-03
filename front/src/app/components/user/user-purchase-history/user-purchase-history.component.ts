@@ -52,6 +52,7 @@ export class UserPurchaseHistoryComponent implements OnInit {
     coverType: null,
   };
   userEmail: string = '';
+  originalOrders: Order[] = [];
   orders: Order[] = [];
 
   constructor(
@@ -62,15 +63,25 @@ export class UserPurchaseHistoryComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getGenres();
     this.route.paramMap.subscribe(params => {
       this.userEmail = params.get('email') || '';
       this.loadUserPurchaseHistory();
+    });
+  }
+  getGenres(): void {
+    this.comicService.getGenres().subscribe((genres) => {
+      this.genres = genres;
     });
   }
 
   loadUserPurchaseHistory(): void {
    this.orderService.getOrdersByEmail(this.userEmail).subscribe(orders => {
       this.orders = orders.map(order => ({
+        ...order,
+        date: this.formatDate(order.date) 
+      }));
+      this.originalOrders = orders.map(order => ({
         ...order,
         date: this.formatDate(order.date) 
       }));
@@ -88,50 +99,48 @@ export class UserPurchaseHistoryComponent implements OnInit {
     }
   }
   applyFilters(): void {
-    console.log("AAAAA")
-    let filteredComics =  this.originalComics.slice();
+    let filteredOrders = this.originalOrders.slice();
   
     if (this.columnFilters.isbn) {
-      filteredComics = filteredComics.filter((comic) =>
-        comic.isbn.toLowerCase().includes(this.columnFilters.isbn.toLowerCase())
+      filteredOrders = filteredOrders.filter((order) =>
+        order.comic.isbn.toLowerCase().includes(this.columnFilters.isbn.toLowerCase())
       );
     }
   
     if (this.columnFilters.title) {
-      filteredComics = filteredComics.filter((comic) =>
-        comic.title.toLowerCase().includes(this.columnFilters.title.toLowerCase())
+      filteredOrders = filteredOrders.filter((order) =>
+        order.comic.title.toLowerCase().includes(this.columnFilters.title.toLowerCase())
       );
     }
   
     if (this.columnFilters.author) {
-      filteredComics = filteredComics.filter((comic) =>
-        comic.author.toLowerCase().includes(this.columnFilters.author.toLowerCase())
+      filteredOrders = filteredOrders.filter((order) =>
+        order.comic.author.toLowerCase().includes(this.columnFilters.author.toLowerCase())
       );
     }
   
     if (this.columnFilters.genre !== null) {
-      filteredComics = filteredComics.filter((comic) =>
-        comic.genres.some((g: any) => g.id === this.columnFilters.genre)
+      filteredOrders = filteredOrders.filter((order) =>
+        order.comic.genres.some((g: any) => g.id === this.columnFilters.genre)
       );
     }
   
     if (this.columnFilters.coverType !== null) {
-      if (this.columnFilters.coverType === 'hard') {
-        filteredComics = filteredComics.filter((comic) => comic.ishardcover);
-      } else {
-        filteredComics = filteredComics.filter((comic) => !comic.ishardcover);
-      }
+      filteredOrders = filteredOrders.filter((order) =>
+        (this.columnFilters.coverType === 'hard' && order.comic.ishardcover) ||
+        (this.columnFilters.coverType === 'soft' && !order.comic.ishardcover)
+      );
     }
   
     if (!this.sortByTitleAscending) {
-      filteredComics.sort((a, b) => b.title.localeCompare(a.title));
+      filteredOrders.sort((a, b) => b.comic.title.localeCompare(a.comic.title));
     } else {
-      filteredComics.sort((a, b) => a.title.localeCompare(b.title));
+      filteredOrders.sort((a, b) => a.comic.title.localeCompare(b.comic.title));
     }
-    console.log(this.filteredComics)
-    this.comics = filteredComics;
-    console.log(this.comics)
+  
+    this.orders = filteredOrders;
   }
+  
   
   toggleSortOrderPopup(order: 'A-Z' | 'Z-A') {
     this.currentSortOrder = order;
@@ -216,27 +225,26 @@ export class UserPurchaseHistoryComponent implements OnInit {
       return;
     }
   
-    this.comicService.searchComics(this.searchTextGlobal).subscribe((comics) => {
-      this.comics = comics;
+    const searchKeywords = this.searchTextGlobal.toLowerCase().split(' ');
   
-      const searchKeywords = this.searchTextGlobal.toLowerCase().split(' ');
+    const filteredOrders = this.originalOrders.filter((order) => {
+      const comic = order.comic;
+      const comicTitle = comic.title.toLowerCase();
+      const comicAuthor = comic.author.toLowerCase();
+      const comicISBN = comic.isbn.toLowerCase();
+      const comicGenres = comic.genres.map((genre) => genre.name.toLowerCase());
   
-      const filteredComics = this.comics.filter((comic) => {
-        const comicTitle = comic.title.toLowerCase();
-        const comicAuthor = comic.author.toLowerCase();
-        const comicISBN = comic.isbn.toLowerCase();
-        const comicGenres = comic.genres.map((genre) => genre.name.toLowerCase());
-  
-        return (
-          searchKeywords.some(keyword => comicTitle.includes(keyword)) ||
-          searchKeywords.some(keyword => comicAuthor.includes(keyword)) ||
-          searchKeywords.some(keyword => comicISBN.includes(keyword)) ||
-          searchKeywords.some(keyword => comicGenres.some(genre => genre.includes(keyword)))
-        );
-      });
-      this.comics = filteredComics;
+      return (
+        searchKeywords.some(keyword => comicTitle.includes(keyword)) ||
+        searchKeywords.some(keyword => comicAuthor.includes(keyword)) ||
+        searchKeywords.some(keyword => comicISBN.includes(keyword)) ||
+        searchKeywords.some(keyword => comicGenres.some(genre => genre.includes(keyword)))
+      );
     });
+  
+    this.orders = filteredOrders;
   }
+  
     
   popup!: HTMLElement;
 

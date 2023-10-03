@@ -25,6 +25,7 @@ import { ComictableadminComponent } from './components/admin/comictableadmin/com
 import { EditComicComponent } from './components/admin/edit-comic/edit-comic.component';
 import { AdminloginviewComponent } from './views/adminloginview/adminloginview.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { UserPurchaseHistoryViewComponent } from './views/user-purchase-history-view/user-purchase-history-view.component';
 
 
 
@@ -50,6 +51,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     ComictableadminComponent,
     EditComicComponent,
     AdminloginviewComponent,
+    UserPurchaseHistoryViewComponent,
   ],
   imports: [
     BrowserModule,
