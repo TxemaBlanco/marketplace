@@ -14,4 +14,11 @@ isEditing: any;
     genres: Genre[]; 
     
   }
+  export interface CreateComicDTO extends Omit<Comic,'id'| 'genres'>{
+    genresId:number;
+  
+  }
+  export interface UpdateComicDTO extends Partial <CreateComicDTO>{
+
+  }
   

@@ -19,6 +19,7 @@ import { ShopingCartClientComponent } from './components/user/shoping-cart-clien
 import { RegisterAComponent } from './components/user/register-a/register-a.component';
 import { HomeloginviewComponent } from './views/homeloginview/homeloginview.component';
 import { UserPurchaseHistoryComponent } from './components/user/user-purchase-history/user-purchase-history.component';
+import { ClientDetailsComponent } from './components/admin/client-details/client-details.component';
 import { ModificateComicsComponent } from './components/admin/modificate-comics/modificate-comics.component';
 import { ComictableadminComponent } from './components/admin/comictableadmin/comictableadmin.component';
 import { EditComicComponent } from './components/admin/edit-comic/edit-comic.component';
@@ -43,6 +44,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     HeaderloginComponent,
     ShopingCartClientComponent,
     RegisterAComponent,
+    ClientDetailsComponent,
     UserPurchaseHistoryComponent,
     ModificateComicsComponent,
     ComictableadminComponent,
