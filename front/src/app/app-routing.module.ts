@@ -7,6 +7,7 @@ import { HomeuserviewComponent } from './views/homeuserview/homeuserview.compone
 import { HomeloginviewComponent } from './views/homeloginview/homeloginview.component';
 import { RegisterAComponent } from './components/user/register-a/register-a.component';
 import { ShopingCartClientComponent } from './components/user/shoping-cart-client/shoping-cart-client.component';
+import { NewComponent } from './examples/comics/new/new.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'register', component: RegisterAComponent},
   {path: 'login', component: LoginComponent},
   {path: 'cart', component: ShopingCartClientComponent},
+  {path: 'newcomic',component: NewComponent},
 
  
 ];

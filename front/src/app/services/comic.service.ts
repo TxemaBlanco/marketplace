@@ -51,4 +51,7 @@ export class ComicService {
 
     return this.http.get<any[]>(`${this.comicsUrl}`);
   }
+  newComic(comic:Comic){
+    return this.http.post<Comic>(`${this.comicsUrl}`, comic);
+  }   
 }
