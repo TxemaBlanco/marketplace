@@ -151,11 +151,11 @@ export class NewComponent implements OnInit{
   }
   newGenre(genre:Genre){
     this.currentGenre = genre;
-    Swal.fire({
-      icon: 'success',
-      title: 'Añadido Genero',
-      text: `${this.currentGenre.name}`,
-    })
+    // Swal.fire({
+    //   icon: 'success',
+    //   title: 'Genero seleccionado:',
+    //   text: `${this.currentGenre.name}`,
+    // })
   }
   
   
