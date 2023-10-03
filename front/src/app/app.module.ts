@@ -18,7 +18,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ShopingCartClientComponent } from './components/user/shoping-cart-client/shoping-cart-client.component';
 import { RegisterAComponent } from './components/user/register-a/register-a.component';
 import { HomeloginviewComponent } from './views/homeloginview/homeloginview.component';
-import { UserPurchaseHistoryComponent } from './components/user-purchase-history/user-purchase-history.component';
+import { UserPurchaseHistoryComponent } from './components/user/user-purchase-history/user-purchase-history.component';
 import { ModificateComicsComponent } from './components/admin/modificate-comics/modificate-comics.component';
 import { ComictableadminComponent } from './components/admin/comictableadmin/comictableadmin.component';
 import { EditComicComponent } from './components/admin/edit-comic/edit-comic.component';
