@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Comic } from 'src/app/models/Comic';
 import { Genre } from 'src/app/models/Genre';
 import { ComicService } from 'src/app/services/comic.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
