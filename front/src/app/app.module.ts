@@ -18,13 +18,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { ShopingCartClientComponent } from './components/user/shoping-cart-client/shoping-cart-client.component';
 import { RegisterAComponent } from './components/user/register-a/register-a.component';
 import { HomeloginviewComponent } from './views/homeloginview/homeloginview.component';
+import { UserPurchaseHistoryComponent } from './components/user/user-purchase-history/user-purchase-history.component';
 import { ClientDetailsComponent } from './components/admin/client-details/client-details.component';
-import { UserPurchaseHistoryComponent } from './components/user-purchase-history/user-purchase-history.component';
 import { ModificateComicsComponent } from './components/admin/modificate-comics/modificate-comics.component';
 import { ComictableadminComponent } from './components/admin/comictableadmin/comictableadmin.component';
 import { EditComicComponent } from './components/admin/edit-comic/edit-comic.component';
 import { AdminloginviewComponent } from './views/adminloginview/adminloginview.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { UserPurchaseHistoryViewComponent } from './views/user-purchase-history-view/user-purchase-history-view.component';
 
 
 
@@ -50,6 +51,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     ComictableadminComponent,
     EditComicComponent,
     AdminloginviewComponent,
+    UserPurchaseHistoryViewComponent,
   ],
   imports: [
     BrowserModule,
