@@ -18,7 +18,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ShopingCartClientComponent } from './components/user/shoping-cart-client/shoping-cart-client.component';
 import { RegisterAComponent } from './components/user/register-a/register-a.component';
 import { HomeloginviewComponent } from './views/homeloginview/homeloginview.component';
-import { NewComponent } from './examples/comics/new/new.component';
+import { NewComponent } from './components/admin/new/new.component';
 
 
 

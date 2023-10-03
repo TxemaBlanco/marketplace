@@ -4,7 +4,7 @@ import { Genre } from 'src/app/models/Genre';
 import { ComicService } from 'src/app/services/comic.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
-import { FileUploadService } from '../../services/file-upload.service';
+import { FileUploadService } from '../../../services/file-upload.service';
 import { Observable } from 'rxjs';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 
@@ -24,6 +24,8 @@ export class NewComponent implements OnInit{
   preview = '';
   imageInfos?: Observable<any>;
   genres: Genre[] = [];
+  currentGenres: Genre[] = [];
+  currentGenre!:Genre ;
   covers: string[] = ['Tapa Dura', 'Tapa Blanda'];
 
   constructor(private comicService: ComicService,private uploadService:FileUploadService, fb: FormBuilder) {
@@ -56,7 +58,7 @@ export class NewComponent implements OnInit{
     if (this.myForm.valid) {
       const comicData = this.myForm.value;
       let genreData = {
-        genres:[this.genres[1],this.genres[3]]
+        genres:[this.currentGenre]
       }
       Object.assign(comicData,genreData);
       console.log(comicData);
@@ -146,6 +148,14 @@ export class NewComponent implements OnInit{
   addGenre(genre:Genre){
     this.genres.push(genre);
     console.log("añadido = " + genre.name);
+  }
+  newGenre(genre:Genre){
+    this.currentGenre = genre;
+    Swal.fire({
+      icon: 'success',
+      title: 'Añadido Genero',
+      text: `${this.currentGenre.name}`,
+    })
   }
   
   
