@@ -58,6 +58,23 @@
                   (input)="applyFilters()" placeholder="Buscar autor..." />
               </div>
             </th>
+            <th class="col-md-2">
+              <div class="container-th">
+                <p>Géneros</p>
+                <label for="genreFilter" class="filter-label">
+                  <img src="../../../assets/filter.png" alt="Filtrar por Género" class="filter-icon"
+                    (click)="toggleFilterPopup('genre')" />
+                </label>
+              </div>
+              <div #popup (mouseleave)="onMouseOut(popup)" class="filter-popup" *ngIf="showGenreFilterPopup">
+                <select id="genreFilter" class="form-control" [(ngModel)]="columnFilters.genre" (change)="applyFilters()">
+                  <option [ngValue]="null">Todos</option>
+                  <option *ngFor="let genre of genres" [ngValue]="genre.id">
+                    {{ genre.name }}
+                  </option>
+                </select>
+              </div>
+            </th>
             <th class="col-md-2">Precio</th>
             <th class="col-md-2">
               <div class="container-th">
