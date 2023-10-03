@@ -1,45 +1,32 @@
-import {Component, OnInit } from '@angular/core';
-/* import { Comic } from 'src/app/models/Comic';
-import { Genre } from 'src/app/models/Genre'; */
-import { ComicService } from '../../../services/comic.service';
-import { FormControl, FormGroup} from '@angular/forms';
-import {CustomerService} from '../../../services/customer.service';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { CustomerService } from '../../../services/customer.service';
 import { Customer } from 'src/app/models/Customer.model';
 import { Order } from 'src/app/models/Order';
-import {OrderService} from '../../../services/order.service';
+import { OrderService } from '../../../services/order.service';
 
 @Component({
   selector: 'app-client-details',
   templateUrl: './client-details.component.html',
-  styleUrls: ['./client-details.component.scss']
+  styleUrls: ['./client-details.component.scss'],
 })
-export class ClientDetailsComponent implements OnInit{
-/*   comics: Comic[] = [];
-  originalComics: Comic[] = [];
-  genres:  Genre[] = []; */
- /*  orders: Order[] = []; */
+export class ClientDetailsComponent implements OnInit {
   customers: Customer[] = [];
   itemsPerPage: number = 5;
   currentPage: number = 1;
 
   formcustomer!: FormGroup;
   email!: FormControl;
-  customersemail!: Customer; 
-  orderemail: Order[]  = [];
+  customersemail!: Customer;
+  orderemail: Order[] = [];
 
- 
-  constructor(private comicService: ComicService, private customerservice: CustomerService, private orderservice:OrderService) {}
+  constructor(
+    private customerservice: CustomerService,
+    private orderservice: OrderService
+  ) {}
 
   ngOnInit(): void {
-/*     this.getComics();
-    this.getGenres(); */
-     this.getCustomers(); 
-   
-
-  
-
-
-    
+    this.getCustomers();
 
     this.formcustomer = new FormGroup({
       dni: new FormControl(''),
@@ -54,44 +41,12 @@ export class ClientDetailsComponent implements OnInit{
       letter: new FormControl(''),
       postalcode: new FormControl(''),
       town: new FormControl(''),
-      province: new FormControl('')
-    });
-
-  }
-
-  ngAfterViewInit(): void{
-/*     this.ordersOnCurrentPage; */
-  }
-
-
-
-/* 
-  getordersbyemail(): void{
-    this.orderservice.getOrdersByEmail(email).subscribe((orders: Order[]) =>{
-      this.orderemail = orders;
-  
-    });
-  } */
-    
-
-
-
-
- /*  getComics(): void {
-    this.comicService.getComics().subscribe((comics) => {
-      this.comics = comics;
-      this.originalComics=comics;
+      province: new FormControl(''),
     });
   }
-
-  getGenres(): void {
-    this.comicService.getGenres().subscribe((genres) => {
-      this.genres = genres;
-    });
-  } */
 
   getCustomers(): void {
-    this.customerservice.getCustomers().subscribe((customers: Customer[]) =>{
+    this.customerservice.getCustomers().subscribe((customers: Customer[]) => {
       this.customers = customers;
     });
   }
@@ -113,31 +68,34 @@ export class ClientDetailsComponent implements OnInit{
 
   get ordersOnCurrentPage(): Order[] {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-    const endIndex = Math.min(startIndex + this.itemsPerPage, this.orderemail.length);
+    const endIndex = Math.min(
+      startIndex + this.itemsPerPage,
+      this.orderemail.length
+    );
     return this.orderemail.slice(startIndex, endIndex);
   }
 
-  selectedemail(email: any){
-    this.customerservice.getCustomer(email).subscribe((customers: Customer) =>{
+  selectedemail(email: any) {
+    this.customerservice.getCustomer(email).subscribe((customers: Customer) => {
       this.customersemail = customers;
-      this.formcustomer.setValue({dni: this.customersemail.dni, name: this.customersemail.name,
-        surname: this.customersemail.surname, surname2: this.customersemail.surname2,
-        street: this.customersemail.street, number: this.customersemail.number,
-        gate: this.customersemail.gate, stairs: this.customersemail .stairs,
-        floor: this.customersemail.floor, letter: this.customersemail.letter,
-        postalcode: this.customersemail.postalcode, town: this.customersemail.town,
-        province: this.customersemail.province})
+      this.formcustomer.setValue({
+        dni: this.customersemail.dni,
+        name: this.customersemail.name,
+        surname: this.customersemail.surname,
+        surname2: this.customersemail.surname2,
+        street: this.customersemail.street,
+        number: this.customersemail.number,
+        gate: this.customersemail.gate,
+        stairs: this.customersemail.stairs,
+        floor: this.customersemail.floor,
+        letter: this.customersemail.letter,
+        postalcode: this.customersemail.postalcode,
+        town: this.customersemail.town,
+        province: this.customersemail.province,
+      });
     });
-    this.orderservice.getOrdersByEmail(email).subscribe((orders: Order[]) =>{
-     this.orderemail = orders;
-    
-    
-    
-  });
+    this.orderservice.getOrdersByEmail(email).subscribe((orders: Order[]) => {
+      this.orderemail = orders;
+    });
   }
-
-
-
-
-
 }
