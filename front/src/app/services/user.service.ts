@@ -9,7 +9,7 @@ import { CartService } from './cart.service';
 })
 export class UserService {
   isLogged:boolean = false;
-  loggedInUsername: string = "";
+  loggedInUsername: any;
   loggedInEmail: string = "";
   constructor(private router:Router,private customerService:CustomerService,private cartService:CartService){};
   setLogdeInEmail(email:string){
