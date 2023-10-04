@@ -16,7 +16,7 @@
               <input type="text" class="form-control" id="isbn" placeholder="Isbn" formControlName="isbn">
               <div *ngIf="!myForm.controls['isbn'].valid && myForm.controls['isbn'].touched" class="error message">Isbn
                 no valido</div>
-              <!-- <div *ngIf="myForm.controls['isbn'].hasError('required')">Este campo es requerido</div> -->
+              
             </div>
             <div class="form-group">
               <label for="title">Titulo</label>
@@ -58,9 +58,9 @@
               <label for="photo">Foto</label>
               <input [readonly]="true" type="text" class="form-control" id="photo" placeholder="Foto" formControlName="photo">
             </div>
-          </div><!--card body-->
-        </div><!--card-->
-      </div><!--col-6-->
+          </div>
+        </div>
+      </div>
       <div class="col-6">
         <label class="image-upload-container btn btn-bwm">
           <span>Selecciona una imagen </span>
@@ -79,8 +79,8 @@
           {{ message }}
         </div>
 
-      </div><!--col-6-->
-</div><!--row-->
+      </div>
+</div>
 <div class="row flex">
   <button type="submit" class="btn btn-success">Añadir Comic</button>
 </div>
