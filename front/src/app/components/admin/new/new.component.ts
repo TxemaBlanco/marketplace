@@ -151,12 +151,12 @@ export class NewComponent implements OnInit{
   }
   newGenre(selectedGenre:Genre){    
     this.currentGenre = selectedGenre;
-    // Swal.fire({
-    //   icon: 'success',
-    //   title: 'Genero seleccionado:',
-    //   text: `${this.currentGenre.name}`,
-    // })
-    // console.log(this.currentGenre.name);
+    Swal.fire({
+      icon: 'success',
+      title: 'Genero seleccionado:',
+      text: `${this.currentGenre.name}`,
+    })
+    console.log(this.currentGenre.name);
   }
   editarLista(){
     for (let i = 0; i < this.currentGenres.length; i++) {
