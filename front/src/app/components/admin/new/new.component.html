@@ -31,7 +31,14 @@
                 <label for="synopsis">Sinopsis</label>
                 <input type="text" class="form-control" id="synopsis" placeholder="Sinopsis" formControlName="synopsis">
               </div>
-
+              <div class="form-group">
+                <label for="genre">Genero</label>
+                <select class="form-control" id="genre" placeholder="Genero" formControlName="genre" (ngModelChange)="newGenre($event)">
+                  <option>-Seleccione un genero-</option>
+                  <option *ngFor="let aGenre of genres" [ngValue]="aGenre">{{aGenre.name}}
+                  </option>
+                </select>
+              </div>
               <div class="form-group">
                 <label for="ishardcover">Tapa</label>
                 <select class="form-control" id="ishardcover" placeholder="Tapa dura?" formControlName="ishardcover">
@@ -76,21 +83,13 @@
               {{ message }}
             </div>
           </div>
-          <div class="row">
-            <div class="form-group">
-              <label for="genre">Genero</label>
-              <select class="form-control" id="genre" placeholder="Genero" formControlName="genre" (ngModelChange)="newGenre($event)">
-                <option>-Seleccione un genero-</option>
-                <option *ngFor="let aGenre of genres" [ngValue]="aGenre">{{aGenre.name}}
-                </option>
-              </select>
-            </div>
+          <!-- <div class="row">
             <div class="list" #list>
               <ul>
                 <li>fdfdf</li>
               </ul>
             </div>
-          </div>
+          </div> -->
 
 
         </div>
