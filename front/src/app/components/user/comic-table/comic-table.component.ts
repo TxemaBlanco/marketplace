@@ -46,21 +46,23 @@ export class ComicTableComponent implements OnInit {
   constructor(private comicService: ComicService) {}
 
   ngOnInit(): void {
+    console.log("function ngOnInit");
     this.getComics();
     this.getGenres();
     this.filteredComics = this.comics;
   }
 
   getComics(): void {
-    this.comicService.getComics().subscribe((comics) => {
-      this.comics = comics;
+    console.log("function getComics");
+    this.comicService.getComics().subscribe((comics) => {      
+      this.comics = comics.filter(comic => comic.stock > 0);
       this.originalComics=comics;
     });
   }
 
   getGenres(): void {
     this.comicService.getGenres().subscribe((genres) => {
-      this.genres = genres;
+      this.genres = genres
     });
   }
 
