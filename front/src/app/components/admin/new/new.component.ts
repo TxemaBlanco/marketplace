@@ -39,7 +39,7 @@ export class NewComponent implements OnInit{
       price: [0],
       synopsis: [''],
       stock: [0],
-      // genres: this.genres,
+      genre: [],
     });
   }
   ngOnInit(): void {
@@ -149,14 +149,34 @@ export class NewComponent implements OnInit{
     this.genres.push(genre);
     console.log("añadido = " + genre.name);
   }
-  newGenre(genre:Genre){
-    this.currentGenre = genre;
+  newGenre(selectedGenre:Genre){    
+    this.currentGenre = selectedGenre;
     // Swal.fire({
     //   icon: 'success',
     //   title: 'Genero seleccionado:',
     //   text: `${this.currentGenre.name}`,
     // })
+    // console.log(this.currentGenre.name);
   }
+  editarLista(){
+    for (let i = 0; i < this.currentGenres.length; i++) {
+    // let genreName = currentGenres[i].name;
+
+    // let itemLista = document.createElement("div");
+    // itemLista.innerHTML =
+    //   nombre +
+    //   " " +
+    //   '<button onclick="eliminarJugador(' +
+    //   i +
+    //   ')">Eliminar</button>' +
+    //   '<button onclick="editarJugador(' +
+    //   i +
+    //   ')">Editar</button>';
+
+    // listaJugadores.appendChild(itemLista);
+  }
+  }
+  
   
   
 }
