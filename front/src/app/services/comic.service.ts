@@ -24,8 +24,8 @@ export class ComicService {
     );
   }
 
-  getComics(): Observable<any[]> {
-    return this.http.get<any[]>(this.comicsUrl)
+  getComics(): Observable<Comic[]> {
+    return this.http.get<Comic[]>(this.comicsUrl)
       .pipe(
         catchError(error => {
           console.error('Error en la solicitud HTTP:', error);
