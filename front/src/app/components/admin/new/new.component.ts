@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 import { FileUploadService } from '../../../services/file-upload.service';
 import { Observable } from 'rxjs';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-new',
@@ -28,7 +29,7 @@ export class NewComponent implements OnInit{
   currentGenre!:Genre ;
   covers: string[] = ['Tapa Dura', 'Tapa Blanda'];
 
-  constructor(private comicService: ComicService,private uploadService:FileUploadService, fb: FormBuilder) {
+  constructor(private comicService: ComicService,private uploadService:FileUploadService, fb: FormBuilder, private router:Router) {
     
     this.myForm = fb.group({
       isbn: ['', [Validators.required, Validators.pattern('[0-9]{13}')]],
@@ -69,7 +70,7 @@ export class NewComponent implements OnInit{
             title: 'Nuevo Comic',
             text: 'Añadido con éxito!',
           }).then(() => {
-            // this.router.navigate(['/']);
+            this.router.navigate(['/admin']);
           });
         },
         (error: any) => {
