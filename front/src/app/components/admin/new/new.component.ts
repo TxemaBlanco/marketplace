@@ -151,16 +151,6 @@ export class NewComponent implements OnInit {
       this.selectedFiles = undefined;
     }
   }
-
-  newGenre(selectedGenre: Genre) {
-    this.currentGenre = selectedGenre;
-    // Swal.fire({
-    //   icon: 'success',
-    //   title: 'Genero seleccionado:',
-    //   text: `${this.currentGenre.name}`,
-    // })
-    // console.log(this.currentGenre.name);
-  }
   addGenreToList(genre:Genre) 
   {
     this.addGenre(genre);
@@ -173,20 +163,5 @@ export class NewComponent implements OnInit {
     console.log("function deleteGenre-> index=" + index);
     this.currentGenres.forEach(currentGenre=>console.log(currentGenre.name));
     this.currentGenres.splice(index,1);    
-  }
-  renderGenreList(){
-    const div = this.divList.nativeElement.querySelector(".insert");
-    const itemLista = document.createElement('div');
-    for (let i = 0; i < this.currentGenres.length; i++) {
-      let genreName = this.currentGenres[i].name;      
-      itemLista.innerHTML =
-        genreName +
-        ' ' +
-        '<button (click)="this.deleteGenre(' +
-        i +
-        ')">Eliminar</button>'; 
-        console.log("genre index"+i);     
-    }
-    div.appendChild(itemLista);
-  }
+  }  
 }
