@@ -15,7 +15,7 @@ export class ComicService {
   private comics: Comic[] = [];
   private comicsUrl = 'http://localhost:8000/comics'; 
   private genresUrl = 'http://localhost:8000/genres'; 
-  private photUrl= 'http://localhost:8000'
+  private photUrl= 'http://localhost:8000/files';
   private genres: Genre[] = [];
   constructor(private http: HttpClient) { 
     this.getGenres().subscribe(
@@ -85,7 +85,7 @@ export class ComicService {
     const headers = new HttpHeaders();
    
 
-    return this.http.post(`${this.photUrl}/files`, formData, { headers })
+    return this.http.post(`${this.photUrl}`, formData, { headers })
   
   }
 
