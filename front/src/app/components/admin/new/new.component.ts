@@ -161,15 +161,7 @@ export class NewComponent implements OnInit{
   }  
 }
 
-  addGenre(genre:Genre){
-    this.genres.push(genre);
-    console.log("añadido = " + genre.name);
-  }
-  
 
   
-  
-  
-  
-}
+
 

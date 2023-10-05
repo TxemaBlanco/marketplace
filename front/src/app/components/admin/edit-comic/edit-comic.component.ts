@@ -82,14 +82,23 @@ export class EditComicComponent implements OnInit {
   saveChanges() {
     const isbn = this.comicToEdit.isbn;
   
-    
     if (this.newComicPhoto) {
+      
       this.comicService.uploadComicPhoto(isbn, this.newComicPhoto).subscribe(
         (response) => {
           
           this.editedComic.photo = response.photoUrl;
-          console.log('Cómic actualizado con la nueva foto:', this.editedComic);
-          this.bsModalRef.hide();
+  
+         
+          this.comicService.updateComic(isbn, this.editedComic).subscribe(
+            (updatedComic) => {
+              console.log('Cómic actualizado con la nueva foto:', updatedComic);
+              this.bsModalRef.hide();
+            },
+            (error) => {
+              console.error('Error al actualizar el cómic:', error);
+            }
+          );
         },
         (error) => {
           console.error('Error al cargar la foto del cómic:', error);
