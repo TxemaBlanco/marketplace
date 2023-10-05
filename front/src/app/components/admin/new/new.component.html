@@ -29,16 +29,32 @@
               </div>
               <div class="form-group">
                 <label for="synopsis">Sinopsis</label>
-                <input type="text" class="form-control" id="synopsis" placeholder="Sinopsis" formControlName="synopsis">
+                <textarea class="form-control" id="synopsis" placeholder="Sinopsis" formControlName="synopsis"
+                ></textarea>
               </div>
+              <!-- <div class="form-group">
+                <label for="synopsis">Sinopsis</label>
+                <input type="text" class="form-control" id="synopsis" placeholder="Sinopsis" formControlName="synopsis">
+              </div> -->
               <div class="form-group">
                 <label for="genre">Genero</label>
-                <select class="form-control" id="genre" placeholder="Genero" formControlName="genre" (ngModelChange)="newGenre($event)">
-                  <option>-Seleccione un genero-</option>
+
+                <select class="form-control" id="genre" placeholder="Genero" formControlName="genre" (ngModelChange)="addGenreToList($event)">
+                  <option disabled [ngValue]="null">-Seleccione un genero-</option>
+                  <!-- <option>-Seleccione un genero-</option> -->
+
                   <option *ngFor="let aGenre of genres" [ngValue]="aGenre">{{aGenre.name}}
                   </option>
                 </select>
               </div>
+              <div class="list" #divList>
+                <span *ngFor="let aCurrentGenre of currentGenres;let i = index;">
+                  <{{aCurrentGenre.name}}
+                  <button class="btn-short" (click)="deleteGenre(i)">x</button>>
+                </span>
+              </div>
+
+
               <div class="form-group">
                 <label for="ishardcover">Tapa</label>
                 <select class="form-control" id="ishardcover" placeholder="Tapa dura?" formControlName="ishardcover">
@@ -47,9 +63,9 @@
                 </select>
               </div>
 
-              <div class="form-group">
+              <div class="form-group remove-spinner">
                 <label for="price">Precio</label>
-                <input type="number" class="form-control" id="price" placeholder="Precio" formControlName="price">
+                <input type="number" matInput class="form-control " id="price" placeholder="Precio" formControlName="price">
               </div>
 
               <div class="form-group">
@@ -83,13 +99,6 @@
               {{ message }}
             </div>
           </div>
-          <!-- <div class="row">
-            <div class="list" #list>
-              <ul>
-                <li>fdfdf</li>
-              </ul>
-            </div>
-          </div> -->
 
 
         </div>
@@ -101,7 +110,6 @@
 
 
     </form>
-    <hr>
-    <pre></pre>
+ 
   </div>
 </div>
