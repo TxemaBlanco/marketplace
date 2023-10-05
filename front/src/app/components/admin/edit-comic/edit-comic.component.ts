@@ -82,12 +82,12 @@ export class EditComicComponent implements OnInit {
   saveChanges() {
     const isbn = this.comicToEdit.isbn;
   
-    // Si se selecciona una nueva imagen, carga la foto primero
+    
     if (this.newComicPhoto) {
       this.comicService.uploadComicPhoto(isbn, this.newComicPhoto).subscribe(
         (response) => {
-          // Maneja la respuesta y actualiza el cómic con la nueva imagen
-          this.editedComic.photo = response.photoUrl; // Actualiza la URL de la foto
+          
+          this.editedComic.photo = response.photoUrl;
           console.log('Cómic actualizado con la nueva foto:', this.editedComic);
           this.bsModalRef.hide();
         },
@@ -96,7 +96,7 @@ export class EditComicComponent implements OnInit {
         }
       );
     } else {
-      // Si no se selecciona una nueva imagen, simplemente actualiza el cómic
+      
       this.comicService.updateComic(isbn, this.editedComic).subscribe(
         (updatedComic) => {
           console.log('Cómic actualizado:', updatedComic);
