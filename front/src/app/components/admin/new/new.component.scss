@@ -1,0 +1,66 @@
+h2{
+  text-align: center;
+  // border: 8px solid yellow;
+}
+.preview {
+    max-width: 200px;
+  }
+  .card{
+     background: rgba(29, 41, 81, 1);
+     color: white;
+     padding-top: 1%;
+     padding-bottom: 1%;
+     border-radius: 2vh;
+
+     
+  }
+  .card-body{
+    width: 99%;
+
+  }
+  //.row{
+    // border: 8px solid blue;
+  //}
+  .flex{
+    // width: 20%;
+    display: flex;
+    justify-content: center;
+    padding: 5%;
+  }
+  button{
+    width: 20%;
+    padding: 1%;
+    background-color:  rgba(29, 41, 81, 1);
+    color: #fff;
+    cursor: pointer;
+    border-radius: 1vh;
+    font-size:x-large;
+    font-family: 'Alice', serif;
+    margin-bottom: 4vh;
+}
+  .btn-short{
+  
+    width: auto;
+    height: auto;
+    padding:1px;
+    color: white;
+  }
+
+  //style.scss
+.remove-spinner>input[type=number]::-webkit-inner-spin-button, 
+.remove-spinner>input[type=number]::-webkit-outer-spin-button {
+  /* Chrome, Safari, Edge, Opera */
+  -webkit-appearance: none; 
+  margin: 0; 
+
+  }
+ 
+  /* Firefox */
+  .remove-spinner>input[type=number] {//se puede poner [matInput]
+    appearance: textfield;  
+    
+   }
+ 
+  
+ 
+  

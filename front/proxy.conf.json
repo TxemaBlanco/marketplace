@@ -1,0 +1,7 @@
+{
+    "/customers":{
+        "target":"http:localhost:8000/customers",
+        "secure":false,
+        "logLevel":"debug"
+    }
+}
