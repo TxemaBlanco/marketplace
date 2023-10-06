@@ -10,11 +10,13 @@ h2{
      color: white;
      padding-top: 1%;
      padding-bottom: 1%;
+     border-radius: 2vh;
+
      
   }
   .card-body{
     width: 99%;
-    // border: 8px solid red;
+
   }
   //.row{
     // border: 8px solid blue;
@@ -28,9 +30,16 @@ h2{
   button{
     width: 20%;
     padding: 1%;
-  }
+    background-color:  rgba(29, 41, 81, 1);
+    color: #fff;
+    cursor: pointer;
+    border-radius: 1vh;
+    font-size:x-large;
+    font-family: 'Alice', serif;
+    margin-bottom: 4vh;
+}
   .btn-short{
-    // cursor:pointer;
+  
     width: auto;
     height: auto;
     padding:1px;
