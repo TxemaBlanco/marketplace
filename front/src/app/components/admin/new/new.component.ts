@@ -156,8 +156,9 @@ export class NewComponent implements OnInit{
   }
   deleteGenre(index:number){
     console.log("function deleteGenre-> index=" + index);
+    this.currentGenres.splice(index,1);  
     this.currentGenres.forEach(currentGenre=>console.log(currentGenre.name));
-    this.currentGenres.splice(index,1);    
+      
   }  
 
   
