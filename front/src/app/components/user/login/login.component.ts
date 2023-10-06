@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { Login } from './login.model';
-import { LoginService } from './login.service';
+import { Login } from '../../../models/login.model';
+import { LoginService } from '../../../services/login/login.service';
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/services/user.service';
+import { UserService } from 'src/app/services/user/user.service';
 import Swal from 'sweetalert2';
 
 @Component({

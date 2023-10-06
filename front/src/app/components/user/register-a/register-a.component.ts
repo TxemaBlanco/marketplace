@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Customer } from 'src/app/models/Customer.model';
 import { Router } from '@angular/router';
-import { CustomerService } from 'src/app/services/customer.service';
+import { CustomerService } from 'src/app/services/customers/customer.service';
 import Swal from 'sweetalert2';
 
 @Component({

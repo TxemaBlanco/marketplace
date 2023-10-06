@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ComicService } from 'src/app/services/comic.service';
+import { ComicService } from 'src/app/services/comic/comic.service';
 import { Comic } from '../../../models/Comic'; 
 import { Genre } from '../../../models/Genre';
 import { BsModalRef } from 'ngx-bootstrap/modal';
@@ -88,7 +88,8 @@ export class EditComicComponent implements OnInit {
         (response) => {
           
           this.editedComic.photo = response.photoUrl;
-  
+          this.bsModalRef.hide();
+          
          
           this.comicService.updateComic(isbn, this.editedComic).subscribe(
             (updatedComic) => {
