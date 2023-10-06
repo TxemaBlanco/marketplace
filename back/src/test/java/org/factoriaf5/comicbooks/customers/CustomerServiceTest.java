@@ -3,9 +3,14 @@ package org.factoriaf5.comicbooks.customers;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 
 public class CustomerServiceTest {
     private CustomerService service;
@@ -15,15 +20,19 @@ public class CustomerServiceTest {
     public void testCreateCustomer() {
         repository = mock(CustomerRepository.class);
 
+  
+
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String password = passwordEncoder.encode("password");
+
         Customer savedCustomer = new Customer("user5@user.com", "29920371A", "Lola", "Flores", "Rosas", "La buenecita",
                 14, "3", "dcha", "3", "A", 30033, "Madrid", "Madrid",
-                "$2a$12$BwyEzyYm8ssMjYY9HLvrq.LwIxYbfApeAM41kyP7o6ZyYq8B542wO");
+                password);
 
         when(repository.save(any(Customer.class))).thenReturn(savedCustomer);
         when(repository.findByEmail("user5@user.com")).thenReturn(java.util.Optional.of(savedCustomer));
 
         service = new CustomerService(repository);
-
         Customer response = service.create(savedCustomer);
 
         assertNotNull(response);
