@@ -58,7 +58,7 @@ export class NewComponent implements OnInit{
     if (this.myForm.valid) {
       const comicData = this.myForm.value;
       let genreData = {
-        genres:[this.currentGenre]
+        genres:[this.currentGenres]
       }
       Object.assign(comicData,genreData);
       console.log(comicData);
@@ -160,12 +160,6 @@ export class NewComponent implements OnInit{
     this.currentGenres.splice(index,1);    
   }  
 
-
-  
-
-  
-  
-  
   
 }
 
