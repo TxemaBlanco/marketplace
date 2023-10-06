@@ -59,7 +59,7 @@ export class NewComponent implements OnInit{
     if (this.myForm.valid) {
       const comicData = this.myForm.value;
       let genreData = {
-        genres:[this.currentGenre]
+        genres:this.currentGenres
       }
       Object.assign(comicData,genreData);
       console.log(comicData);
@@ -157,12 +157,13 @@ export class NewComponent implements OnInit{
   }
   deleteGenre(index:number){
     console.log("function deleteGenre-> index=" + index);
+    this.currentGenres.splice(index,1);  
     this.currentGenres.forEach(currentGenre=>console.log(currentGenre.name));
-    this.currentGenres.splice(index,1);    
+      
   }  
-}
 
 
   
+}
 
 
