@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Genre } from 'src/app/models/Genre';
-import { ComicService } from 'src/app/services/comic.service';
+import { ComicService } from 'src/app/services/comic/comic.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
-import { FileUploadService } from '../../../services/file-upload.service';
+import { FileUploadService } from '../../../services/fileupload/file-upload.service';
 import { Observable } from 'rxjs';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Router} from '@angular/router';

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { OrderService } from 'src/app/services/order.service';
+import { OrderService } from 'src/app/services/order/order.service';
 import { Order } from 'src/app/models/Order';
-import { ComicService } from 'src/app/services/comic.service';
+import { ComicService } from 'src/app/services/comic/comic.service';
 import { DatePipe } from '@angular/common';
 import { Comic } from 'src/app/models/Comic';
 import { Genre } from 'src/app/models/Genre';
