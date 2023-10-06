@@ -117,4 +117,5 @@ export class EditComicComponent implements OnInit {
       );
     }
   }
+  
 }
