@@ -12,6 +12,10 @@ h2{
      padding-bottom: 1%;
      
   }
+  .card-body{
+    width: 99%;
+    // border: 8px solid red;
+  }
   //.row{
     // border: 8px solid blue;
   //}
@@ -30,6 +34,7 @@ h2{
     width: auto;
     height: auto;
     padding:1px;
+    color: white;
   }
 
   //style.scss
