@@ -1,0 +1,114 @@
+<app-headerclient></app-headerclient>
+<div class="container">
+
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+
+          <th class="col-md-2">
+            <div class="container-th">
+              <p>Código</p>
+            </div>
+          </th>
+
+          <th class="col-md-2">
+            <div class="container-th">
+              <p>Título</p>
+
+            </div>
+
+          </th>
+
+          <th class="col-md-2">
+            <div class="container-th">
+              <p>Autor</p>
+
+            </div>
+          </th>
+
+          <th class="col-md-2">
+            <div class="container-th">
+              <p>Géneros</p>
+
+
+            </div>
+
+          </th>
+          <th class="col-md-2">Precio</th>
+          <th class="col-md-2">
+            <div class="container-th">
+              <p>Tapa</p>
+
+
+            </div>
+
+          </th>
+          <th class="col-md-2">
+            <div class="container-th">
+              <p>Anular</p>
+            </div>
+          </th>
+        </tr>
+
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let comic of comics;index as i">
+
+          <td><a [routerLink]="['/comic', comic.isbn]"></a>{{ comic.isbn }}</td>
+          <td><a [routerLink]="['/comic', comic.isbn]">{{ comic.title }}</a></td>
+          <td>{{ comic.author }}</td>
+          <td>
+            <span *ngFor="let genre of comic.genres; let last = last">
+              {{ genre.name }}{{ !last ? ", " : "" }}
+            </span>
+          </td>
+          <td>{{ comic.price }}</td>
+          <td>{{ comic.ishardcover ? "Dura" : "Blanda" }}</td>
+          <td> <a (click)="deleteShoppingComic(i)">
+              <img class="trash" src="../../../assets/trash_icon_213986.svg" />
+            </a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-6 ">
+          <table class="table table-striped table-resumen ">
+            <thead>
+              <tr>
+                <th class="col-md-2" colspan="2">
+                  <div class="container-th">
+                    <p><u>Resumen pedido</u></p>
+                  </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Subtotal</td>
+                <td > {{ subtotal | number : '1.0-2'}} €</td>
+              </tr>
+              <tr>
+                <td>Gastos de envío</td>
+                <td>6 € </td>
+              </tr>
+              <tr>
+                <td>Total pedido</td>
+                <td *ngIf="subtotal >0 "> {{ total | number : '1.0-2'}} €</td>
+                <td *ngIf="subtotal==0"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-6 d-flex justify-content-center align-items-end "> <button
+            class="btn btn-success float-right mb-3"><b>Tramitar pedido</b></button></div>
+      </div>
+
+
+    </div>
+
+  </div>
+</div>

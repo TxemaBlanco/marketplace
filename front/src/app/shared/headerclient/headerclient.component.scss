@@ -1,0 +1,114 @@
+.custom-bg-color {
+  background: rgba(29, 41, 81, 1);
+  box-shadow: 0px 5px 10px rgb(0 0 0 / 71%);
+}
+
+.navbar-brand {
+  color: #ffff;
+  font-size: 25px;
+  margin-left: 29px;
+  font-family: 'Comic Neue', cursive;
+
+}
+
+.navbar-nav {
+  align-items: center;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.nav-item {
+  border: 1px solid #000;
+  border-radius: 28px;
+  margin: 5px;
+
+  color: #000;
+  font-family: 'Alice', serif;
+  text-align: center;
+  background: #ffff;
+  font-size: 16px;
+  width: 95%;
+}
+
+.btn {
+  color: #ffff;
+}
+
+.custom-stroke {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000000;
+}
+
+
+@media (min-width:768px) and (max-width:999px) {
+  .icons {
+    img {
+      display: none;
+    }
+  }
+
+  .nav-item {
+    width: 95%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navbar-brand {
+    color: #ffff;
+    font-size: 43px;
+    margin-left: 1.1vh;
+  }
+.cartlink{
+  display: none;
+}
+  .navbar-nav {
+    display: flex;
+  }
+
+  .custom-stroke {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #000000;
+  }
+
+  .icons {
+    img {
+      cursor: pointer;
+      margin: 0 0 0 3vh
+    }
+  }
+
+  .nav-item {
+    width: 131px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .navbar-brand {
+    color: #ffff;
+    font-size: 64px;
+    margin-left: 11.5rem;
+  }
+
+  .navbar-nav {
+    display: flex;
+    justify-content: right;
+  }
+
+  .nav-item {
+    font-size: 16px;
+    margin-right: 2vh;
+  }
+
+  .icons {
+    img {
+      cursor: pointer;
+      margin: 0 0 0 2vh;
+    }
+  }
+
+  .nav-item {
+    width: 131px;
+  }
+}

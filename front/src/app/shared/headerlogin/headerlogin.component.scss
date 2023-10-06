@@ -1,0 +1,105 @@
+.custom-bg-color {
+    background: rgba(29, 41, 81, 1);
+    box-shadow: 0px 5px 10px rgb(0 0 0 / 71%);
+}
+
+.navbar-brand {
+    color: #ffff;
+    font-size: 24px;
+    margin-left: 29px;
+    font-family: 'Comic Neue', cursive;
+}
+
+.navbar-nav {
+    align-items: center;
+}
+
+.navbar-toggler{
+    border: none;     
+}
+
+.nav-item {
+    border: 1px solid #000;
+    border-radius: 28px;
+    margin:  5px;
+    color: #000;
+    font-family: 'Alice', serif;
+    text-align: center;
+    background: #ffff;
+    font-size: 13px;
+    width: 95%;
+}
+
+.btn {
+    color: #ffff;
+}
+
+.custom-stroke {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #000000;
+}
+
+@media (min-width: 600px) and (max-width:767px) {
+    .navbar-brand {
+        color: #ffff;
+        font-size: 45px;
+        
+    }
+
+    .navbar-nav{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: right;
+    
+    }
+
+   
+  
+    .custom-stroke {
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: #000000;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .navbar-brand {
+        color: #ffff;
+        font-size: 45px;
+
+       
+    }
+
+    .navbar-nav {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: right;
+    }
+
+
+    .custom-stroke {
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: #000000;
+    }
+
+
+}
+
+@media (min-width: 1025px) {
+    .navbar-brand {
+        color: #ffff;
+        font-size: 64px;
+        margin-left: 25rem;
+               
+    }
+
+    .navbar-nav {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: right;
+       
+    }
+    .nav-item {
+        font-size: 13px;
+    }
+   
+}

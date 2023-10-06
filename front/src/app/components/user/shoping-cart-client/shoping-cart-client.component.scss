@@ -1,0 +1,106 @@
+table {
+  width: 98%;
+  margin-top: 3vh;
+  color: #fff;
+  text-align: left;
+  font-size: 2vh;
+  border-radius: 2vh;
+  overflow: hidden;
+  border-spacing: 0;
+  border-collapse: separate;
+  border: 0.4vh solid black;
+}
+.trash{
+  cursor: pointer;
+}
+tbody {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table-responsive {
+  margin-top: 0.1vh;
+
+}
+
+.container-th {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+}
+
+.container-th p {
+  margin: 0px;
+}
+
+th {
+  border: 0.13vh solid white;
+  background-color: rgba(29, 41, 81, 1);
+  color: #fff;
+  text-decoration: underline;
+  text-align: center;
+  width: 5vh;
+}
+
+td {
+  border-bottom: 0.4vh solid #fff;
+  border: 0.13vh solid black;
+}
+
+tr {
+  border-bottom: 0.13vh solid #ccc;
+}
+
+.container {
+  max-width: 100%;
+}
+
+@media (min-width: 1024px) {
+  table {
+    font-size: 2.70vh;
+    margin-top: 3.2vh;
+  }
+
+}
+
+@media (min-width: 1440px) {
+  table {
+    font-size: 2.70vh;
+  }
+}
+
+@media (min-width: 290px) and (max-width:991px) {
+
+  table {
+    font-size: 3vw;
+  }
+
+  th {
+    font-size: 2.1vw;
+    vertical-align: middle;
+  }
+
+  .container-th {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.table-resumen {
+  width: 90%;
+  margin-left: 0.5%;
+  float: left;
+}
+
+.btn {
+  font-size: x-large;
+  color: rgba(29, 41, 81, 1);
+  border: 4px solid rgba(29, 41, 81, 1);
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+}

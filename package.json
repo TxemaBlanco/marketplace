@@ -1,0 +1,17 @@
+{
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^16.2.1",
+    "jasmine": "^5.1.0",
+    "jasmine-core": "^5.1.1",
+    "jasmine-spec-reporter": "^7.0.0",
+    "karma": "^6.4.2",
+    "karma-chrome-launcher": "^3.2.0",
+    "karma-cli": "^2.0.0",
+    "karma-jasmine": "^5.1.0",
+    "karma-jasmine-html-reporter": "^2.1.0"
+  },
+  "dependencies": {
+    "@ng-bootstrap/ng-bootstrap": "^15.1.1",
+    "ngx-bootstrap": "^11.0.2"
+  }
+}
