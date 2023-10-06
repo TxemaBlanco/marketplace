@@ -3,6 +3,7 @@ package org.factoriaf5.comicbooks.customers;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import org.junit.jupiter.api.Test;
 
@@ -14,12 +15,12 @@ public class CustomerServiceTest {
     public void testCreateCustomer() {
         repository = mock(CustomerRepository.class);
 
-        Customer savedCustomer = new Customer("user@user.com", "29920371A", "Lola", "Flores", "Rosas", "La buenecita",
+        Customer savedCustomer = new Customer("user5@user.com", "29920371A", "Lola", "Flores", "Rosas", "La buenecita",
                 14, "3", "dcha", "3", "A", 30033, "Madrid", "Madrid",
                 "$2a$12$BwyEzyYm8ssMjYY9HLvrq.LwIxYbfApeAM41kyP7o6ZyYq8B542wO");
 
         when(repository.save(any(Customer.class))).thenReturn(savedCustomer);
-        when(repository.findByEmail("user@user.com")).thenReturn(java.util.Optional.of(savedCustomer));
+        when(repository.findByEmail("user5@user.com")).thenReturn(java.util.Optional.of(savedCustomer));
 
         service = new CustomerService(repository);
 
@@ -27,7 +28,7 @@ public class CustomerServiceTest {
 
         assertNotNull(response);
 
-        assertEquals("user@user.com", response.getEmail());
+        assertEquals("user5@user.com", response.getEmail());
         assertEquals("29920371A", response.getDni());
         assertEquals("Lola", response.getName());
         assertEquals("Flores", response.getSurname());
@@ -43,7 +44,7 @@ public class CustomerServiceTest {
         assertEquals("Madrid", response.getProvince());
         assertEquals("$2a$12$BwyEzyYm8ssMjYY9HLvrq.LwIxYbfApeAM41kyP7o6ZyYq8B542wO", response.getPassword());
 
-        Customer retrievedCustomer = service.findByEmail("user@user.com");
+        Customer retrievedCustomer = service.findByEmail("user5@user.com");
         assertEquals(savedCustomer, retrievedCustomer);
     }
 

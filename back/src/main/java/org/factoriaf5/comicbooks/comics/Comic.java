@@ -52,10 +52,10 @@ public class Comic {
         this.stock = stock;
     }
 
-    public void addGenre(Genre genre) {
+   /*  public void addGenre(Genre genre) {
     }
-
-    // public void addGenre(Genre genre) {
-    //     genres.add(genre);
-    // }
+ */
+    public void addGenre(Genre genre) {
+        genres.add(genre);
+     }
 }
