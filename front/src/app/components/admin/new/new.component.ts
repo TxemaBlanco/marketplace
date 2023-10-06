@@ -159,12 +159,8 @@ export class NewComponent implements OnInit{
     this.currentGenres.forEach(currentGenre=>console.log(currentGenre.name));
     this.currentGenres.splice(index,1);    
   }  
-}
 
-  addGenre(genre:Genre){
-    this.genres.push(genre);
-    console.log("añadido = " + genre.name);
-  }
+
   
 
   
