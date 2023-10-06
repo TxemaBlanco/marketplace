@@ -12,6 +12,7 @@ import { NewComponent } from './components/admin/new/new.component';
 import { AdminloginviewComponent } from './views/adminloginview/adminloginview.component';
 import { EditComicComponent } from './components/admin/edit-comic/edit-comic.component';
 import {ClientDetailsComponent} from './components/admin/client-details/client-details.component';
+import { DetailAdminComponent } from './components/admin/detail-admin/detail-admin.component';
  
 
 const routes: Routes = [
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'editar/:isbn', component: EditComicComponent },
   { path: 'admin', component: AdminloginviewComponent},
   { path: 'admin-client', component: ClientDetailsComponent},
+  { path: 'detailadmin/:isbn', component: DetailAdminComponent},
 ];
 
 @NgModule({

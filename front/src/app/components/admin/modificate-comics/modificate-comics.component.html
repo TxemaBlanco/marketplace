@@ -106,7 +106,7 @@
         <tbody>
           <tr *ngFor="let comic of comicsOnCurrentPage">
             <td><a [routerLink]="['/comic', comic.isbn]"></a>{{ comic.isbn }}</td>
-            <td><a [routerLink]="['/comic', comic.isbn]">{{ comic.title }}</a></td>
+            <td><a [routerLink]="['/detailadmin', comic.isbn]">{{ comic.title }}</a></td>
             <td>{{ comic.author }}</td>
             <td>
               <span *ngFor="let genre of comic.genres; let last = last">
