@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { CustomerService } from '../../../services/customer.service';
+import { CustomerService } from '../../../services/customers/customer.service';
 import { Customer } from 'src/app/models/Customer.model';
 import { Order } from 'src/app/models/Order';
-import { OrderService } from '../../../services/order.service';
+import { OrderService } from '../../../services/order/order.service';
 
 @Component({
   selector: 'app-client-details',

@@ -28,6 +28,7 @@ import { AdminloginviewComponent } from './views/adminloginview/adminloginview.c
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { UserPurchaseHistoryViewComponent } from './views/user-purchase-history-view/user-purchase-history-view.component';
 import { UserListAdminComponent } from './components/admin/user-list-admin/user-list-admin.component';
+import { DetailAdminComponent } from './components/admin/detail-admin/detail-admin.component';
 
 
 
@@ -56,6 +57,7 @@ import { UserListAdminComponent } from './components/admin/user-list-admin/user-
     AdminloginviewComponent,
     UserPurchaseHistoryViewComponent,
 UserListAdminComponent
+    DetailAdminComponent,
   ],
   imports: [
     BrowserModule,
