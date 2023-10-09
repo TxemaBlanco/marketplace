@@ -11,6 +11,7 @@ import { ComicService } from 'src/app/services/comic/comic.service';
 export class ComictableadminComponent {
   comics: Comic[] = [];
   originalComics: Comic[] = [];
+  filteredComics: Comic[] = [];
   genres:  Genre[] = [];
   selectedGenre: any = null;
   selectedCoverType: string | null = null;
@@ -30,7 +31,6 @@ export class ComictableadminComponent {
   showisbnFilterPopup: boolean = false;
   selectedisbn: string = '';
   searchTextGlobal: string = '';
-  filteredComics: Comic[] = [];
   columnFilters: {
     isbn: string;
     title: string;
@@ -47,88 +47,91 @@ export class ComictableadminComponent {
   constructor(private comicService: ComicService) {}
 
   ngOnInit(): void {
+    console.log("function ngOnInit");
     this.getComics();
     this.getGenres();
     this.filteredComics = this.comics;
   }
 
   getComics(): void {
-    this.comicService.getComics().subscribe((comics) => {
-      this.comics = comics;
+    console.log("function getComics");
+    this.comicService.getComics().subscribe((comics) => {      
+      this.comics = comics.filter(comic => comic.stock > 0);
       this.originalComics=comics;
     });
   }
 
   getGenres(): void {
     this.comicService.getGenres().subscribe((genres) => {
-      this.genres = genres;
+      this.genres = genres
     });
   }
 
   applyFilters(): void {
     console.log("AAAAA")
-    let filteredComics =  this.originalComics.slice();
+    
+    // this.filteredComics ? this.filteredComics =  this.originalComics.slice() : this.filteredComics = this.originalComics;
+    // this.filteredComics = this.originalComics;
+    // if (this.columnFilters.isbn) {
+    //   this.filteredComics = this.filteredComics.filter((comic) =>
+    //     comic.isbn.toLowerCase().includes(this.columnFilters.isbn.toLowerCase())
+    //   );
+    // }
   
-    if (this.columnFilters.isbn) {
-      filteredComics = filteredComics.filter((comic) =>
-        comic.isbn.toLowerCase().includes(this.columnFilters.isbn.toLowerCase())
-      );
-    }
+    // if (this.columnFilters.title) {
+    //   this.filteredComics = this.filteredComics.filter((comic) =>
+    //     comic.title.toLowerCase().includes(this.columnFilters.title.toLowerCase())
+    //   );
+    // }
   
-    if (this.columnFilters.title) {
-      filteredComics = filteredComics.filter((comic) =>
-        comic.title.toLowerCase().includes(this.columnFilters.title.toLowerCase())
-      );
-    }
+    // if (this.columnFilters.author) {
+    //   this.filteredComics = this.filteredComics.filter((comic) =>
+    //     comic.author.toLowerCase().includes(this.columnFilters.author.toLowerCase())
+    //   );
+    // }
   
-    if (this.columnFilters.author) {
-      filteredComics = filteredComics.filter((comic) =>
-        comic.author.toLowerCase().includes(this.columnFilters.author.toLowerCase())
-      );
-    }
+    // if (this.columnFilters.genre !== null) {
+    //   this.filteredComics = this.filteredComics.filter((comic) =>
+    //     comic.genres.some((g: any) => g.id === this.columnFilters.genre)
+    //   );
+    // }
   
-    if (this.columnFilters.genre !== null) {
-      filteredComics = filteredComics.filter((comic) =>
-        comic.genres.some((g: any) => g.id === this.columnFilters.genre)
-      );
-    }
+    // if (this.columnFilters.coverType !== null) {
+    //   if (this.columnFilters.coverType === 'hard') {
+    //     this.filteredComics = this.filteredComics.filter((comic) => comic.ishardcover);
+    //   } else {
+    //     this.filteredComics = this.filteredComics.filter((comic) => !comic.ishardcover);
+    //   }
+    // }
   
-    if (this.columnFilters.coverType !== null) {
-      if (this.columnFilters.coverType === 'hard') {
-        filteredComics = filteredComics.filter((comic) => comic.ishardcover);
-      } else {
-        filteredComics = filteredComics.filter((comic) => !comic.ishardcover);
-      }
-    }
-  
-    if (!this.sortByTitleAscending) {
-      filteredComics.sort((a, b) => b.title.localeCompare(a.title));
-    } else {
-      filteredComics.sort((a, b) => a.title.localeCompare(b.title));
-    }
-    console.log(this.filteredComics)
-    this.comics = filteredComics;
-    console.log(this.comics)
+    // if (!this.sortByTitleAscending) {
+    //   this.filteredComics.sort((a, b) => b.title.localeCompare(a.title));
+    // } else {
+    //   this.filteredComics.sort((a, b) => a.title.localeCompare(b.title));
+    // }
+    // console.log(this.filteredComics)
+    // this.comics = this.filteredComics;
+    // console.log(this.comics)
   }
   
   
 
   toggleSortOrderPopup(order: 'A-Z' | 'Z-A') {
-    this.currentSortOrder = order;
-    this.sortByTitleAscending = !this.sortByTitleAscending;
-    this.applyFilters();
+    // this.currentSortOrder = order;
+    // this.sortByTitleAscending = !this.sortByTitleAscending;
+    // this.applyFilters();
   }
 
   toggleSortOrderPopup2(order: 'A-Z' | 'Z-A') {
-    this.currentSortOrder = order;
-    this.sortByisbnAscending = !this.sortByisbnAscending;
-    this.applyFilters();
+    // this.currentSortOrder = order;
+    // this.sortByisbnAscending = !this.sortByisbnAscending;
+    // this.applyFilters();
   }
 
   toggleSortOrderPopup3(order: 'A-Z' | 'Z-A') {
-    this.currentSortOrder = order;
-    this.sortByAuthorAscending = !this.sortByAuthorAscending;
-    this.applyFilters();
+    // this.currentSortOrder = order;
+    // this.sortByAuthorAscending = !this.sortByAuthorAscending;
+    // this.applyFilters();
   }
 
   goToPage(page: number) {
@@ -153,26 +156,25 @@ export class ComictableadminComponent {
   }
 
   toggleSearch() {
-    this.showSearchPopup = !this.showSearchPopup;
-  if (!this.showSearchPopup) {
-    this.searchTerm = '';
-    this.searchTextGlobal = ''; 
-    this.applyFilters(); 
-  }
+  //   this.showSearchPopup = !this.showSearchPopup;
+  // if (!this.showSearchPopup) {
+  //   this.searchTerm = '';
+  //   this.searchTextGlobal = ''; 
+    // this.applyFilters(); 
+  // }
 }
 
   toggleFilterPopup(filterType: 'isbn' | 'author' | 'genre' | 'coverType') {
-    if (filterType === 'isbn') {
-      this.showisbnFilterPopup = !this.showisbnFilterPopup;
-    } else if (filterType === 'genre') {
-      this.showGenreFilterPopup = !this.showGenreFilterPopup;
-    } else if (filterType === 'coverType') {
-      this.showCoverTypeFilterPopup = !this.showCoverTypeFilterPopup;
-    } else if (filterType === 'author') {
-      this.showAuthorFilterPopup = !this.showAuthorFilterPopup;
-    }
-
-    this.applyFilters();
+    // if (filterType === 'isbn') {
+    //   this.showisbnFilterPopup = !this.showisbnFilterPopup;
+    // } else if (filterType === 'genre') {
+    //   this.showGenreFilterPopup = !this.showGenreFilterPopup;
+    // } else if (filterType === 'coverType') {
+    //   this.showCoverTypeFilterPopup = !this.showCoverTypeFilterPopup;
+    // } else if (filterType === 'author') {
+    //   this.showAuthorFilterPopup = !this.showAuthorFilterPopup;
+    // }
+    // this.applyFilters();
   }
 
  

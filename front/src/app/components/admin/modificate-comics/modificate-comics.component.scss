@@ -1,3 +1,19 @@
+.container-search {
+  display: flex;
+  justify-content: center;
+  max-width: 500px;
+  background: rgba(29, 41, 81, 1);
+  border-radius: 30px;
+  margin-top: 20px;
+  padding: 15px;
+  align-items: center;
+
+}
+.search-up {
+  width: 90%;
+  border-radius: 30px;
+  padding: 7px;
+}
 table {
     margin-top: 3vh;
     color: #fff;
@@ -130,7 +146,7 @@ table {
     border: 0.13vh solid #ccc;
     padding: 1.35vh;
     z-index: 1;
-    top: 42%;
+    top: 25%;
     border-radius: 15px;
   }
   
@@ -233,7 +249,7 @@ table {
   
   @media (min-width: 992px) {
     .container-search {
-      display: none;
+      // display: none;
     }
   
   }
