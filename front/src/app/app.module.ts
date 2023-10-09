@@ -56,7 +56,7 @@ import { DetailAdminComponent } from './components/admin/detail-admin/detail-adm
     EditComicComponent,
     AdminloginviewComponent,
     UserPurchaseHistoryViewComponent,
-UserListAdminComponent
+UserListAdminComponent,
     DetailAdminComponent,
   ],
   imports: [
