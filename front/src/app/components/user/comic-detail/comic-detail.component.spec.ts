@@ -62,7 +62,7 @@ describe('ComicDetailComponent', () => {
       genres: [],
       isEditing: undefined
     };
-    mockCartService.addToCart.and.stub(); // Evita que el método real se ejecute
+    mockCartService.addToCart.and.stub(); 
   
     component.comic = mockComic;
     component.addToCart();
@@ -84,7 +84,7 @@ describe('ComicDetailComponent', () => {
       isEditing: undefined
     };
     const swalFireStub = jasmine.createSpyObj('Swal', ['fire']);
-    swalFireStub.fire.and.returnValue(Promise.resolve({ isConfirmed: true })); // Simula que el usuario confirmó
+    swalFireStub.fire.and.returnValue(Promise.resolve({ isConfirmed: true })); 
   
     component.comic = mockComic;
     component.openConfirmationModal();

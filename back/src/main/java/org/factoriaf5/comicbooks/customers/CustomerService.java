@@ -70,7 +70,6 @@ public class CustomerService {
             Customer customer1 = customerOptional.get();
             String password = loginDTO.getPassword();
             String encodedPassword = customer1.getPassword();
-            //Boolean isPasswordRight = true; 
             Boolean isPasswordRight = passwordEncoder.matches(password, encodedPassword);
             if (isPasswordRight){
                 Optional<Customer> customer = repository.findOneByEmailAndPassword(loginDTO.getEmail(), encodedPassword);

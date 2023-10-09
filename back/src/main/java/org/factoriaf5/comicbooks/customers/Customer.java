@@ -69,20 +69,6 @@ public class Customer {
     @OneToMany(fetch = FetchType.LAZY)
     public Set<Order> orders = new HashSet<>();
 
-    // @ManyToMany
-    // @JoinTable(name="customer_order",
-    // joinColumns={@JoinColumn(name="customer_email",referencedColumnName =
-    // "email")},
-    // inverseJoinColumns={@JoinColumn(name="order_id",referencedColumnName =
-    // "id")})
-    // private Set<Order> orders;
-
-    // usado
-    // @ManyToMany(mappedBy = "customers", fetch = FetchType.LAZY, cascade =
-    // CascadeType.PERSIST)
-    // // @JsonIgnore
-    // public Set<Order> orders = new HashSet<>();
-
     public Customer(String email, String dni, String name, String surname, String surname2, String street, int number,
             String gate, String stairs, String floor, String letter, int postalcode, String town, String province,
             String password) {
