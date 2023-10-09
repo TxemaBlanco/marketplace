@@ -15,7 +15,7 @@ describe('DetailAdminComponent', () => {
 
   beforeEach(() => {
     mockActivatedRoute = {
-      params: of({ isbn: '12345' }),
+      params: of({ isbn: '1234567891235' }),
     };
 
     mockRouter = {

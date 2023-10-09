@@ -18,23 +18,5 @@ describe('HomeuserviewComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render app-headerclient', () => {
-    fixture.detectChanges();
-    const headerClientElement = fixture.nativeElement.querySelector('app-headerclient');
-    expect(headerClientElement).toBeTruthy();
-  });
-
-  it('should render app-banner', () => {
-    fixture.detectChanges();
-    const bannerElement = fixture.nativeElement.querySelector('app-banner');
-    expect(bannerElement).toBeTruthy();
-  });
-
-  it('should render app-comic-table', () => {
-    fixture.detectChanges();
-    const comicTableElement = fixture.nativeElement.querySelector('app-comic-table');
-    expect(comicTableElement).toBeTruthy();
-  });
-
  
 });

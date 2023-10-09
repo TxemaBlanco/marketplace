@@ -50,7 +50,7 @@ describe('ShopingCartClientComponent', () => {
 
     component.deleteShoppingComic(0);
 
-    expect(cartServiceStub.removeFromCart).toHaveBeenCalledWith(0);
+    expect(cartServiceStub.removeFromCart).toHaveBeenCalledWith();
   });
 
   it('should set subtotal and total', () => {

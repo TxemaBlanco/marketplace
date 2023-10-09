@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-// @CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST})
 @RequestMapping("/customers")
 public class CustomerController {
 

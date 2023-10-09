@@ -36,7 +36,7 @@ public class ComicServiceTest {
         Comic mockComic = new Comic();
         mockComic.setIsbn(isbn);
 
-        // Mock the repository's findByIsbn method
+ 
         when(comicRepository.findByIsbn(isbn)).thenReturn(Optional.of(mockComic));
 
         ComicService service = new ComicService(comicRepository);
