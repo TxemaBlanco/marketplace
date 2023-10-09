@@ -68,7 +68,7 @@ export class LoginComponent {
       } else {
         Swal.fire({
           title: 'Error',
-          text: 'La contraseña y el email no coinciden',
+          text: 'La contraseña no coincide',
           customClass: 'custom-swal' ,
           showConfirmButton: true,
           width: 300, 

@@ -41,8 +41,7 @@ export class RegisterAComponent {
   ) {
     this.registrationForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)]],
-      dniType: ['', Validators.required],
-      dni: ['', [Validators.required, Validators.pattern('[0-9]{8}[A-Z]')]],
+      dni: ['', [Validators.required, Validators.pattern('[0-9]{8}[a-zA-Z]')]],
       name: ['', [Validators.required, Validators.pattern('[A-Za-z ]*')]], 
       surname:  ['', [Validators.required, Validators.pattern('[A-Za-z ]*')]], 
       surname2: [''],
