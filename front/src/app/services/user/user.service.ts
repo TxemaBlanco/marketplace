@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { CustomerService } from './customer.service';
+import { CustomerService } from '../customers/customer.service';
 import { Router } from '@angular/router';
-import { CartService } from './cart.service';
+import { CartService } from '../cart/cart.service';
 
 @Injectable({
   providedIn: 'root',

@@ -4,13 +4,16 @@ import { ComicService } from 'src/app/services/comic/comic.service';
 import { Comic } from 'src/app/models/Comic';
 import { CartService } from 'src/app/services/cart/cart.service';
 import Swal from 'sweetalert2';
+
 @Component({
-  selector: 'app-comic-detail',
-  templateUrl: './comic-detail.component.html',
-  styleUrls: ['./comic-detail.component.scss']
+  selector: 'app-detail-admin',
+  templateUrl: './detail-admin.component.html',
+  styleUrls: ['./detail-admin.component.scss']
 })
-export class ComicDetailComponent implements OnInit {
+export class DetailAdminComponent {
   comic: Comic | undefined;
+  isbn: any;
+ 
 
   constructor(
     private route: ActivatedRoute,
@@ -20,20 +23,15 @@ export class ComicDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const isbn = this.route.snapshot.paramMap.get('isbn');
-
-    if (isbn) {
-      this.comicService.getComicByISBN(isbn).subscribe(
-        (comic: Comic) => {
-          this.comic = comic;
-          console.log(this.comic.photo)
-        },
-        (error) => {
-          console.error('Error al obtener el cómic:', error);
-        }
-      );
-    }
+   this.route.params.subscribe(params => {
+      this.isbn = params['isbn'];
+      
+      this.comicService.getComicByISBN(this.isbn).subscribe(comic => {
+        this.comic = comic;
+      });
+    });
   }
+
   addToCart() {
     if (this.comic) {
       this.cartService.addToCart(this.comic);
@@ -56,3 +54,4 @@ export class ComicDetailComponent implements OnInit {
     });
   }
 }
+

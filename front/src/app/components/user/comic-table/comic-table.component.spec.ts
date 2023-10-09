@@ -3,7 +3,7 @@ import { DebugElement } from '@angular/core';
 import { ComicTableComponent } from './comic-table.component';
 import { By } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { ComicService } from 'src/app/services/comic.service';
+import { ComicService } from 'src/app/services/comic/comic.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('ComicTableComponent', () => {
