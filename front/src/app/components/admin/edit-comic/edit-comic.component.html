@@ -8,88 +8,67 @@
         <div class="left-column">
         <form (ngSubmit)="saveChanges()" #editForm="ngForm">
           <div class="form-group">
-            <label for="isbn">ISBN</label>
-            <input
-              type="text"
-              class="form-control"
-              id="isbn"
-              name="isbn"
-              [(ngModel)]="editedComic.isbn" disabled
-              required
-            />
+            <label for="isbn">Isbn</label>
+            <input type="text" class="form-control" id="isbn" placeholder="Isbn" formControlName="isbn">
+            <div *ngIf="!myForm.controls['isbn'].valid && myForm.controls['isbn'].touched" class="error message">
+              Isbn
+              no valido</div>
+
           </div>
           <div class="form-group">
-            <label for="title">Título</label>
-            <input
-              type="text"
-              class="form-control"
-              id="title"
-              name="title"
-              [(ngModel)]="editedComic.title"
-              required
-            />
+            <label for="title">Titulo</label>
+            <input type="text" class="form-control" id="title" placeholder="Titulo" formControlName="title">
           </div>
           <div class="form-group">
             <label for="author">Autor</label>
-            <input
-              type="text"
-              class="form-control"
-              id="author"
-              name="author"
-              [(ngModel)]="editedComic.author"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="coverType">Tapa</label>
-            <select
-              class="form-control"
-              id="coverType"
-              name="coverType"
-              [(ngModel)]="editedComic.ishardcover"
-              required
-            >
-              <option value="true">Dura</option>
-              <option value="false">Blanda</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="price">Precio</label>
-            <input
-              type="number"
-              class="form-control"
-              id="price"
-              name="price"
-              [(ngModel)]="editedComic.price"
-              required
-            />
+            <input type="text" class="form-control" id="author" placeholder="Autor" formControlName="author">
           </div>
           <div class="form-group">
             <label for="synopsis">Sinopsis</label>
-            <textarea
-              class="form-control"
-              id="synopsis"
-              name="synopsis"
-              [(ngModel)]="editedComic.synopsis"
+            <textarea class="form-control" id="synopsis" placeholder="Sinopsis" formControlName="synopsis"
             ></textarea>
           </div>
+         
           <div class="form-group">
-            <label for="stock">Stock</label>
-            <input
-              type="number"
-              class="form-control"
-              id="stock"
-              name="stock"
-              [(ngModel)]="editedComic.stock"
-              required
-            />
+            
+            <label for="genre">Genero</label>
+
+                <select class="form-control" id="genre" placeholder="Genero" name="genres" [(ngModel)]="editedComic.genres" (ngModelChange)="addGenreToList($event)" >
+                  <option disabled [ngValue]="null">-Seleccione un genero-</option>
+                  <option *ngFor="let aGenre of allGenres" [ngValue]="aGenre">{{aGenre.name}}
+                  </option>
+                </select>
+            <div class="listGenres" #divList>
+              <span class="genreItem" *ngFor="let aCurrentGenre of currentGenres;let i = index;">
+                {{aCurrentGenre.name}}<button class="btn btn-short" (click)="deleteGenre(i)">x</button>
+              </span>
+            </div>
           </div>
+
+
           <div class="form-group">
-            <label for="genres">Géneros</label>
-            <select class="form-control" id="genres" name="genres" [(ngModel)]="editedComic.genres" multiple>
-              <option *ngFor="let genre of editedComic.genres"disabled [value]="genre.id">{{ genre.name }}</option>
+            <label for="ishardcover">Tapa</label>
+            <select class="form-control" id="ishardcover" placeholder="Tapa dura?" formControlName="ishardcover">
+              <option *ngFor="let aCover of covers" [value]="aCover == 'Tapa Dura' ? true : false">{{aCover}}
+              </option>
             </select>
           </div>
+
+          <div class="form-group remove-spinner">
+            <label for="price">Precio</label>
+            <input type="number" matInput class="form-control " id="price" placeholder="Precio" formControlName="price">
+          </div>
+
+          <div class="form-group">
+            <label for="stock">Stock</label>
+            <input type="number" class="form-control" id="stock" placeholder="Stock" formControlName="stock">
+          </div>
+          <div class="form-group">
+            <label for="photo">Foto</label>
+            <input [readonly]="true" type="text" class="form-control" id="photo" placeholder="Foto"
+              formControlName="photo">
+          </div>
+          
           <div class="modal-footer">
            
             <button type="submit" class="btn btn-primary">Guardar</button>
@@ -103,23 +82,7 @@
               <img [src]="'http://localhost:8000/files/' + editedComic.photo" class="img-fluid small-image" alt="Foto Actual">
             </div>
           </div>
-            <!-- <div class="form-group">
-              <label for="photo"></label>
-              <input
-                type="file"
-                class="form-control-file"
-                id="photo"
-                name="photo"
-                (change)="onImageSelected($event)"
-              /> -->
-              <!-- <img
-                *ngIf="photoPreviewUrl"
-                [src]="photoPreviewUrl"
-                class="img-fluid small-image"
-                alt="Nueva Foto"
-              /> -->
-            <!-- </div>
-          </div> -->
+
           
         </form>
 

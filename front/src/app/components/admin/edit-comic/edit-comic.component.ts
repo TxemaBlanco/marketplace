@@ -5,6 +5,7 @@ import { Comic } from '../../../models/Comic';
 import { Genre } from '../../../models/Genre';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { HttpClient } from '@angular/common/http';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 const allGenres: string[] = [
   "Infantil",
@@ -22,37 +23,40 @@ const allGenres: string[] = [
   styleUrls: ['./edit-comic.component.scss']
 })
 export class EditComicComponent implements OnInit {
+  myForm: FormGroup;
   comicToEdit: Comic = new Comic(); 
   editedComic: Comic = new Comic();
-  allGenres = allGenres; 
-  newGenres: string[] = [];
+  allGenres: Genre[] = [];
+  currentGenres: Genre[] = [];
   images: any;
   newComicPhoto: File | null = null;
   photoPreviewUrl: string | ArrayBuffer | null = null;
+  covers: string[] = ['Tapa Dura', 'Tapa Blanda'];
+  constructor(public bsModalRef: BsModalRef, private comicService: ComicService, private http: HttpClient,fb: FormBuilder) {
+    this.myForm = fb.group({
+      isbn: ['', [Validators.required, Validators.pattern('[0-9]{13}')]],
+      title: [''],
+      author: [''],
+      ishardcover: [false],
+      photo: [''],
+      price: [0],
+      synopsis: [''],
+      stock: [0],
+      genre: [],
+    });
+  }
 
-  constructor(public bsModalRef: BsModalRef, private comicService: ComicService, private http: HttpClient) {}
-
-  ngOnInit(): void {
-   
+  ngOnInit(): void {   
     this.editedComic = { ...this.comicToEdit };
+    this.getGenres();
+    this.currentGenres = this.editedComic.genres;
+  }
+  getGenres(): void {
+    this.comicService.getGenres().subscribe((genres) => {
+      this.allGenres = genres;
+    });
   }
 
-  addNewGenres() {
-   
-    const newGenresArray = this.newGenres.join(',').split(',').map((genre) => genre.trim());
-  
-
-    const uniqueNewGenres = newGenresArray.filter((genre) => genre !== '');
-  
-   
-    this.editedComic.genres = [
-      ...this.editedComic.genres,
-      ...uniqueNewGenres.map((genreName) => ({ id: 0, name: genreName } as Genre))
-    ];
-  
-  
-    this.newGenres = [];
-  }
   
  
   onImageSelected(event: any) {
@@ -90,7 +94,6 @@ export class EditComicComponent implements OnInit {
           this.editedComic.photo = response.photoUrl;
           this.bsModalRef.hide();
           
-         
           this.comicService.updateComic(isbn, this.editedComic).subscribe(
             (updatedComic) => {
               console.log('Cómic actualizado con la nueva foto:', updatedComic);
@@ -118,5 +121,18 @@ export class EditComicComponent implements OnInit {
       );
     }
   }
-  
+  addGenreToList(genre:Genre) 
+  {
+    this.addGenre(genre);
+  }
+  addGenre(genre: Genre) {
+    this.currentGenres.push(genre);
+    console.log('añadido = ' + genre.name);
+  }
+  deleteGenre(index:number){
+    console.log("function deleteGenre-> index=" + index);
+    this.currentGenres.splice(index,1);  
+    this.currentGenres.forEach(currentGenre=>console.log(currentGenre.name));
+      
+  }  
 }
