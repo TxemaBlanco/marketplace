@@ -46,6 +46,7 @@ export class LoginComponent {
           cancelButtonText: 'Cancelar', 
           showCloseButton: true, 
           confirmButtonText: 'Registrate', 
+          
         }).then((result) => {
           if (result.isConfirmed) {
             this.router.navigateByUrl('register');
@@ -60,6 +61,7 @@ export class LoginComponent {
           width: 300, 
           confirmButtonColor: '#008000',
         }).then(() => {
+          localStorage.setItem('loggedInEmail', resultData.email);
           this.userService.setLogdeInEmail(resultData.email);
           this.router.navigateByUrl('comicList');
         });
