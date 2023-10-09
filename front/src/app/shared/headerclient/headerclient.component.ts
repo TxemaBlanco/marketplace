@@ -1,15 +1,33 @@
-import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import { UserService } from 'src/app/services/user.service';
+import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user/user.service';
+
 @Component({
   selector: 'app-headerclient',
   templateUrl: './headerclient.component.html',
   styleUrls: ['./headerclient.component.scss']
 })
-export class HeaderclientComponent {
+export class HeaderclientComponent implements OnInit {
   isMenuOpen = false;
+  loggedInEmail: string | null;
+
+ constructor(private userService: UserService) {
+  this.loggedInEmail = localStorage.getItem('loggedInEmail');
+  console.log('Valor de loggedInEmail en el constructor:', this.loggedInEmail);
+}
+
+  ngOnInit() {
   
-  constructor(private userService: UserService) { }
+    this.loggedInEmail = localStorage.getItem('loggedInEmail');
+    console.log('Valor de loggedInEmail en ngOnInit:', this.loggedInEmail);
+   
+    
+    window.addEventListener('storage', (event) => {
+      if (event.key === 'loggedInEmail') {
+        this.loggedInEmail = event.newValue;
+      }
+    });
+  }
+
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen; 
   }
@@ -17,11 +35,12 @@ export class HeaderclientComponent {
   closeMenu() {
     this.isMenuOpen = false; 
   }
+
   getLoggedInUsername(): string {
     return this.userService.getLoggedInUsername();
   }
-  onCloseSession():void{
+
+  onCloseSession(): void {
     this.userService.logout();
   }
 }
-

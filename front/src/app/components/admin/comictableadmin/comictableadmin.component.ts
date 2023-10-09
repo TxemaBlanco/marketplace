@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Genre } from 'src/app/models/Genre';
 import { Comic } from 'src/app/models/Comic';
-import { ComicService } from 'src/app/services/comic.service';
+import { ComicService } from 'src/app/services/comic/comic.service';
 
 @Component({
   selector: 'app-comictableadmin',

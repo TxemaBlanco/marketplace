@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Comic } from 'src/app/models/Comic';
 import { Genre } from 'src/app/models/Genre';
-import { ComicService } from 'src/app/services/comic.service';
+import { ComicService } from 'src/app/services/comic/comic.service';
 import { EditComicComponent } from '../edit-comic/edit-comic.component';
 
 @Component({
