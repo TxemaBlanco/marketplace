@@ -6,6 +6,7 @@ import { ComicService } from 'src/app/services/comic/comic.service';
 import { DatePipe } from '@angular/common';
 import { Comic } from 'src/app/models/Comic';
 import { Genre } from 'src/app/models/Genre';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-user-purchase-history',
@@ -59,16 +60,20 @@ export class UserPurchaseHistoryComponent implements OnInit {
     private route: ActivatedRoute,
     private orderService: OrderService,
     private comicService: ComicService,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
     this.getGenres();
-    this.route.paramMap.subscribe(params => {
+    /* this.route.paramMap.subscribe(params => {
       this.userEmail = params.get('email') || '';
       this.loadUserPurchaseHistory();
-    });
-  }
+    });  */
+   /*  this.userEmail = this.userService.getLoggedInEmail(); */
+   this.userEmail = localStorage.getItem('email')!;
+   this.loadUserPurchaseHistory();
+  } 
   getGenres(): void {
     this.comicService.getGenres().subscribe((genres) => {
       this.genres = genres;
