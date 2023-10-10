@@ -44,6 +44,7 @@ public class ComicService {
         currentComic.setPrice(comic.getPrice());
         currentComic.setStock(comic.getStock());
         currentComic.setSynopsis(comic.getSynopsis());
+        currentComic.setGenres(comic.getGenres());
         return comicRepository.save(currentComic);
     }
     public Comic delete(String isbn){
