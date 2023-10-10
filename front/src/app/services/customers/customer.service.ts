@@ -19,4 +19,9 @@ export class CustomerService {
   getCustomers() : any{
     return this.httpClient.get<any>(this.customerUrl);
   }
+  searchCustomers(searchTerm: string): Observable<any[]> {
+    const url = `${this.customerUrl}/buscar-comics?search=${searchTerm}`; 
+
+    return this.httpClient.get<any[]>(`${this.customerUrl}`);
+  }
 }
