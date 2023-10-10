@@ -70,68 +70,21 @@ export class ComictableadminComponent {
   applyFilters(): void {
     console.log("AAAAA")
     
-    // this.filteredComics ? this.filteredComics =  this.originalComics.slice() : this.filteredComics = this.originalComics;
-    // this.filteredComics = this.originalComics;
-    // if (this.columnFilters.isbn) {
-    //   this.filteredComics = this.filteredComics.filter((comic) =>
-    //     comic.isbn.toLowerCase().includes(this.columnFilters.isbn.toLowerCase())
-    //   );
-    // }
-  
-    // if (this.columnFilters.title) {
-    //   this.filteredComics = this.filteredComics.filter((comic) =>
-    //     comic.title.toLowerCase().includes(this.columnFilters.title.toLowerCase())
-    //   );
-    // }
-  
-    // if (this.columnFilters.author) {
-    //   this.filteredComics = this.filteredComics.filter((comic) =>
-    //     comic.author.toLowerCase().includes(this.columnFilters.author.toLowerCase())
-    //   );
-    // }
-  
-    // if (this.columnFilters.genre !== null) {
-    //   this.filteredComics = this.filteredComics.filter((comic) =>
-    //     comic.genres.some((g: any) => g.id === this.columnFilters.genre)
-    //   );
-    // }
-  
-    // if (this.columnFilters.coverType !== null) {
-    //   if (this.columnFilters.coverType === 'hard') {
-    //     this.filteredComics = this.filteredComics.filter((comic) => comic.ishardcover);
-    //   } else {
-    //     this.filteredComics = this.filteredComics.filter((comic) => !comic.ishardcover);
-    //   }
-    // }
-  
-    // if (!this.sortByTitleAscending) {
-    //   this.filteredComics.sort((a, b) => b.title.localeCompare(a.title));
-    // } else {
-    //   this.filteredComics.sort((a, b) => a.title.localeCompare(b.title));
-    // }
-    // console.log(this.filteredComics)
-    // this.comics = this.filteredComics;
-    // console.log(this.comics)
+   
   }
   
   
 
   toggleSortOrderPopup(order: 'A-Z' | 'Z-A') {
-    // this.currentSortOrder = order;
-    // this.sortByTitleAscending = !this.sortByTitleAscending;
-    // this.applyFilters();
+   
   }
 
   toggleSortOrderPopup2(order: 'A-Z' | 'Z-A') {
-    // this.currentSortOrder = order;
-    // this.sortByisbnAscending = !this.sortByisbnAscending;
-    // this.applyFilters();
+    
   }
 
   toggleSortOrderPopup3(order: 'A-Z' | 'Z-A') {
-    // this.currentSortOrder = order;
-    // this.sortByAuthorAscending = !this.sortByAuthorAscending;
-    // this.applyFilters();
+   
   }
 
   goToPage(page: number) {
@@ -156,25 +109,11 @@ export class ComictableadminComponent {
   }
 
   toggleSearch() {
-  //   this.showSearchPopup = !this.showSearchPopup;
-  // if (!this.showSearchPopup) {
-  //   this.searchTerm = '';
-  //   this.searchTextGlobal = ''; 
-    // this.applyFilters(); 
-  // }
+ 
 }
 
   toggleFilterPopup(filterType: 'isbn' | 'author' | 'genre' | 'coverType') {
-    // if (filterType === 'isbn') {
-    //   this.showisbnFilterPopup = !this.showisbnFilterPopup;
-    // } else if (filterType === 'genre') {
-    //   this.showGenreFilterPopup = !this.showGenreFilterPopup;
-    // } else if (filterType === 'coverType') {
-    //   this.showCoverTypeFilterPopup = !this.showCoverTypeFilterPopup;
-    // } else if (filterType === 'author') {
-    //   this.showAuthorFilterPopup = !this.showAuthorFilterPopup;
-    // }
-    // this.applyFilters();
+   
   }
 
  

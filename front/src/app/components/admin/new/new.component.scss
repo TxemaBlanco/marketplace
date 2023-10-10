@@ -1,6 +1,6 @@
 h2{
   text-align: center;
-  // border: 8px solid yellow;
+  
 }
 .preview {
     max-width: 200px;
@@ -18,11 +18,9 @@ h2{
     width: 99%;
 
   }
-  //.row{
-    // border: 8px solid blue;
-  //}
+ 
   .flex{
-    // width: 20%;
+    
     display: flex;
     justify-content: center;
     padding: 5%;
@@ -46,16 +44,16 @@ h2{
     color: white;
   }
 
-  //style.scss
+  
 .remove-spinner>input[type=number]::-webkit-inner-spin-button, 
 .remove-spinner>input[type=number]::-webkit-outer-spin-button {
-  /* Chrome, Safari, Edge, Opera */
+  
   -webkit-appearance: none; 
   margin: 0; 
 
   }
  
-  /* Firefox */
+
   .remove-spinner>input[type=number] {//se puede poner [matInput]
     appearance: textfield;  
     

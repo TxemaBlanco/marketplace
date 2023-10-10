@@ -4,7 +4,24 @@ import { ClientDetailsComponent } from './client-details.component';
 import { CustomerService } from '../../../services/customers/customer.service';
 import { OrderService } from '../../../services/order/order.service';
 import { of } from 'rxjs';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ActivatedRoute } from '@angular/router';
+import { UserPurchaseHistoryComponent } from '../../user/user-purchase-history/user-purchase-history.component';
+import { ComicService } from 'src/app/services/comic/comic.service';
+import { DatePipe } from '@angular/common';
 
+beforeEach(async () => {
+  await TestBed.configureTestingModule({
+    imports: [HttpClientTestingModule], 
+    declarations: [UserPurchaseHistoryComponent],
+    providers: [
+      { provide: ActivatedRoute, useValue: ActivatedRoute },
+      { provide: OrderService, useValue: OrderService },
+      { provide: ComicService, useValue: ComicService },
+      DatePipe,
+    ],
+  }).compileComponents();
+});
 describe('ClientDetailsComponent', () => {
   let component: ClientDetailsComponent;
   let fixture: ComponentFixture<ClientDetailsComponent>;
@@ -44,7 +61,7 @@ describe('ClientDetailsComponent', () => {
   it('should retrieve customer and orders when selected email', () => {
     const email = 'customer1@example.com';
     const customer = { email: email, name: 'John' };
-    const orders = [{ date: '2023-10-06', comic: { isbn: '123', title: 'Comic' } }];
+    const orders = [{ date: '2023-10-06', comic: { isbn: '1234567891235', title: 'Comic' } }];
 
 
     component.selectedemail(email);
@@ -55,7 +72,7 @@ describe('ClientDetailsComponent', () => {
     const email = 'customer1@example.com';
     const customer = {
       email: email,
-      dni: '12345678',
+      dni: '12345678f',
       name: 'John',
       surname: 'Doe',
       surname2: 'Smith',
