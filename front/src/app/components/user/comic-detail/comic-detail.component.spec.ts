@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute, RouterModule, Router } from '@angular/router';
 import { ComicDetailComponent } from './comic-detail.component';
-import { ComicService } from 'src/app/services/comic.service';
-import { CartService } from 'src/app/services/cart.service';
+import { ComicService } from 'src/app/services/comic/comic.service';
+import { CartService } from 'src/app/services/cart/cart.service';
 import { of } from 'rxjs';
 import { Comic } from 'src/app/models/Comic';
 import Swal from 'sweetalert2';
@@ -59,9 +59,10 @@ describe('ComicDetailComponent', () => {
       price: 0,
       synopsis: '',
       stock: 0,
-      genres: []
+      genres: [],
+      isEditing: undefined
     };
-    mockCartService.addToCart.and.stub(); // Evita que el método real se ejecute
+    mockCartService.addToCart.and.stub(); 
   
     component.comic = mockComic;
     component.addToCart();
@@ -79,10 +80,11 @@ describe('ComicDetailComponent', () => {
       price: 0,
       synopsis: '',
       stock: 0,
-      genres: []
+      genres: [],
+      isEditing: undefined
     };
     const swalFireStub = jasmine.createSpyObj('Swal', ['fire']);
-    swalFireStub.fire.and.returnValue(Promise.resolve({ isConfirmed: true })); // Simula que el usuario confirmó
+    swalFireStub.fire.and.returnValue(Promise.resolve({ isConfirmed: true })); 
   
     component.comic = mockComic;
     component.openConfirmationModal();

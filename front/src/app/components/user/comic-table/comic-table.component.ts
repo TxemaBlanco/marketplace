@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ComicService } from '../../../services/comic.service';
+import { ComicService } from '../../../services/comic/comic.service';
 import { Comic } from 'src/app/models/Comic';
 import { Genre } from 'src/app/models/Genre';
 @Component({

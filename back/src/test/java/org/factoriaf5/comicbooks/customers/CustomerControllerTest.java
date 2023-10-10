@@ -106,6 +106,5 @@ public class CustomerControllerTest {
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
 
-        /* assertEquals(Customer, response.getBody()); */
     }
 }

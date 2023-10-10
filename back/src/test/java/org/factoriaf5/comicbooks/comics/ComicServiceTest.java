@@ -10,7 +10,7 @@ import java.util.Optional;
 import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest
+@SpringBootTest 
 public class ComicServiceTest {
 
     @MockBean
@@ -36,7 +36,7 @@ public class ComicServiceTest {
         Comic mockComic = new Comic();
         mockComic.setIsbn(isbn);
 
-        // Mock the repository's findByIsbn method
+ 
         when(comicRepository.findByIsbn(isbn)).thenReturn(Optional.of(mockComic));
 
         ComicService service = new ComicService(comicRepository);

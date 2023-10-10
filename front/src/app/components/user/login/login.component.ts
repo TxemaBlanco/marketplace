@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { Login } from './login.model';
-import { LoginService } from './login.service';
+import { Login } from '../../../models/login.model';
+import { LoginService } from '../../../services/login/login.service';
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/services/user.service';
+import { UserService } from 'src/app/services/user/user.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -31,8 +31,12 @@ export class LoginComponent {
       email: this.email,
       password: this.password
     }
+
+    /* this.userService.setLogdeInEmail(this.email); */
+    localStorage.setItem('email', this.email);
   
     this.service.postLogin(bodyData).subscribe((resultData: any) => {
+      
       if (resultData.message == "Email not exist") {
         Swal.fire({
           icon: 'error',
@@ -46,6 +50,7 @@ export class LoginComponent {
           cancelButtonText: 'Cancelar', 
           showCloseButton: true, 
           confirmButtonText: 'Registrate', 
+          
         }).then((result) => {
           if (result.isConfirmed) {
             this.router.navigateByUrl('register');
@@ -60,13 +65,14 @@ export class LoginComponent {
           width: 300, 
           confirmButtonColor: '#008000',
         }).then(() => {
+          localStorage.setItem('loggedInEmail', resultData.email);
           this.userService.setLogdeInEmail(resultData.email);
           this.router.navigateByUrl('comicList');
         });
       } else {
         Swal.fire({
           title: 'Error',
-          text: 'La contraseña y el email no coinciden',
+          text: 'La contraseña no coincide',
           customClass: 'custom-swal' ,
           showConfirmButton: true,
           width: 300, 
