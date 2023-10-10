@@ -1,0 +1,68 @@
+.container {
+    h1 {
+      color: #1D2951;
+      font-size: 2.90vh;
+      padding: 1.07vh;
+      font-family: 'Alice', serif;
+    }
+  
+    .icons {
+      margin-bottom: 3vh;
+  
+      .bi {
+        color: #1D2951;
+        display: block;
+        font-size: 2.8vh;
+        margin-bottom: 1vh;
+  
+        p {
+          color: #808080;
+          font-size: 2vh;
+        }
+      }
+    }
+  }
+  
+  input,
+  textarea {
+    border-left: 0.8vh #1D2951 solid;
+    margin-bottom: 3.50vh;
+  }
+  
+  button {
+    background: #1D2951;
+    margin-bottom: 3vh;
+  }
+  
+  
+  
+  @media (min-width:768px) {
+    legend {
+      color: #1D2951;
+    }
+  
+    .icons {
+      margin-left: 14vh
+    }
+  }
+  
+  
+  @media (min-width:992px) {
+    .container {
+  
+      .icons {
+        margin-top: 10vh;
+        margin-left: 2vh;
+      }
+  
+      .vr {
+        margin-left: 3vh;
+      }
+  
+      .container-2 {
+        margin-top: 10vh;
+      }
+    }
+  
+  }
+  
