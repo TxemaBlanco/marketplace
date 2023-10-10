@@ -99,6 +99,22 @@ select:hover{
   margin-right: 4%;
 }
 
+.container-link-back{
+  display: flex;
+  justify-content: center;
+}
+
+.link-back{
+  text-align: center;
+  background-color: rgba(29, 41, 81, 1);
+  border-radius: 20px;
+  padding: 13px;
+  color: white;
+  text-decoration: none;
+  border: 3px solid black;
+  cursor: pointer;
+}
+
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .container-left {
     width: 35vw;
