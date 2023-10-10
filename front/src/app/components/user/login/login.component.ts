@@ -31,8 +31,12 @@ export class LoginComponent {
       email: this.email,
       password: this.password
     }
+
+    /* this.userService.setLogdeInEmail(this.email); */
+    localStorage.setItem('email', this.email);
   
     this.service.postLogin(bodyData).subscribe((resultData: any) => {
+      
       if (resultData.message == "Email not exist") {
         Swal.fire({
           icon: 'error',

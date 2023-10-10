@@ -38,7 +38,7 @@ export class UserService {
     this.loggedInEmail = "";
     this.loggedInUsername = "";
     this.cartService.removeAll();
-    
+    localStorage.setItem('email', '');
     this.router.navigateByUrl('/');
   }
 }
