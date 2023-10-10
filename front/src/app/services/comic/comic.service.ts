@@ -74,7 +74,7 @@ export class ComicService {
       
   }
   editComic(comic: Comic): Observable<Comic> {
-    const editUrl = `${this.comicsUrl}/editar/${comic.isbn}`;
+    const editUrl = `${this.comicsUrl}/${comic.isbn}`;
     return this.http.put<Comic>(editUrl, comic);
   }
   uploadComicPhoto(isbn: string, photo: File): Observable<any> {

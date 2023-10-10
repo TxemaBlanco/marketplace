@@ -3,14 +3,10 @@ package org.factoriaf5.comicbooks.customers;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
-import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 
 public class CustomerServiceTest {
     private CustomerService service;
