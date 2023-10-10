@@ -4,6 +4,7 @@ import { CustomerService } from '../../../services/customers/customer.service';
 import { Customer } from 'src/app/models/Customer.model';
 import { Order } from 'src/app/models/Order';
 import { OrderService } from '../../../services/order/order.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-client-details',
@@ -16,16 +17,20 @@ export class ClientDetailsComponent implements OnInit {
   currentPage: number = 1;
 
   formcustomer!: FormGroup;
-  email!: FormControl;
+  email!: String;
   customersemail!: Customer;
   orderemail: Order[] = [];
 
   constructor(
     private customerservice: CustomerService,
-    private orderservice: OrderService
+    private orderservice: OrderService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+    this.email = params.get('email') || '';
+    });
     this.getCustomers();
 
     this.formcustomer = new FormGroup({

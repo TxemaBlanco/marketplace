@@ -1,7 +1,8 @@
-.name{
+.name {
   text-align: center;
   margin-top: 5vh;
 }
+
 table {
   margin-top: 3vh;
   color: #fff;
@@ -13,9 +14,11 @@ table {
   border-collapse: separate;
   border: 0.4vh solid black;
 }
-a{
-  cursor:pointer;
+
+a {
+  cursor: pointer;
 }
+
 tbody {
   text-align: center;
   vertical-align: middle;
@@ -37,9 +40,7 @@ tbody {
   margin: 0px;
 }
 
-.search {
-  margin-left: 100%;
-}
+
 
 label {
   margin: 0px;
@@ -52,7 +53,7 @@ th {
   color: #fff;
   text-decoration: underline;
   text-align: center;
-  width: 5vh;
+  // width: 5vh;
 }
 
 td {
@@ -97,61 +98,6 @@ tr {
   left: 2.70vh;
 }
 
-.search-popup {
-  position: absolute;
-  background-color: rgba(29, 41, 81, 1);
-  border: 0.13vh solid #ccc;
-  padding: 1.35vh;
-  z-index: 1;
-}
-
-.filter-popup {
-  position: absolute;
-  background-color: rgba(29, 41, 81, 1);
-  border: 0.13vh solid #ccc;
-  padding: 1.35vh;
-  z-index: 1;
-  top: 42%;
-  border-radius: 15px;
-}
-
-.filter-popup select,
-.search-popup input[type="text"] {
-  padding: 0.67vh;
-  margin-top: 0.67vh;
-}
-
-.show-popup {
-  display: block;
-}
-
-.filter-icon {
-  margin-left: 56%;
-  cursor: pointer;
-  width: 3vh;
-  margin-left: 100%;
-
-}
-
-.btn-primary {
-  margin-top: 2vh;
-  width: 100%;
-}
-
-.search {
-  text-align: left;
-
-}
-
-img,
-svg {
-  width: 2.3vh;
-  vertical-align: middle;
-}
-
-
-
-
 .container {
   max-width: 100%;
 }
@@ -184,12 +130,7 @@ svg {
     margin-bottom: 7.5vh;
   }
 
-  .filter-icon {
-    margin-left: 56%;
-    cursor: pointer;
-    width: 3vh;
-    margin-left: 3vh;
-  }
+
 
   img,
   svg {
@@ -197,12 +138,7 @@ svg {
     vertical-align: middle;
   }
 
-  .search {
 
-    cursor: pointer;
-    width: 3vh;
-
-  }
 }
 
 
@@ -214,9 +150,21 @@ svg {
 
 @media (min-width: 992px) {
   .container-search {
-    display: none;
+    display: flex;
+    justify-content: center;
+    max-width: 500px;
+    background: rgba(29, 41, 81, 1);
+    border-radius: 30px;
+    margin-top: 20px;
+    padding: 15px;
+    align-items: center;
   }
-
+  .search-up {
+    width: 90%;
+    border-radius: 30px;
+    padding: 7px;
+    text-align: center;
+  }
 }
 
 
@@ -238,16 +186,7 @@ svg {
     width: 90%;
     border-radius: 30px;
     padding: 7px;
-  }
-
-  .search-up::placeholder {
     text-align: center;
-  }
-
-  .image-search-1 {
-    width: 20px;
-    height: 20px;
-    margin-left: 10px;
   }
 
   table {
@@ -286,11 +225,6 @@ svg {
     vertical-align: middle;
   }
 
-  .btn {
-    padding: 0px;
-    width: auto;
-    margin: 0px;
-  }
 
   label {
     display: none;
@@ -306,7 +240,5 @@ svg {
     justify-content: center;
   }
 
-  .search {
-    display: none;
-  }
+
 }

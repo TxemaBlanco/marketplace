@@ -29,6 +29,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { UserPurchaseHistoryViewComponent } from './views/user-purchase-history-view/user-purchase-history-view.component';
 import { UserListAdminComponent } from './components/admin/user-list-admin/user-list-admin.component';
 import { DetailAdminComponent } from './components/admin/detail-admin/detail-admin.component';
+import { ContactComponent } from './components/user/contact/contact.component';
 
 
 
@@ -58,6 +59,7 @@ import { DetailAdminComponent } from './components/admin/detail-admin/detail-adm
     UserPurchaseHistoryViewComponent,
 UserListAdminComponent,
     DetailAdminComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
