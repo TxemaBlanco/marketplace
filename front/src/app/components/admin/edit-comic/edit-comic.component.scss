@@ -16,9 +16,10 @@
   font-weight: 400;}
 
 .img-fluid {
-  max-width: 50%;
+  max-width: 100%;
   height: auto;
-  margin-left: 18vh;}
+  // margin-left: 18vh;
+}
 
 .custom-modal{
     background-color: rgba(29, 41, 81, 1)
@@ -31,8 +32,13 @@
 }
 
 .left-column {
+  width: auto;
   flex: 1;
   padding-right: 20px;
+  
+}
+.form-control{
+  width: 100%;
 }
 
 .right-column {
