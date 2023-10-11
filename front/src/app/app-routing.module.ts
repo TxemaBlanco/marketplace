@@ -15,6 +15,7 @@ import {ClientDetailsComponent} from './components/admin/client-details/client-d
 import { DetailAdminComponent } from './components/admin/detail-admin/detail-admin.component';
 import { ComponentFixture } from '@angular/core/testing';
 import { UserListAdminComponent } from './components/admin/user-list-admin/user-list-admin.component';
+import { ContactComponent } from './components/user/contact/contact.component';
  
 
 const routes: Routes = [
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'detailadmin/:isbn', component: DetailAdminComponent},
   { path: 'user-list-admin', component:UserListAdminComponent},
   {path: 'admin-client', component: ClientDetailsComponent},
+  {path: 'contact', component: ContactComponent}
 ];
 
 @NgModule({
