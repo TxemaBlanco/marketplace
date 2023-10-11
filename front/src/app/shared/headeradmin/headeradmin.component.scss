@@ -27,7 +27,7 @@
     text-align: center;
     background: #ffff;
     font-size: 13px;
-    width: 95%;
+  
 }
 
 .btn {
@@ -47,8 +47,7 @@
     }
 
     .navbar-nav{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
         justify-content: right;
     
     }
@@ -70,8 +69,7 @@
     }
 
     .navbar-nav {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;      
         justify-content: right;
     }
 
@@ -93,13 +91,15 @@
     }
 
     .navbar-nav {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;       
         justify-content: right;
        
     }
     .nav-item {
         font-size: 13px;
     }
+
+  
+   
    
 }
