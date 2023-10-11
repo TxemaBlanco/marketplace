@@ -2,14 +2,10 @@
 <div class="container-global">
     <div class="container-left">
         <h2>Cliente</h2>
-        <label class="label-email" for="email">Elige un email</label> <br>
-        <select (ngModelChange)="selectedemail($event)" [ngModel]="email" name="email" required>
-            <option *ngFor="let customer of customers" value={{customer.email}}>{{customer.email}} </option>
-        </select>
-        <br><br>
+        <label class="label-email" for="email">Email seleccionado:</label> 
         <form [formGroup]="formcustomer" class="form">
-            <input type="text" formControlName="dni" placeholder="DNI">
-            <br>
+            <input type="text" formControlName="email" placeholder="Email"><br>
+            <input type="text" formControlName="dni" placeholder="DNI"><br>
             <input type="text" formControlName="name" placeholder="nombre"> <br>
             <input type="text" formControlName="surname" placeholder="Apellido 1"> <br>
             <input type="text" formControlName="surname2" placeholder="Apellido 2"><br>
@@ -26,7 +22,9 @@
         </form>
     </div>
     <div class="container-right">
+       
         <div class="table">
+            
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -85,5 +83,8 @@
                 </ul>
             </nav>
         </div>
+        <div class="container-link-back">
+        <a class="link-back" routerLink="/user-list-admin">Atrás</a>
+    </div>
     </div>
 </div>

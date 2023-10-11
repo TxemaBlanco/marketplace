@@ -12,12 +12,12 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./client-details.component.scss'],
 })
 export class ClientDetailsComponent implements OnInit {
-  customers: Customer[] = [];
+  customer!: Customer[];
   itemsPerPage: number = 5;
   currentPage: number = 1;
 
   formcustomer!: FormGroup;
-  email!: String;
+  email!: string;
   customersemail!: Customer;
   orderemail: Order[] = [];
 
@@ -31,9 +31,10 @@ export class ClientDetailsComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
     this.email = params.get('email') || '';
     });
-    this.getCustomers();
+    this.selectedemail(this.email);
 
     this.formcustomer = new FormGroup({
+      email: new FormControl(''),
       dni: new FormControl(''),
       name: new FormControl(''),
       surname: new FormControl(''),
@@ -49,13 +50,7 @@ export class ClientDetailsComponent implements OnInit {
       province: new FormControl(''),
     });
   }
-
-  getCustomers(): void {
-    this.customerservice.getCustomers().subscribe((customers: Customer[]) => {
-      this.customers = customers;
-    });
-  }
-
+  
   goToPage(page: number) {
     if (page >= 1 && page <= this.getTotalPages()) {
       this.currentPage = page;
@@ -84,6 +79,7 @@ export class ClientDetailsComponent implements OnInit {
     this.customerservice.getCustomer(email).subscribe((customers: Customer) => {
       this.customersemail = customers;
       this.formcustomer.setValue({
+        email: this.customersemail.email,
         dni: this.customersemail.dni,
         name: this.customersemail.name,
         surname: this.customersemail.surname,
