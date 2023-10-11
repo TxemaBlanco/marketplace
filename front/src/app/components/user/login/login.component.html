@@ -10,37 +10,39 @@
         <label class="form-label" for="typePasswordX">Contraseña</label>
         <input type="password" id="typePasswordX" [(ngModel)]="password" class="form-control form-control-lg" />
       </div>
-      <p class="small mt-4 pb-lg-1"><a class="text2" href="#!">¿Has olvidado la contraseña?</a></p>
-      <div class="modal fade" id="modal" aria-labelledby="modalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <p class="small mt-4 pb-lg-1 modal-title" id="modalLabel"><a class="text2" href="#!">¿Has olvidado la contraseña?</a></p>
-              <small>Porfavor, ingrese su Email para que pueda cambiar la contraseña</small>
-              <button type="button" class="btn-close" data-bs-dimiss="modal" aria-label="Close"></button>
-              <div class="modal-body">
-                <div class="form-group pt-3">
-                  <div class="input-field">
-                    <span class="fa fa-user p-2"> <input type="text" placeholder="Correo Electrónico"></span>
-                  </div>
-                  <small class="tex-danger">El Email es obligatorio</small>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dimiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Send</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <p class="small mt-4 pb-lg-1"><a class="text2" data-bs-toggle="modal" data-bs-target="#modal">¿Has olvidado la contraseña?</a></p>
+     
       <p class="small mt-4 pb-lg-1 registeryou text2">¿No estás registrado?<a routerLink="/register"> <span> Regístrate
           </span></a></p>
       <button class="btn btn-light mt-2 px-4" (click)="login()" type="submit">Enviar</button>
     </div>
-  </div>
+  </div>  
   <div class="f-stick"></div>
   <div class="register">
     <button class="btn2" type="submit"><a routerLink="/register" class="btn2"><strong>Crear cuenta</strong></a></button>
+  </div>
+</div>
+<div class="modal fade" id="modal" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p class="small mt-4 pb-lg-1 modal-title" id="modalLabel"><a class="text2" href="#!">¿Has olvidado la contraseña?</a></p>
+        <small>Porfavor, ingrese su Email para que pueda cambiar la contraseña</small>
+        <button type="button" class="btn-close" data-bs-dimiss="modal" aria-label="Close"></button>
+        <div class="modal-body">
+          <div class="form-group pt-3">
+            <div class="input-field">
+              <span class="fa fa-user p-2"> <input type="text" [(ngModel)]="resetPasswordEmail" (ngModelChange)="checkValidEmail($event)" placeholder="Correo Electrónico"></span>
+            </div>
+            <small *ngIf="!resetPasswordEmail" class="text-danger">El Email es obligatorio</small>
+            <small *ngIf="!isValidEmail && resetPasswordEmail" class="text-danger">El Email es inválido</small>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dimiss="modal">Close</button>
+            <button type="button" (click)="confirmToSend()" class="btn btn-primary">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
