@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
 export class LoginComponent {
   email: string = "";
   password: string = "";
+  public resetPasswordEmail!: string;
 
   constructor(
     private service: LoginService,
@@ -81,4 +82,6 @@ export class LoginComponent {
       }
     });
   }
+
+
 }
