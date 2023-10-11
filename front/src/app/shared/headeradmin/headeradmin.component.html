@@ -7,11 +7,9 @@
   </button>
   <div class="collapse navbar-collapse" [ngClass]="{'show': isMenuOpen}" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link" routerLink="/admin" (click)="closeMenu()">List. Cómics</a>
-      <a class="nav-item nav-link" routerLink="/user-list-admin" (click)="closeMenu()">List. Usuarios</a>
-      <a class="nav-item nav-link" routerLink="/admin-client" (click)="closeMenu()">Compras Clientes</a>
-        <a class="close nav-item nav-link" routerLink="" (click)="closeMenu()">Cerrar Sesión</a>
-        
+      <a class="nav-item nav-link" routerLink="/admin" (click)="closeMenu()">List.Cómics</a>
+      <a class="nav-item nav-link" routerLink="/user-list-admin" (click)="closeMenu()">List.Usuarios</a>      
+      <a class="close nav-item nav-link" routerLink="" (click)="closeMenu()">Cerrar Sesión</a>        
     </div>
   </div>
 </nav>
