@@ -13,6 +13,7 @@
   width: 90%;
   border-radius: 30px;
   padding: 7px;
+  text-align: center;
 }
 table {
     margin-top: 3vh;
@@ -248,9 +249,9 @@ table {
   }
   
   @media (min-width: 992px) {
-    .container-search {
-      // display: none;
-    }
+    // .container-search {
+    //   // display: none;
+    // }
   
   }
   
