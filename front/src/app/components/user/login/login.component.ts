@@ -13,6 +13,8 @@ import Swal from 'sweetalert2';
 export class LoginComponent {
   email: string = "";
   password: string = "";
+  public resetPasswordEmail!: string;
+  isValidEmail: boolean = false;
 
   constructor(
     private service: LoginService,
@@ -81,4 +83,19 @@ export class LoginComponent {
       }
     });
   }
+
+  checkValidEmail(event: string){
+    const value = event; 
+    const pattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,3}$/;
+    this.isValidEmail = pattern.test(value);
+    return this.isValidEmail;
+  }
+
+  confirmToSend(){
+    if(this.checkValidEmail(this.resetPasswordEmail)){
+      console.log(this.resetPasswordEmail);
+      this.resetPasswordEmail= '';
+    }
+  }
+
 }
