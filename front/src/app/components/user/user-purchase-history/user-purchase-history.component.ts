@@ -66,11 +66,6 @@ export class UserPurchaseHistoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.getGenres();
-    /* this.route.paramMap.subscribe(params => {
-      this.userEmail = params.get('email') || '';
-      this.loadUserPurchaseHistory();
-    });  */
-   /*  this.userEmail = this.userService.getLoggedInEmail(); */
    this.userEmail = localStorage.getItem('email')!;
    this.loadUserPurchaseHistory();
   } 
