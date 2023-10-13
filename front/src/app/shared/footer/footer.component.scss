@@ -1,4 +1,14 @@
 @media screen and (min-width: 768px) {
+  .contact{
+    img{
+      height: 20px;
+      width: 20px;
+      margin-left: -20px;
+    margin-bottom: -6vh;
+    }
+  
+  }
+  
   .redes-sociales {
     margin-top: 0px;
   }
@@ -86,11 +96,6 @@
       float: right;
     }
 
-    .contact{       
-      img{
-        width: 20px;
-        height: 20px;
-      }
-    }
+   
   }
 }
