@@ -20,10 +20,10 @@ _To be able to participate you must be registered._
 
 _This website is developed with the Angular framework._
 
-```
+
 **Also using + Spring Boot + MySQL**
 
-```
+
 
 
 
