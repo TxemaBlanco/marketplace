@@ -131,12 +131,12 @@
           {{ currentPage }}
         </span>
       </li>
-      <li class="page-item" [class.disabled]="currentPage === getTotalPages()">
+      <li class="page-item" [class.disabled]="currentPage >= getTotalPages()">
         <a class="page-link" (click)="goToPage(currentPage + 1)" aria-label="Next">
           >
         </a>
       </li>
-      <li class="page-item" [class.disabled]="currentPage === getTotalPages()">
+      <li class="page-item" [class.disabled]="currentPage >= getTotalPages()">
         <a class="page-link" (click)="goToPage(getTotalPages())" aria-label="Last">
           >>
         </a>
@@ -144,3 +144,4 @@
     </ul>
   </nav>
 </div>
+
