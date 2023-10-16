@@ -1,37 +1,54 @@
-@media screen and (min-width: 768px){
-.redes-sociales{
-  margin-top: 0px;
-}
-.main-footer {
-  position: fixed;
-  bottom: 0;
-  margin-top: 5%;
+@media screen and (min-width: 768px) {
+  .contact{
+    img{
+      height: 2cap;
+      width: 20px;
+    margin-bottom: 0.5vh;
+    float: right;
+    cursor: pointer;
+    }
+  
+  }
+  
+  .redes-sociales {
+    margin-top: 0px;
+  }
 
-}
+  .main-footer {
+    position: fixed;
+    bottom: 0;
+    margin-top: 5%;
+  }
+
+  a {
+    text-decoration: none;
+    font-weight: 100;
+    font-size: 1.5rem;
+  }
 }
 
-@media screen and (max-width: 767px){
-  .redes-sociales{
+@media screen and (max-width: 767px) {
+  .redes-sociales {
     margin-top: 10px;
   }
+
   .main-footer {
     position: relative;
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color:rgba(29, 41, 81, 1);
+    background-color: rgba(29, 41, 81, 1);
     color: white;
     padding: 10px 0;
-  
+
   }
 }
 
 .main-footer {
- 
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color:rgba(29, 41, 81, 1);
+  background-color: rgba(29, 41, 81, 1);
   color: white;
   padding: 10px 0;
 
@@ -44,35 +61,42 @@
     color: white;
     font-size: 1.5rem;
     margin-right: 1rem;
-}
- 
-&:last-child {
-  margin-right: 0;
-}
-.social-footer {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  text-align: center;
-  li {
-    display: inline-block;
-    margin-right: 10px;
-     }
-
-  a {
-    display: block;
-    text-align: center;    
-    img {
-      width: 30px;
-      height: 30px;
-      vertical-align: middle;     }
   }
 
-  li:last-child {
-    margin-right: 0px;  }
-
-   li a img {
-    float: right;
+  &:last-child {
+    margin-right: 0;
   }
-}
+
+  .social-footer {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+
+    li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    a {
+      display: block;
+      text-align: center;
+
+      img {
+        width: 30px;
+        height: 30px;
+        vertical-align: middle;
+      }
+    }
+
+    li:last-child {
+      margin-right: 0px;
+    }
+
+    li a img {
+      float: right;
+    }
+
+   
+  }
 }

@@ -1,7 +1,7 @@
 <div class="container">
 
   <div class="container-search">
-    <input type="text" class="search-up" (keyup)="applySearch($event)">
+    <input type="text" class="search-up" placeholder="Introduce tu búsqueda" (keyup)="applySearch($event)">
   </div>
   <div class="table-responsive">
     <table class="table table-striped">
@@ -104,7 +104,7 @@
       <tbody>
         <tr *ngFor="let comic of comicsOnCurrentPage">
           <td><a [routerLink]="['/comic', comic.isbn]"></a>{{ comic.isbn }}</td>
-          <td><a [routerLink]="['/comic', comic.isbn]">{{ comic.title }}</a></td>
+          <td><a [routerLink]="['/detailadmin', comic.isbn]">{{ comic.title }}</a></td>
           <td>{{ comic.author }}</td>
           <td>
             <span *ngFor="let genre of comic.genres; let last = last">

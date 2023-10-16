@@ -107,7 +107,6 @@ export class EditComicComponent implements OnInit {
       console.log('Cómic photo:', this.fileName);
       this.editedComic.genres = this.currentGenres;
       console.log('Cómic editado:', this.editedComic);
-      // console.log('Cómic photo:', this.editedComic.photo);
       this.comicService.editComic(this.editedComic).subscribe(
         (updatedComic) => {
           console.log('Cómic actualizado:', updatedComic);

@@ -26,24 +26,6 @@ public class Order {
     @Column (name="Date")
     private java.util.Date date;
 
-   /*  @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "email", unique = false, nullable = true, insertable = true, updatable = true)
-    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
-    private Customer customer;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "isbn", unique = false, nullable = true, insertable = true, updatable = true)
-    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
-    private Comic comic;  */
-
- /*    @ManyToMany
-    @JoinTable(name="orders", joinColumns={@JoinColumn(name="order_id",referencedColumnName = "id")}, inverseJoinColumns={@JoinColumn(name="customer_email",referencedColumnName = "email")})
-    private Set<Customer> customers = new HashSet<>(); */
-
-   /*  @ManyToOne
-    @JoinColumn(name = "isbn")
-    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
-    Comic comic; */
 
     @ManyToOne
     @JoinColumn(name="customer_email",nullable=false)
@@ -59,13 +41,7 @@ public class Order {
         this.comic = comic;
     }
      
-    //usado
-    // @ManyToMany
-    // @JoinTable(name="customer_order", joinColumns={@JoinColumn(name="order_id",referencedColumnName = "id")}, inverseJoinColumns={@JoinColumn(name="customer_email",referencedColumnName = "email")})
-    // @JsonIgnore
-    // private Set<Customer> customers = new HashSet<>();
-    
-    // Getter Setter
+  
     public Long getId() {
         return id;
     }

@@ -139,7 +139,9 @@ export class ComicTableComponent implements OnInit {
   }
 
   getTotalPages(): number {
+    if (this.comics.length <5) return 0;
     return Math.ceil(this.comics.length / this.itemsPerPage);
+  
   }
 
   getPages(): number[] {
