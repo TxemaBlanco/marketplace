@@ -38,16 +38,7 @@ public class OrderController {
             return ResponseEntity.notFound().build();
         }
     }
-    // @GetMapping(path = "customer/{email}")
-    // public ResponseEntity<List<Order>> getOrdersByEmail(@PathVariable String email){
-    //     Optional<List<Order>> optionalOrders = orderService.getAllFromCustomer(email);
-    //     if(optionalOrders.isPresent()){
-    //         List<Order> orders = optionalOrders.get();
-    //         return ResponseEntity.ok(orders);
-    //     }else{
-    //         return ResponseEntity.notFound().build();
-    //     }        
-    // }
+ 
     @GetMapping(path = "customer/{email}")
     public ResponseEntity<List<Order>> getOrdersByEmail(@PathVariable String email){
         List<Order> orders = orderService.getAllFromCustomer(email);
@@ -64,14 +55,5 @@ public class OrderController {
         return ResponseEntity.status(HttpStatus.OK).body(serviceSaved);
     }
 
-    /*  @GetMapping(path = "customer/{email}/{date}")
-    public ResponseEntity<List<Order>> getOrdersByDate(@PathVariable("email") String email, @PathVariable("date") Date date){
-        List<Order> orders = orderService.getAllFromCustomer(email);
-        if(orders!=null){
-            return ResponseEntity.ok(orders);
-        }else{
-            return ResponseEntity.notFound().build();
-        }        
-    } */
 
 }

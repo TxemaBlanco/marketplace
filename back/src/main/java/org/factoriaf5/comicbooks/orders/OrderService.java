@@ -19,9 +19,7 @@ public class OrderService {
         List<Order> orders = orderRepository.findAll();
         return orders;
     }
-    // public Optional<List<Order>> getAllFromCustomer(String customerEmail){
-    //     return orderRepository.findByCustomersEmail(customerEmail);
-    // }
+   
     public List<Order> getAllFromCustomer(String customerEmail){
         return orderRepository.findAllByCustomerEmail(customerEmail);
     }
