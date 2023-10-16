@@ -9,6 +9,7 @@ table {
     border-collapse: separate;
     border: 0.4vh solid black;
   }
+  
   a{
     cursor:pointer;
   }
@@ -162,6 +163,16 @@ table {
       margin-top: 1vh;
       margin-bottom: 3vh;
     }
+    .search-up {
+      width: 90%;
+      border-radius: 30px;
+      padding: 7px;
+      text-align: center;
+    }
+  
+    .search-up::placeholder {
+      text-align: center;
+    }
   }
   
   
@@ -199,12 +210,32 @@ table {
       width: 3vh;
   
     }
+    .search-up {
+      width: 90%;
+      border-radius: 30px;
+      padding: 7px;
+      text-align: center;
+    }
+  
+    .search-up::placeholder {
+      text-align: center;
+    }
   }
   
   
   @media (min-width: 1440px) {
     table {
       font-size: 2.70vh;
+    }
+    .search-up {
+      width: 90%;
+      border-radius: 30px;
+      padding: 7px;
+      text-align: center;
+    }
+  
+    .search-up::placeholder {
+      text-align: center;
     }
   }
   
@@ -230,15 +261,16 @@ table {
   
     }
   
-    .search-up {
-      width: 90%;
-      border-radius: 30px;
-      padding: 7px;
-    }
+    // .search-up {
+    //   width: 90%;
+    //   border-radius: 30px;
+    //   padding: 7px;
+    //   text-align: center;
+    // }
   
-    .search-up::placeholder {
-      text-align: center;
-    }
+    // .search-up::placeholder {
+    //   text-align: center;
+    // }
   
     .image-search-1 {
       width: 20px;

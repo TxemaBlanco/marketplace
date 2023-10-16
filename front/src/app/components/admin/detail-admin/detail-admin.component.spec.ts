@@ -43,8 +43,10 @@ describe('DetailAdminComponent', () => {
     fixture = TestBed.createComponent(DetailAdminComponent);
     component = fixture.componentInstance;
   });
-
   it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+  it('should create the ClientDetailsComponent', () => {
     expect(component).toBeTruthy();
   });
 
