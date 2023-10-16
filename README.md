@@ -14,16 +14,16 @@ Look at **Comics_Books** to see all the Comics details.
 ### Pre requirements📋
 
 _To be able to participate you must be registered._
-```
+
 
 ### Facility 🔧
 
 _This website is developed with the Angular framework._
 
-```
+
 **Also using + Spring Boot + MySQL**
 
-```
+
 
 
 
