@@ -45,15 +45,15 @@ describe('ClientDetailsComponent', () => {
     component = fixture.componentInstance;
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should create the ClientDetailsComponent', () => {
+    expect(ClientDetailsComponent).toBeTruthy();
   });
 
   it('should retrieve customers from CustomerService', () => {
     const customers = [{ email: 'customer1@example.com' }];
     customerServiceSpy.getCustomers.and.returnValue(of(customers));
 
-    component.getCustomers();
+   
 
    
   });

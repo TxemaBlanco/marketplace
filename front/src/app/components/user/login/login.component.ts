@@ -34,7 +34,7 @@ export class LoginComponent {
       password: this.password
     }
 
-    /* this.userService.setLogdeInEmail(this.email); */
+  
     localStorage.setItem('email', this.email);
   
     this.service.postLogin(bodyData).subscribe((resultData: any) => {
